@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
 
 const SCREEN_BORDER_WIDTH = 3.0;
 
-const BACKGROUND_COLOR = const Color(0xffefcc19);
+const BACKGROUND_COLOR = const Color(0xffffffff);
 
 class _HomePage extends StatelessWidget {
   @override
