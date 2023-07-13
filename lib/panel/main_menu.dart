@@ -40,7 +40,7 @@ class _MainMenuState extends State<MainMenu> {
                   Center(
                     child: Image.asset(
                       'assets/images/terties_logo.png',
-                      width: width - 160,
+                      width: width - 150,
                     ),
                   ),
                   SizedBox(height: getHeight(140)),
