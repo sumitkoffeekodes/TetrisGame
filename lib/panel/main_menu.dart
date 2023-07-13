@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tetris/Utils/utils.dart';
+import 'package:tetris/panel/setting_page.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/responsive_value.dart';
 
@@ -29,46 +30,148 @@ class _MainMenuState extends State<MainMenu> {
                   image: AssetImage('assets/images/background_image.png'),
                 )
             ),
-            child:  Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(height: getHeight(140)),
-                Center(
-                  child: Image.asset(
-                    'assets/images/terties_logo.png',
-                    width: width - 180,
-                  ),
-                ),
-                SizedBox(height: getHeight(50)),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: getHeight(55),
-                        decoration:  BoxDecoration(
-                          color:  AppColors.white,
-                        ),
-                        child: Center(
-                          child: Text(
-                            'SUBMIT',
-                            maxLines: 1,
-                            overflow: TextOverflow.visible,
-                            textAlign: TextAlign.center,
-                            style: FontStyleUtils.style(18).copyWith(
-                                color: AppColors.black  ,
-                                fontFamily: 'Poppins-SemiBold',fontWeight: FontWeight.w600),
-                          ),
-                        ),
-                      ),
+            child: SingleChildScrollView(
+              physics: NeverScrollableScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(height: getHeight(160)),
+                  Center(
+                    child: Image.asset(
+                      'assets/images/terties_logo.png',
+                      width: width - 160,
                     ),
+                  ),
+                  SizedBox(height: getHeight(140)),
 
-                  ],
-                ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: getWidth(100)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.all(2),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(3),
+                                  shape: BoxShape.rectangle,
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColors.white
+                                    )
+                                ),
+                                child: Container(
+                                  height: getHeight(45),
+                                  decoration:  BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3),
+                                    color:  AppColors.white,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'PLAY',
+                                      overflow: TextOverflow.visible,
+                                      textAlign: TextAlign.center,
+                                      style: FontStyleUtils.style(16).copyWith(
+                                          color: AppColors.textColor39  ,
+                                          fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
 
-              ],
+                          ],
+                        ),
+                        SizedBox(height: getHeight(20)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>SettingPage()));
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(3),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                          width: 1,
+                                          color: AppColors.white
+                                      )
+                                  ),
+                                  child: Container(
+                                    height: getHeight(45),
+                                    decoration:  BoxDecoration(
+                                      borderRadius: BorderRadius.circular(3),
+                                      color:  AppColors.white,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'SETTING',
+                                        overflow: TextOverflow.visible,
+                                        textAlign: TextAlign.center,
+                                        style: FontStyleUtils.style(16).copyWith(
+                                            color: AppColors.textColor39  ,
+                                            fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                          ],
+                        ),
+                        SizedBox(height: getHeight(20)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.all(2),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3),
+                                    shape: BoxShape.rectangle,
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColors.white
+                                    )
+                                ),
+                                child: Container(
+                                  height: getHeight(45),
+                                  decoration:  BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3),
+                                    color:  AppColors.white,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'EXIT',
+                                      overflow: TextOverflow.visible,
+                                      textAlign: TextAlign.center,
+                                      style: FontStyleUtils.style(16).copyWith(
+                                          color: AppColors.textColor39  ,
+                                          fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
             ),
           ),
         )
