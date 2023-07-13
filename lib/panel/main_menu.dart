@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/panel/setting_page.dart';
 import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/font_utils.dart';
 import 'package:tetris/values/responsive_value.dart';
 
 class MainMenu extends StatefulWidget {
@@ -46,7 +47,7 @@ class _MainMenuState extends State<MainMenu> {
                   SizedBox(height: height/5),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: getWidth(100)),
+                    padding: EdgeInsets.symmetric(horizontal: width*.28),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -76,9 +77,9 @@ class _MainMenuState extends State<MainMenu> {
                                       'PLAY',
                                       overflow: TextOverflow.visible,
                                       textAlign: TextAlign.center,
-                                      style: FontStyleUtils.style(16).copyWith(
-                                          color: AppColors.textColor39  ,
-                                          fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
+                                        style: FontTextStyleUtilities.textStyle16.copyWith(
+                                            fontWeight: FontWeight.w900
+                                        )
                                     ),
                                   ),
                                 ),
@@ -117,9 +118,9 @@ class _MainMenuState extends State<MainMenu> {
                                         'SETTING',
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
-                                        style: FontStyleUtils.style(16).copyWith(
-                                            color: AppColors.textColor39  ,
-                                            fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
+                                        style: FontTextStyleUtilities.textStyle16.copyWith(
+                                        fontWeight: FontWeight.w900
+                                        )
                                       ),
                                     ),
                                   ),
@@ -155,9 +156,9 @@ class _MainMenuState extends State<MainMenu> {
                                       'EXIT',
                                       overflow: TextOverflow.visible,
                                       textAlign: TextAlign.center,
-                                      style: FontStyleUtils.style(16).copyWith(
-                                          color: AppColors.textColor39  ,
-                                          fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
+                                        style: FontTextStyleUtilities.textStyle16.copyWith(
+                                            fontWeight: FontWeight.w900
+                                        )
                                     ),
                                   ),
                                 ),
