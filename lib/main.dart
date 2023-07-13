@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/audios.dart';
+import 'package:tetris/panel/main_menu.dart';
 import 'package:tetris/panel/page_portrait.dart';
 
 import 'gamer/keyboard.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'tetris',
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -45,9 +47,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
+     home: MainMenu(),
+     /* home: Scaffold(
         body: Sound(child: Game(child: KeyboardController(child: _HomePage()))),
-      ),
+      ),*/
     );
   }
 }
