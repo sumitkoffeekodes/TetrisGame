@@ -36,14 +36,14 @@ class _MainMenuState extends State<MainMenu> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: getHeight(160)),
+                  SizedBox(height: height/4.5),
                   Center(
                     child: Image.asset(
                       'assets/images/terties_logo.png',
                       width: width - 150,
                     ),
                   ),
-                  SizedBox(height: getHeight(140)),
+                  SizedBox(height: height/5),
 
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: getWidth(100)),
