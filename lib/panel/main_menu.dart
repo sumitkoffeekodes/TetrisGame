@@ -66,7 +66,7 @@ class _MainMenuState extends State<MainMenu> {
                                     )
                                 ),
                                 child: Container(
-                                  height: getHeight(45),
+                                  height: height*.06,
                                   decoration:  BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
                                     color:  AppColors.white,
@@ -87,7 +87,7 @@ class _MainMenuState extends State<MainMenu> {
 
                           ],
                         ),
-                        SizedBox(height: getHeight(20)),
+                        SizedBox(height: height*.025),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -107,7 +107,7 @@ class _MainMenuState extends State<MainMenu> {
                                       )
                                   ),
                                   child: Container(
-                                    height: getHeight(45),
+                                    height: height*.06,
                                     decoration:  BoxDecoration(
                                       borderRadius: BorderRadius.circular(3),
                                       color:  AppColors.white,
@@ -129,7 +129,7 @@ class _MainMenuState extends State<MainMenu> {
 
                           ],
                         ),
-                        SizedBox(height: getHeight(20)),
+                        SizedBox(height: height*.025),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -145,7 +145,7 @@ class _MainMenuState extends State<MainMenu> {
                                     )
                                 ),
                                 child: Container(
-                                  height: getHeight(45),
+                                  height: height*.06,
                                   decoration:  BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
                                     color:  AppColors.white,
