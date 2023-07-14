@@ -16,7 +16,7 @@ class GameController extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(15),bottom: getHeight(15)),
+          padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(10),bottom: getHeight(10)),
           margin: EdgeInsets.symmetric(horizontal: getWidth(20)),
           child: SystemButtonGroup(),
           decoration: BoxDecoration(
@@ -28,7 +28,12 @@ class GameController extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Center(
-                child: DropButton(),
+                child: InkWell(
+                    onTap: (){
+                      Game.of(context).drop();
+                    },
+                    child: Image.asset('assets/images/drop.png',width: getWidth(120)))
+
               ),
             ),
             Expanded(child: DirectionController()),
@@ -168,33 +173,50 @@ class SystemButtonGroup extends StatelessWidget {
       children: <Widget>[
         _Description(
           text: S.of(context).reset,
-          child: _Button(
+         child: InkWell(
+             onTap: (){
+               Game.of(context).reset();
+             },
+             child: Image.asset('assets/images/reset.png',height: getHeight(45),width: getWidth(45))),
+         /* child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
               enableLongPress: false,
               color: Colors.red,
               onTap: () {
                 Game.of(context).reset();
-              }),
+              }),*/
         ),
         _Description(
           text: S.of(context).pause_resume,
-          child: _Button(
+          child:
+          InkWell(
+              onTap: (){
+                Game.of(context).pauseOrResume();
+              },
+              child: Image.asset('assets/images/pause.png',height: getHeight(45),width: getWidth(45))),
+          /*child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
               color: _systemButtonColor,
               enableLongPress: false,
               onTap: () {
                 Game.of(context).pauseOrResume();
-              }),
+              }),*/
         ),
         _Description(
           text: S.of(context).sounds,
-          child: _Button(
+          child:
+          InkWell(
+              onTap: (){
+                Game.of(context).soundSwitch();
+              },
+              child: Image.asset('assets/images/sound.png',height: getHeight(45),width: getWidth(45))),
+         /* child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
               color: _systemButtonColor,
               enableLongPress: false,
               onTap: () {
                 Game.of(context).soundSwitch();
-              }),
+              }),*/
         ),
 
       ],
@@ -212,7 +234,8 @@ class DropButton extends StatelessWidget {
           size: Size(90, 90),
           onTap: () {
             Game.of(context).drop();
-          }),
+          }
+          ),
     );
   }
 }
@@ -282,7 +305,7 @@ class _Description extends StatelessWidget {
         break;
       case AxisDirection.down:
         widget = Column(
-          children: <Widget>[child, SizedBox(height: 8), Text(text)],
+          children: <Widget>[child, SizedBox(height: 5), Text(text)],
           mainAxisSize: MainAxisSize.min,
         );
         break;

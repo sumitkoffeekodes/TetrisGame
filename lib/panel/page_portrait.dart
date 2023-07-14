@@ -35,7 +35,7 @@ class _PagePortraitState extends State<PagePortrait> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(top: getHeight(32),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
+                  padding: EdgeInsets.only(top: getHeight(25),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
                   width: size.width,
                   child: Image.asset("assets/images/logo_terties.png"),
                   decoration: BoxDecoration(

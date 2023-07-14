@@ -73,7 +73,7 @@ class S {
   /// `SOUNDS`
   String get sounds {
     return Intl.message(
-      'SOUNDS',
+      'SOUND',
       name: 'sound',
       desc: '',
       args: [],
