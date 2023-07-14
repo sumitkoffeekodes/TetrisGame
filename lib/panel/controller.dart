@@ -4,18 +4,37 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
+import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/font_utils.dart';
+import 'package:tetris/values/responsive_value.dart';
 
 class GameController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: Row(
-        children: <Widget>[
-          Expanded(child: LeftController()),
-          Expanded(child: DirectionController()),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(15),bottom: getHeight(15)),
+          margin: EdgeInsets.symmetric(horizontal: getWidth(20)),
+          child: SystemButtonGroup(),
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: AppColors.color3C
+          ),
+        ),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Center(
+                child: DropButton(),
+              ),
+            ),
+            Expanded(child: DirectionController()),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -145,16 +164,16 @@ class SystemButtonGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         _Description(
-          text: S.of(context).sounds,
+          text: S.of(context).reset,
           child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
-              color: _systemButtonColor,
               enableLongPress: false,
+              color: Colors.red,
               onTap: () {
-                Game.of(context).soundSwitch();
+                Game.of(context).reset();
               }),
         ),
         _Description(
@@ -168,15 +187,16 @@ class SystemButtonGroup extends StatelessWidget {
               }),
         ),
         _Description(
-          text: S.of(context).reset,
+          text: S.of(context).sounds,
           child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
+              color: _systemButtonColor,
               enableLongPress: false,
-              color: Colors.red,
               onTap: () {
-                Game.of(context).reset();
+                Game.of(context).soundSwitch();
               }),
-        )
+        ),
+
       ],
     );
   }
@@ -197,22 +217,6 @@ class DropButton extends StatelessWidget {
   }
 }
 
-class LeftController extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        SystemButtonGroup(),
-        Expanded(
-          child: Center(
-            child: DropButton(),
-          ),
-        )
-      ],
-    );
-  }
-}
 
 class _Button extends StatefulWidget {
   final Size size;
@@ -285,7 +289,11 @@ class _Description extends StatelessWidget {
     }
     return DefaultTextStyle(
       child: widget,
-      style: TextStyle(fontSize: 12, color: Colors.black),
+      style: FontTextStyleUtilities.textStyle12.copyWith(
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Montserrat-Bold',
+        color: AppColors.white
+      )
     );
   }
 }

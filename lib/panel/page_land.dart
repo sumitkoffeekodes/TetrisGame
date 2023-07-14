@@ -7,7 +7,7 @@ class PageLand extends StatelessWidget {
     height -= MediaQuery.of(context).viewInsets.vertical;
     return SizedBox.expand(
       child: Container(
-        color: BACKGROUND_COLOR,
+        color: Colors.black26,
         child: Padding(
           padding: MediaQuery.of(context).padding,
           child: Row(

@@ -2,27 +2,68 @@ import 'package:flutter/material.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/panel/controller.dart';
 import 'package:tetris/panel/screen.dart';
+import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/responsive_value.dart';
 
 part 'page_land.dart';
 
-class PagePortrait extends StatelessWidget {
+class PagePortrait extends StatefulWidget {
+  @override
+  State<PagePortrait> createState() => _PagePortraitState();
+}
+
+class _PagePortraitState extends State<PagePortrait> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final screenW = size.width * 0.8;
-
-    return SizedBox.expand(
-      child: Container(
-        color: BACKGROUND_COLOR,
-        child: Padding(
-          padding: MediaQuery.of(context).padding,
-          child: Column(
-            children: <Widget>[
-              Spacer(),
-              _ScreenDecoration(child: Screen(width: screenW)),
-              Spacer(flex: 2),
-              GameController(),
-            ],
+    final screenW = size.width * 0.74;
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Container(
+            height: size.height,
+            width: size.width,
+            decoration:  const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage('assets/images/bg_main.png'),
+                )
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.only(top: getHeight(32),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
+                  width: size.width,
+                  child: Image.asset("assets/images/logo_terties.png"),
+                  decoration: BoxDecoration(
+                    color: AppColors.color3C
+                  ),
+                ),
+                SizedBox(height: size.height*0.006),
+                Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                        padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(10),bottom: getHeight(10)),
+                        width: size.width,
+                        child: Image.asset("assets/images/frame.png", fit: BoxFit.fill,color: AppColors.white),
+                        decoration:   BoxDecoration(
+                        color: AppColors.color3C,
+                    )),
+                    Positioned(
+                      top: size.height*0.05,
+                      child: _ScreenDecoration(child: Screen(width: screenW)),
+                    )
+                  ],
+                ),
+                SizedBox(height: size.height*0.01),
+                GameController(),
+              ],
+            ),
           ),
         ),
       ),

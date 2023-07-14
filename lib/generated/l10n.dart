@@ -74,7 +74,7 @@ class S {
   String get sounds {
     return Intl.message(
       'SOUNDS',
-      name: 'sounds',
+      name: 'sound',
       desc: '',
       args: [],
     );

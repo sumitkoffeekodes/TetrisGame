@@ -47,15 +47,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-     home: MainMenu(),
-     /* home: Scaffold(
+     // home: MainMenu(),
+      home: Scaffold(
         body: Sound(child: Game(child: KeyboardController(child: _HomePage()))),
-      ),*/
+      ),
     );
   }
 }
 
-const SCREEN_BORDER_WIDTH = 3.0;
+const SCREEN_BORDER_WIDTH = 0.5;
 
 const BACKGROUND_COLOR = const Color(0xffffffff);
 
