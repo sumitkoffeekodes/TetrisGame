@@ -11,6 +11,9 @@ import 'package:tetris/values/responsive_value.dart';
 class GameController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +35,7 @@ class GameController extends StatelessWidget {
                     onTap: (){
                       Game.of(context).drop();
                     },
-                    child: Image.asset('assets/images/drop.png',width: getWidth(120)))
+                    child: Image.asset('assets/images/drop.png',width: width*0.3))
 
               ),
             ),
