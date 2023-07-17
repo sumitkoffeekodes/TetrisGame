@@ -56,30 +56,33 @@ class _MainMenuState extends State<MainMenu> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Expanded(
-                              child: Container(
-                                padding: EdgeInsets.all(2),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(3),
-                                  shape: BoxShape.rectangle,
-                                    border: Border.all(
-                                        width: 1,
-                                        color: AppColors.white
-                                    )
-                                ),
+                              child: InkWell(
+                                onTap: (){},
                                 child: Container(
-                                  height: height*.06,
-                                  decoration:  BoxDecoration(
+                                  padding: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
-                                    color:  AppColors.white,
+                                    shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                          width: 1,
+                                          color: AppColors.white
+                                      )
                                   ),
-                                  child: Center(
-                                    child: Text(
-                                      'PLAY',
-                                      overflow: TextOverflow.visible,
-                                      textAlign: TextAlign.center,
-                                        style: FontTextStyleUtilities.textStyle16.copyWith(
-                                            fontWeight: FontWeight.w900
-                                        )
+                                  child: Container(
+                                    height: height*.06,
+                                    decoration:  BoxDecoration(
+                                      borderRadius: BorderRadius.circular(3),
+                                      color:  AppColors.white,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'PLAY',
+                                        overflow: TextOverflow.visible,
+                                        textAlign: TextAlign.center,
+                                          style: FontTextStyleUtilities.textStyle16.copyWith(
+                                              fontWeight: FontWeight.w900
+                                          )
+                                      ),
                                     ),
                                   ),
                                 ),
