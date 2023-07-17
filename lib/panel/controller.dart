@@ -102,6 +102,7 @@ class GameController extends StatelessWidget {
               Transform.rotate(
                 angle: math.pi / 4,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     SizedBox(height: _DIRECTION_SPACE),
@@ -220,7 +221,6 @@ class GameController extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-
                                 Positioned(
                                   top: 9,
                                   bottom: 9,
@@ -253,11 +253,11 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
-                                                Color(0xFFFFE9BA).withOpacity(0.1),
                                                 Color(0xFFFFE9BA),
+                                                Color(0xFFFFE9BA).withOpacity(0.1),
                                               ],
-                                              begin: Alignment.topLeft,
-                                              end: Alignment.bottomRight,
+                                              begin: Alignment.topRight,
+                                              end: Alignment.bottomCenter,
                                               stops: [0.2,0.9]
                                           ),
                                         )),
@@ -342,7 +342,7 @@ class GameController extends StatelessWidget {
                                                 Color(0xFFFFE9BA),
                                               ],
                                               begin: Alignment.topLeft,
-                                              end: Alignment.bottomRight,
+                                              end: Alignment.bottomCenter,
                                               stops: [0.2,0.9]
                                           ),
                                         )),
@@ -425,8 +425,8 @@ class GameController extends StatelessWidget {
                                                 Color(0xFFFFE9BA).withOpacity(0.1),
                                                 Color(0xFFFFE9BA),
                                               ],
-                                              begin: Alignment.topLeft,
-                                              end: Alignment.bottomRight,
+                                              begin: Alignment.centerLeft,
+                                              end: Alignment.centerRight,
                                               stops: [0.2,0.9]
                                           ),
                                         )),
@@ -467,7 +467,7 @@ const Size _DIRECTION_BUTTON_SIZE = const Size(48, 48);
 
 const Size _SYSTEM_BUTTON_SIZE = const Size(28, 28);
 
-const double _DIRECTION_SPACE = 23;
+const double _DIRECTION_SPACE = 24;
 
 const double _iconSize = 16;
 
