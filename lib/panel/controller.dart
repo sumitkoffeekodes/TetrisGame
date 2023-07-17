@@ -35,7 +35,67 @@ class GameController extends StatelessWidget {
                     onTap: (){
                       Game.of(context).drop();
                     },
-                    child: Image.asset('assets/images/drop.png',width: width*0.3))
+                    child: Stack(
+                      alignment: Alignment.center,
+                      clipBehavior: Clip.none,
+                      children: [
+                        Container(
+                            width: getWidth(90),
+                            height: getHeight(90),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.white.withOpacity(0.4), // Inner shadow color
+                                  blurRadius: 5.0,
+                                  offset: Offset(-3, -3),
+                                ),
+                              ],
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFFCCB06),
+                                  Color(0xFFEF420C),
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomLeft,
+                              ),
+                            )),
+                        Positioned(
+                          top: 15,
+                          bottom: 15,
+                          left: 15,
+                          right: 15,
+                          child: Container(
+                              child: Image.asset("assets/images/drop.png"),
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                    blurRadius: 2.0,
+                                    offset: Offset(2, 5),
+                                  ),
+                                ],
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  width: 0.1,
+                                  color: AppColors.white.withOpacity(0.1),
+                                  style: BorderStyle.solid,
+                                ),
+
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Color(0xFFFFE9BA).withOpacity(0.1),
+                                      Color(0xFFFFE9BA),
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    stops: [0.2,0.9]
+                                ),
+                              )),
+                        ),
+                      ],
+                    ),
+                )
 
               ),
             ),
@@ -176,11 +236,69 @@ class SystemButtonGroup extends StatelessWidget {
       children: <Widget>[
         _Description(
           text: S.of(context).reset,
-         child: InkWell(
-             onTap: (){
-               Game.of(context).reset();
-             },
-             child: Image.asset('assets/images/reset.png',height: getHeight(45),width: getWidth(45))),
+          child: InkWell(
+            onTap: (){
+              Game.of(context).reset();
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                width: 35,
+                height: 35,
+                decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+               /* BoxShadow(
+                color: AppColors.color3C, // Outer shadow color
+                blurRadius: 4.0,
+                offset: Offset(2, 2),
+                ),*/
+                BoxShadow(
+                color: AppColors.white.withOpacity(0.4), // Inner shadow color
+                blurRadius: 5.0,
+                offset: Offset(-2, -2),
+                ),
+                ],
+                gradient: LinearGradient(
+                colors: [
+                  Color(0xFFEF420C),
+                  Color(0xFFFCCB06),
+                ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                )),
+                Positioned(
+                 top: 5,
+                 bottom: 5,
+                 left: 5,
+                 right: 5,
+                 child: Container(
+                   padding: EdgeInsets.all(5),
+                   child: Image.asset("assets/images/reset.png"),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          width: 0.1,
+                          color: AppColors.white,
+                          style: BorderStyle.solid,
+                        ),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFEF420C),
+                            Color(0xFFFFE9BA),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          stops: [0.0,1.0]
+                        ),
+                      )),
+               ),
+              ],
+            ),
+          ),
          /* child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
               enableLongPress: false,
@@ -196,7 +314,65 @@ class SystemButtonGroup extends StatelessWidget {
               onTap: (){
                 Game.of(context).pauseOrResume();
               },
-              child: Image.asset('assets/images/pause.png',height: getHeight(45),width: getWidth(45))),
+              child: InkWell(
+                onTap: (){
+                  Game.of(context).pauseOrResume();
+                },
+                child: Stack(
+                  alignment: Alignment.center,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                        width: 35,
+                        height: 35,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.white.withOpacity(0.4), // Inner shadow color
+                              blurRadius: 5.0,
+                              offset: Offset(-2, -2),
+                            ),
+                          ],
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFEF420C),
+                              Color(0xFFFCCB06),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        )),
+                    Positioned(
+                      top: 5,
+                      bottom: 5,
+                      left: 5,
+                      right: 5,
+                      child: Container(
+                          padding: EdgeInsets.all(7),
+                          child: Image.asset("assets/images/pause.png"),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 0.1,
+                              color: AppColors.white,
+                              style: BorderStyle.solid,
+                            ),
+                            gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFEF420C),
+                                  Color(0xFFFFE9BA),
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                stops: [0.0,1.0]
+                            ),
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+          ),
           /*child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
               color: _systemButtonColor,
@@ -209,10 +385,63 @@ class SystemButtonGroup extends StatelessWidget {
           text: S.of(context).sounds,
           child:
           InkWell(
-              onTap: (){
-                Game.of(context).soundSwitch();
-              },
-              child: Image.asset('assets/images/sound.png',height: getHeight(45),width: getWidth(45))),
+            onTap: (){
+              Game.of(context).soundSwitch();
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                    width: 35,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.white.withOpacity(0.4), // Inner shadow color
+                          blurRadius: 5.0,
+                          offset: Offset(-2, -2),
+                        ),
+                      ],
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFFEF420C),
+                          Color(0xFFFCCB06),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    )),
+                Positioned(
+                  top: 5,
+                  bottom: 5,
+                  left: 5,
+                  right: 5,
+                  child: Container(
+                      padding: EdgeInsets.all(7),
+                      child: Image.asset("assets/images/sound.png"),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          width: 0.1,
+                          color: AppColors.white,
+                          style: BorderStyle.solid,
+                        ),
+                        gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFEF420C),
+                              Color(0xFFFFE9BA),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            stops: [0.0,1.0]
+                        ),
+                      )),
+                ),
+              ],
+            ),
+          ),
          /* child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
               color: _systemButtonColor,
@@ -308,7 +537,7 @@ class _Description extends StatelessWidget {
         break;
       case AxisDirection.down:
         widget = Column(
-          children: <Widget>[child, SizedBox(height: 5), Text(text)],
+          children: <Widget>[child, SizedBox(height: 7), Text(text)],
           mainAxisSize: MainAxisSize.min,
         );
         break;
