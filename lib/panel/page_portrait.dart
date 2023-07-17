@@ -31,38 +31,41 @@ class _PagePortraitState extends State<PagePortrait> {
                   image: AssetImage('assets/images/bg_main.png'),
                 )
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.only(top: getHeight(25),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
-                  width: size.width,
-                  child: Image.asset("assets/images/logo_terties.png"),
-                  decoration: BoxDecoration(
-                    color: AppColors.color3C
+            child: SingleChildScrollView(
+              physics: NeverScrollableScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(top: getHeight(25),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
+                    width: size.width,
+                    child: Image.asset("assets/images/logo_terties.png"),
+                    decoration: BoxDecoration(
+                      color: AppColors.color3C
+                    ),
                   ),
-                ),
-                SizedBox(height: size.height*0.006),
-                Stack(
-                  clipBehavior: Clip.none,
-                  alignment: Alignment.center,
-                  children: [
-                    Container(
-                        padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(10),bottom: getHeight(10)),
-                        width: size.width,
-                        child: Image.asset("assets/images/frame.png", fit: BoxFit.fill,color: AppColors.white),
-                        decoration:   BoxDecoration(
-                        color: AppColors.color3C,
-                    )),
-                    Positioned(
-                      top: size.height*0.05,
-                      child: _ScreenDecoration(child: Screen(width: screenW)),
-                    )
-                  ],
-                ),
-                SizedBox(height: size.height*0.01),
-                GameController(),
-              ],
+                  SizedBox(height: size.height*0.006),
+                  Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                          padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(10),bottom: getHeight(10)),
+                          width: size.width,
+                          child: Image.asset("assets/images/frame.png", fit: BoxFit.fill,color: AppColors.white),
+                          decoration:   BoxDecoration(
+                          color: AppColors.color3C,
+                      )),
+                      Positioned(
+                        top: size.height*0.05,
+                        child: _ScreenDecoration(child: Screen(width: screenW)),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: size.height*0.008),
+                  GameController(),
+                ],
+              ),
             ),
           ),
         ),

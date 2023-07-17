@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `RESET`
+  /// `color: AppColors.textColor39,`
   String get reset {
     return Intl.message(
-      'RESET',
+      'color: AppColors.textColor39,',
       name: 'reset',
       desc: '',
       args: [],

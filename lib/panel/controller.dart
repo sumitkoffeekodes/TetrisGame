@@ -19,89 +19,445 @@ class GameController extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(10),bottom: getHeight(10)),
-          margin: EdgeInsets.symmetric(horizontal: getWidth(20)),
+          padding: EdgeInsets.only(left: width*0.035,right: width*0.035,top: height*0.01,bottom: height*0.01),
+          margin: EdgeInsets.only(left: width*0.035,right: width*0.035),
           child: SystemButtonGroup(),
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             color: AppColors.color3C
           ),
         ),
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: Center(
-                child: InkWell(
-                    onTap: (){
-                      Game.of(context).drop();
-                    },
-                    child: Stack(
-                      alignment: Alignment.center,
-                      clipBehavior: Clip.none,
-                      children: [
-                        Container(
-                            width: getWidth(90),
-                            height: getHeight(90),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.white.withOpacity(0.4), // Inner shadow color
-                                  blurRadius: 5.0,
-                                  offset: Offset(-3, -3),
+        SizedBox(height: height*0.008),
+        Container(
+          padding: EdgeInsets.only(left: width*0.1,right: width*0.12,top: height*0.009,bottom: height*0.009),
+          margin: EdgeInsets.only(left: width*0.035,right: width*0.035),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              InkWell(
+                onTap: (){
+                  Game.of(context).drop();
+                },
+                child: Stack(
+                  alignment: Alignment.center,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                        width: getWidth(80),
+                        height: getHeight(80),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.white.withOpacity(0.4), // Inner shadow color
+                              blurRadius: 5.0,
+                              offset: Offset(-3, -3),
+                            ),
+                          ],
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFFCCB06),
+                              Color(0xFFEF420C),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomLeft,
+                          ),
+                        )),
+                    Positioned(
+                      top: 15,
+                      bottom: 15,
+                      left: 15,
+                      right: 15,
+                      child: Container(
+                          child: Image.asset("assets/images/drop.png"),
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                blurRadius: 2.0,
+                                offset: Offset(2, 5),
+                              ),
+                            ],
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 0.1,
+                              color: AppColors.white.withOpacity(0.1),
+                              style: BorderStyle.solid,
+                            ),
+
+                            gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFFFE9BA).withOpacity(0.1),
+                                  Color(0xFFFFE9BA),
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                stops: [0.2,0.9]
+                            ),
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              Transform.rotate(
+                angle: math.pi / 4,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    SizedBox(height: _DIRECTION_SPACE),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Transform.scale(
+                          scale: 1.5,
+                          child: InkWell(
+                            onTap: (){
+                              Game.of(context).rotate();
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Container(
+                                  width: getWidth(27),
+                                  height: getHeight(27),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.white.withOpacity(0.5),
+                                        blurRadius: 3.0,
+                                        offset: Offset(-3, 1),
+                                      ),
+                                    ],
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xFFFCCB06),
+                                        Color(0xFFEF420C),
+                                      ],
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                    ),
+                                  ),
+                                ),
+
+                                Positioned(
+                                  top: 9,
+                                  bottom: 9,
+                                  left: 9,
+                                  right: 9,
+                                  child: Transform.scale(
+                                    scale: 1.5,
+                                    child: Container(
+                                        padding: EdgeInsets.all(2),
+                                        child:
+                                        Transform.rotate(
+                                            angle: -math.pi / 4,
+                                            child: Image.asset("assets/images/pattern_vector.png")),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                              blurRadius: 2.0,
+                                              offset: Offset(2, 5),
+                                            ),
+                                          ],
+                                          borderRadius: BorderRadius.circular(2),
+                                          border: Border.all(
+                                            width: 0.1,
+                                            color: AppColors.white.withOpacity(0.1),
+                                            style: BorderStyle.solid,
+                                          ),
+
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color(0xFFFFE9BA).withOpacity(0.1),
+                                                Color(0xFFFFE9BA),
+                                              ],
+                                              begin: Alignment.topLeft,
+                                              end: Alignment.bottomRight,
+                                              stops: [0.2,0.9]
+                                          ),
+                                        )),
+                                  ),
                                 ),
                               ],
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFFFCCB06),
-                                  Color(0xFFEF420C),
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomLeft,
-                              ),
-                            )),
-                        Positioned(
-                          top: 15,
-                          bottom: 15,
-                          left: 15,
-                          right: 15,
-                          child: Container(
-                              child: Image.asset("assets/images/drop.png"),
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: AppColors.white.withOpacity(0.1), // Inner shadow color
-                                    blurRadius: 2.0,
-                                    offset: Offset(2, 5),
+                            ),
+                          ),
+
+                        ),
+
+                        SizedBox(width: _DIRECTION_SPACE),
+                        Transform.scale(
+                          scale: 1.5,
+                          child: InkWell(
+                            onTap: (){
+                              Game.of(context).right();
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Container(
+                                  width: getWidth(27),
+                                  height: getHeight(27),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.white.withOpacity(0.5),
+                                        blurRadius: 3.0,
+                                        offset: Offset(-3, 1),
+                                      ),
+                                    ],
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xFFFCCB06),
+                                        Color(0xFFEF420C),
+                                      ],
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                    ),
                                   ),
-                                ],
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  width: 0.1,
-                                  color: AppColors.white.withOpacity(0.1),
-                                  style: BorderStyle.solid,
                                 ),
 
-                                gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xFFFFE9BA).withOpacity(0.1),
-                                      Color(0xFFFFE9BA),
-                                    ],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    stops: [0.2,0.9]
+                                Positioned(
+                                  top: 9,
+                                  bottom: 9,
+                                  left: 9,
+                                  right: 9,
+                                  child: Transform.scale(
+                                    scale: 1.5,
+                                    child: Container(
+                                        padding: EdgeInsets.all(3.5),
+                                        child: Transform(
+                                            alignment: Alignment.center,
+                                            transform: Matrix4.rotationZ(
+                                              -math.pi / 4,
+                                            ),
+                                            child: Image.asset("assets/images/right_vector.png")),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                              blurRadius: 2.0,
+                                              offset: Offset(2, 5),
+                                            ),
+                                          ],
+                                          borderRadius: BorderRadius.circular(2),
+                                          border: Border.all(
+                                            width: 0.1,
+                                            color: AppColors.white.withOpacity(0.1),
+                                            style: BorderStyle.solid,
+                                          ),
+
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color(0xFFFFE9BA).withOpacity(0.1),
+                                                Color(0xFFFFE9BA),
+                                              ],
+                                              begin: Alignment.topLeft,
+                                              end: Alignment.bottomRight,
+                                              stops: [0.2,0.9]
+                                          ),
+                                        )),
+                                  ),
                                 ),
-                              )),
+                              ],
+                            ),
+                          ),
+
                         ),
+
                       ],
                     ),
-                )
+                    SizedBox(height: _DIRECTION_SPACE),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Transform.scale(
+                          scale: 1.5,
+                          child: InkWell(
+                            onTap: (){
+                              Game.of(context).left();
+                            },
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                Container(
+                                  width: getWidth(27),
+                                  height: getHeight(27),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.white.withOpacity(0.5),
+                                        blurRadius: 3.0,
+                                        offset: Offset(-3, 1),
+                                      ),
+                                    ],
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xFFFCCB06),
+                                        Color(0xFFEF420C),
+                                      ],
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 9,
+                                  bottom: 9,
+                                  left: 9,
+                                  right: 9,
+                                  child: Transform.scale(
+                                    scale: 1.5,
+                                    child: Container(
+                                        padding: EdgeInsets.all(3.5),
+                                        child: Transform(
+                                            alignment: Alignment.center,
+                                            transform: Matrix4.rotationZ(
+                                              -math.pi / 4,
+                                            ),
+                                            child: Image.asset("assets/images/left_vector.png")),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                              blurRadius: 2.0,
+                                              offset: Offset(2, 5),
+                                            ),
+                                          ],
+                                          borderRadius: BorderRadius.circular(2),
+                                          border: Border.all(
+                                            width: 0.1,
+                                            color: AppColors.white.withOpacity(0.1),
+                                            style: BorderStyle.solid,
+                                          ),
 
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color(0xFFFFE9BA).withOpacity(0.1),
+                                                Color(0xFFFFE9BA),
+                                              ],
+                                              begin: Alignment.topLeft,
+                                              end: Alignment.bottomRight,
+                                              stops: [0.2,0.9]
+                                          ),
+                                        )),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ),
+
+                        SizedBox(width: _DIRECTION_SPACE),
+
+                        Transform.scale(
+                          scale: 1.5,
+                          child: InkWell(
+                            onTap: (){
+                              Game.of(context).down();
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Container(
+                                  width: getWidth(27),
+                                  height: getHeight(27),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.white.withOpacity(0.5),
+                                        blurRadius: 3.0,
+                                        offset: Offset(-3, 1),
+                                      ),
+                                    ],
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xFFFCCB06),
+                                        Color(0xFFEF420C),
+                                      ],
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                    ),
+                                  ),
+                                ),
+
+                                Positioned(
+                                  top: 9,
+                                  bottom: 9,
+                                  left: 9,
+                                  right: 9,
+                                  child: Transform.scale(
+                                    scale: 1.5,
+                                    child: Container(
+                                        padding: EdgeInsets.all(3.5),
+                                        child:
+                                        Transform(
+                                            alignment: Alignment.center,
+                                            transform: Matrix4.rotationZ(
+                                              -math.pi / 4,
+                                            ),
+                                            child: Image.asset("assets/images/down_vector.png")),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                              blurRadius: 2.0,
+                                              offset: Offset(2, 5),
+                                            ),
+                                          ],
+                                          borderRadius: BorderRadius.circular(2),
+                                          border: Border.all(
+                                            width: 0.1,
+                                            color: AppColors.white.withOpacity(0.1),
+                                            style: BorderStyle.solid,
+                                          ),
+
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color(0xFFFFE9BA).withOpacity(0.1),
+                                                Color(0xFFFFE9BA),
+                                              ],
+                                              begin: Alignment.topLeft,
+                                              end: Alignment.bottomRight,
+                                              stops: [0.2,0.9]
+                                          ),
+                                        )),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ),
+
+                        /*_Button(
+                    size: _DIRECTION_BUTTON_SIZE,
+                    onTap: () {
+                      Game.of(context).down();
+                    },
+                  ),*/
+                      ],
+                    ),
+                    SizedBox(height: _DIRECTION_SPACE),
+                  ],
+                ),
               ),
-            ),
-            Expanded(child: DirectionController()),
-          ],
+            ],
+          ),
+          decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              color: AppColors.color3C
+          ),
         ),
+
       ],
     );
   }
@@ -111,7 +467,7 @@ const Size _DIRECTION_BUTTON_SIZE = const Size(48, 48);
 
 const Size _SYSTEM_BUTTON_SIZE = const Size(28, 28);
 
-const double _DIRECTION_SPACE = 16;
+const double _DIRECTION_SPACE = 23;
 
 const double _iconSize = 16;
 
@@ -121,106 +477,7 @@ class DirectionController extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
-        SizedBox.fromSize(size: _DIRECTION_BUTTON_SIZE * 2.8),
-        Transform.rotate(
-          angle: math.pi / 4,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_drop_up,
-                          size: _iconSize,
-                        )),
-                  ),
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_right,
-                          size: _iconSize,
-                        )),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_left,
-                          size: _iconSize,
-                        )),
-                  ),
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_drop_down,
-                          size: _iconSize,
-                        )),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Transform.rotate(
-          angle: math.pi / 4,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(height: _DIRECTION_SPACE),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  _Button(
-                      enableLongPress: false,
-                      size: _DIRECTION_BUTTON_SIZE,
-                      onTap: () {
-                        Game.of(context).rotate();
-                      }),
-                  SizedBox(width: _DIRECTION_SPACE),
-                  _Button(
-                      size: _DIRECTION_BUTTON_SIZE,
-                      onTap: () {
-                        Game.of(context).right();
-                      }),
-                ],
-              ),
-              SizedBox(height: _DIRECTION_SPACE),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  _Button(
-                      size: _DIRECTION_BUTTON_SIZE,
-                      onTap: () {
-                        Game.of(context).left();
-                      }),
-                  SizedBox(width: _DIRECTION_SPACE),
-                  _Button(
-                    size: _DIRECTION_BUTTON_SIZE,
-                    onTap: () {
-                      Game.of(context).down();
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(height: _DIRECTION_SPACE),
-            ],
-          ),
-        ),
+
       ],
     );
   }
