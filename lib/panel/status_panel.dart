@@ -10,6 +10,7 @@ import 'package:tetris/material/images.dart';
 import 'package:tetris/provider/darktheme.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
+import 'package:tetris/values/responsive_value.dart';
 
 class StatusPanel extends StatelessWidget {
 
@@ -156,15 +157,52 @@ class _GameStatusState extends State<_GameStatus> {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
+    var width =  MediaQuery.of(context).size.width;
+    var height =  MediaQuery.of(context).size.height;
     return Row(
       children: <Widget>[
-        IconSound(enable: GameState.of(context).muted),
-        SizedBox(width: 2),
-        IconPause(enable: GameState.of(context).states == GameStates.paused),
+
+        Image.asset('assets/images/soundmute.png',width: width*.05,
+          color: GameState.of(context).muted ? AppColors.color3C: AppColors.colorE0,
+        ),
+
+
+        // IconSound(enable: GameState.of(context).muted),
+        SizedBox(width: width*.005),
+        Icon(
+          Icons.pause,
+          color: GameState.of(context).states == GameStates.paused ? AppColors.color3C: AppColors.colorE0,
+        ),
+
         Expanded(child: SizedBox()),
-        Number(number: _hour, length: 2, padWithZero: true),
-        IconColon(enable: _colonEnable),
-        Number(number: _minute, length: 2, padWithZero: true),
+        Text(
+            _hour.toString().padLeft(2, '0'),
+            style: FontTextStyleUtilities.textStyle16.copyWith(
+              fontFamily: 'Montserrat-Bold',
+              fontWeight: FontWeight.w700,
+              color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+            )),
+        // Number(number: _hour, length: 2, padWithZero: true),
+        // IconColon(enable: _colonEnable),
+
+        Text(':',
+            style: FontTextStyleUtilities.textStyle16.copyWith(
+              fontFamily: 'Montserrat-Bold',
+              fontWeight: FontWeight.w700,
+              color: _colonEnable ? Colors.black : Colors.grey,
+            )
+        ),
+
+        Text(
+            _minute.toString().padLeft(2, '0'),
+            style: FontTextStyleUtilities.textStyle16.copyWith(
+              fontFamily: 'Montserrat-Bold',
+              fontWeight: FontWeight.w700,
+              color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+            )),
+        // Number(number: _minute, length: 2, padWithZero: true),
       ],
     );
   }
