@@ -109,24 +109,24 @@ class GameController extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        InkWell(
-                          onTap: (){
-                            Game.of(context).rotate();
-                          },
-                          child: Transform.scale(
-                            scale: 1.5,
-                            child: Stack(
-                              alignment: Alignment.center,
-                              clipBehavior: Clip.none,
-                              children: [
-                                Container(
+                        Transform.scale(
+                          scale: 1.5,
+                          child: Stack(
+                            alignment: Alignment.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              InkWell(
+                                onTap: (){
+                                  Game.of(context).rotate();
+                                },
+                                child: Container(
                                   width: getWidth(27),
                                   height: getHeight(27),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppColors.white.withOpacity(0.5),
+                                        color: AppColors.white.withOpacity(0.3),
                                         blurRadius: 3.0,
                                         offset: Offset(-3, 1),
                                       ),
@@ -141,14 +141,19 @@ class GameController extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                              ),
 
-                                Positioned(
-                                  top: 9,
-                                  bottom: 9,
-                                  left: 9,
-                                  right: 9,
-                                  child: Transform.scale(
-                                    scale: 1.5,
+                              Positioned(
+                                top: 9,
+                                bottom: 9,
+                                left: 9,
+                                right: 9,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child:  InkWell(
+                                    onTap: (){
+                                      Game.of(context).rotate();
+                                    },
                                     child: Container(
                                         padding: EdgeInsets.all(2),
                                         child:
@@ -182,30 +187,30 @@ class GameController extends StatelessWidget {
                                         )),
                                   ),
                                 ),
-                              ],
-                            ),
-
+                              ),
+                            ],
                           ),
+
                         ),
                         SizedBox(width: _DIRECTION_SPACE),
-                        InkWell(
-                          onTap: (){
-                            Game.of(context).right();
-                          },
-                          child: Transform.scale(
-                            scale: 1.5,
-                            child: Stack(
-                              alignment: Alignment.center,
-                              clipBehavior: Clip.none,
-                              children: [
-                                Container(
+                        Transform.scale(
+                          scale: 1.5,
+                          child: Stack(
+                            alignment: Alignment.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              InkWell(
+                                onTap: (){
+                                  Game.of(context).right();
+                                },
+                                child: Container(
                                   width: getWidth(27),
                                   height: getHeight(27),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppColors.white.withOpacity(0.5),
+                                        color: AppColors.white.withOpacity(0.3),
                                         blurRadius: 3.0,
                                         offset: Offset(-3, 1),
                                       ),
@@ -220,13 +225,18 @@ class GameController extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Positioned(
-                                  top: 9,
-                                  bottom: 9,
-                                  left: 9,
-                                  right: 9,
-                                  child: Transform.scale(
-                                    scale: 1.5,
+                              ),
+                              Positioned(
+                                top: 9,
+                                bottom: 9,
+                                left: 9,
+                                right: 9,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child:  InkWell(
+                                    onTap: (){
+                                      Game.of(context).right();
+                                    },
                                     child: Container(
                                         padding: EdgeInsets.all(3.5),
                                         child: Transform(
@@ -262,10 +272,10 @@ class GameController extends StatelessWidget {
                                         )),
                                   ),
                                 ),
-                              ],
-                            ),
-
+                              ),
+                            ],
                           ),
+
                         ),
 
                       ],
@@ -274,23 +284,23 @@ class GameController extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        InkWell(
-                          onTap: (){
-                            Game.of(context).left();
-                          },
-                          child: Transform.scale(
-                            scale: 1.5,
-                            child: Stack(
-                              clipBehavior: Clip.none,
-                              children: [
-                                Container(
+                        Transform.scale(
+                          scale: 1.5,
+                          child: Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              InkWell(
+                                onTap: (){
+                                  Game.of(context).left();
+                                },
+                                child: Container(
                                   width: getWidth(27),
                                   height: getHeight(27),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppColors.white.withOpacity(0.5),
+                                        color: AppColors.white.withOpacity(0.3),
                                         blurRadius: 3.0,
                                         offset: Offset(-3, 1),
                                       ),
@@ -305,13 +315,18 @@ class GameController extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Positioned(
-                                  top: 9,
-                                  bottom: 9,
-                                  left: 9,
-                                  right: 9,
-                                  child: Transform.scale(
-                                    scale: 1.5,
+                              ),
+                              Positioned(
+                                top: 9,
+                                bottom: 9,
+                                left: 9,
+                                right: 9,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child: InkWell(
+                                    onTap: (){
+                                      Game.of(context).left();
+                                    },
                                     child: Container(
                                         padding: EdgeInsets.all(3.5),
                                         child: Transform(
@@ -319,7 +334,7 @@ class GameController extends StatelessWidget {
                                             transform: Matrix4.rotationZ(
                                               -math.pi / 4,
                                             ),
-                                            child: Image.asset("assets/images/left_vector.png")),
+                                            child: Image.asset("assets/images/left_vector.png",width: 50,)),
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
@@ -347,32 +362,32 @@ class GameController extends StatelessWidget {
                                         )),
                                   ),
                                 ),
-                              ],
-                            ),
-
+                              ),
+                            ],
                           ),
+
                         ),
 
                         SizedBox(width: _DIRECTION_SPACE),
 
-                        InkWell(
-                          onTap: (){
-                            Game.of(context).down();
-                          },
-                          child: Transform.scale(
-                            scale: 1.5,
-                            child: Stack(
-                              alignment: Alignment.center,
-                              clipBehavior: Clip.none,
-                              children: [
-                                Container(
+                        Transform.scale(
+                          scale: 1.5,
+                          child: Stack(
+                            alignment: Alignment.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              InkWell(
+                                onTap: (){
+                                  Game.of(context).down();
+                                },
+                                child: Container(
                                   width: getWidth(27),
                                   height: getHeight(27),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppColors.white.withOpacity(0.5),
+                                        color: AppColors.white.withOpacity(0.3),
                                         blurRadius: 3.0,
                                         offset: Offset(-3, 1),
                                       ),
@@ -387,14 +402,19 @@ class GameController extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                              ),
 
-                                Positioned(
-                                  top: 9,
-                                  bottom: 9,
-                                  left: 9,
-                                  right: 9,
-                                  child: Transform.scale(
-                                    scale: 1.5,
+                              Positioned(
+                                top: 9,
+                                bottom: 9,
+                                left: 9,
+                                right: 9,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child:  InkWell(
+                                    onTap: (){
+                                      Game.of(context).down();
+                                    },
                                     child: Container(
                                         padding: EdgeInsets.all(3.5),
                                         child:
@@ -431,10 +451,10 @@ class GameController extends StatelessWidget {
                                         )),
                                   ),
                                 ),
-                              ],
-                            ),
-
+                              ),
+                            ],
                           ),
+
                         ),
 
                         /*_Button(
