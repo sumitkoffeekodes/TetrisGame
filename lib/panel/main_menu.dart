@@ -1,6 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:tetris/Utils/utils.dart';
+import 'package:tetris/gamer/gamer.dart';
+import 'package:tetris/gamer/keyboard.dart';
+import 'package:tetris/main.dart';
+import 'package:tetris/material/audios.dart';
 import 'package:tetris/panel/setting_page.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
@@ -57,7 +61,13 @@ class _MainMenuState extends State<MainMenu> {
                           children: [
                             Expanded(
                               child: InkWell(
-                                onTap: (){},
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(
+                                      builder: (BuildContext context)=>
+                                      Sound(child: Game(child: KeyboardController(child: HomePage())))
+                                  )
+                                  );
+                                },
                                 child: Container(
                                   padding: EdgeInsets.all(2),
                                   decoration: BoxDecoration(

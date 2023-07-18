@@ -16,7 +16,7 @@ class _PagePortraitState extends State<PagePortrait> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final screenW = size.width * 0.74;
+    final screenW = size.width * 0.72;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
@@ -50,14 +50,14 @@ class _PagePortraitState extends State<PagePortrait> {
                     alignment: Alignment.center,
                     children: [
                       Container(
-                          padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(10),bottom: getHeight(10)),
+                          padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(8),bottom: getHeight(5)),
                           width: size.width,
                           child: Image.asset("assets/images/frame.png", fit: BoxFit.fill,color: AppColors.white),
                           decoration:   BoxDecoration(
                           color: AppColors.color3C,
                       )),
                       Positioned(
-                        top: size.height*0.05,
+                        top: size.height*0.055,
                         child: _ScreenDecoration(child: Screen(width: screenW)),
                       )
                     ],

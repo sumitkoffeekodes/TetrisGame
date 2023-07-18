@@ -47,10 +47,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-     // home: MainMenu(),
-      home: Scaffold(
-        body: Sound(child: Game(child: KeyboardController(child: _HomePage()))),
-      ),
+     home: MainMenu(),
+     /* home: Scaffold(
+        body: Sound(child: Game(child: KeyboardController(child: _HomePage()))
+        ),
+      ),*/
     );
   }
 }
@@ -59,7 +60,7 @@ const SCREEN_BORDER_WIDTH = 0.5;
 
 const BACKGROUND_COLOR = const Color(0xffffffff);
 
-class _HomePage extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //only Android/iOS support land mode
