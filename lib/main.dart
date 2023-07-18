@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tetris/gamer/gamer.dart';
+import 'package:provider/provider.dart';
+import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/generated/l10n.dart';
-import 'package:tetris/material/audios.dart';
 import 'package:tetris/panel/main_menu.dart';
 import 'package:tetris/panel/page_portrait.dart';
+import 'package:tetris/provider/darktheme.dart';
 
-import 'gamer/keyboard.dart';
 
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
@@ -30,28 +30,68 @@ void _disableDebugPrint() {
 
 final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+
+  const MyApp({Key? key}) : super(key: key);
+
+  static void setLocale(BuildContext context, Locale newLocale) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state!.setLocale(newLocale);
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp>  with WidgetsBindingObserver  {
+  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+
+  Locale? _locale;
+  setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    FontStyleUtils.platform=Theme.of(context).platform;
+    getCurrentAppTheme();
+  }
+
+  void getCurrentAppTheme() async {
+    themeChangeProvider.darkTheme =
+    await themeChangeProvider.darkThemePreference.getTheme();
+  }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'tetris',
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate
-      ],
-      navigatorObservers: [routeObserver],
-      supportedLocales: S.delegate.supportedLocales,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-     home: MainMenu(),
-     /* home: Scaffold(
-        body: Sound(child: Game(child: KeyboardController(child: _HomePage()))
-        ),
-      ),*/
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => themeChangeProvider),
+
+        ],
+        child: Consumer<DarkThemeProvider>(
+          builder: (BuildContext context, value, Widget? child) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: Styles.themeData(themeChangeProvider.darkTheme, context),
+              title: 'tetris',
+              home:  MainMenu(),
+              locale: _locale,
+              localizationsDelegates: [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate
+              ],
+              navigatorObservers: [routeObserver],
+              supportedLocales: S.delegate.supportedLocales,
+            );
+          },
+        )
     );
   }
 }

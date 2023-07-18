@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tetris/Utils/utils.dart';
+import 'package:tetris/provider/darktheme.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/responsive_value.dart';
 
@@ -21,16 +23,23 @@ class _SettingPageState extends State<SettingPage> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Container(
             height: height,
             width: width,
-            decoration:  const BoxDecoration(
+            decoration:   BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage('assets/images/background_image.png'),
+                  image: AssetImage(
+                      themeChange.darkTheme ?
+                      'assets/images/bg_default.png'
+                          :
+                      'assets/images/background_image.png'
+                  ),
                 )
             ),
             child: SingleChildScrollView(
@@ -44,6 +53,7 @@ class _SettingPageState extends State<SettingPage> {
                     child: Image.asset(
                       'assets/images/terties_logo.png',
                       width: width - 150,
+                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                     ),
                   ),
                   SizedBox(height: getHeight(60)),
@@ -73,7 +83,7 @@ class _SettingPageState extends State<SettingPage> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                         style: FontStyleUtils.style(18).copyWith(
-                                            color: AppColors.white  ,
+                                            color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
 
@@ -99,7 +109,7 @@ class _SettingPageState extends State<SettingPage> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                         style: FontStyleUtils.style(18).copyWith(
-                                            color: AppColors.white  ,
+                                            color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
                                       Switch(
@@ -143,23 +153,34 @@ class _SettingPageState extends State<SettingPage> {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
-                                        child: Container(
-                                          padding: EdgeInsets.all(8),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.rectangle,
-                                              border: Border.all(
-                                                  width: 1,
-                                                  color: AppColors.color66
-                                              )
-                                          ),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () {
+                                            setState(() {
+                                              themeChange.darkTheme =! themeChange.darkTheme;
+                                            });
+                                            },
                                           child: Container(
-                                            height: getHeight(40),
-                                            width: getWidth(45),
-                                            child: Center(
-                                              child: Image.asset('assets/images/ok_sign.png',width: getWidth(17)),
+                                            padding: EdgeInsets.all(8),
+                                            decoration: BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                border: Border.all(
+                                                    width: 1,
+                                                    color: AppColors.color66
+                                                )
                                             ),
-                                            decoration:  BoxDecoration(
-                                              color:  AppColors.color66,
+                                            child: Container(
+                                              height: getHeight(40),
+                                              width: getWidth(45),
+                                              child: Center(
+                                                child: Image.asset('assets/images/ok_sign.png',width: getWidth(17)),
+                                              ),
+                                              decoration:  BoxDecoration(
+                                                color:  AppColors.color66,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -356,7 +377,9 @@ class _SettingPageState extends State<SettingPage> {
                         ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: AppColors.color66.withOpacity(0.7)
+                            color: themeChange.darkTheme ? AppColors.colorE8.withOpacity(0.5) : AppColors.color66.withOpacity(0.7),
+
+
                         ),
                       ),
                       Positioned(
@@ -374,14 +397,14 @@ class _SettingPageState extends State<SettingPage> {
                                     shape: BoxShape.rectangle,
                                     border: Border.all(
                                         width: 1,
-                                        color: AppColors.white
+                                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                     )
                                 ),
                                 child: Container(
                                   height: getHeight(45),
                                   decoration:  BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
-                                    color:  AppColors.white,
+                                    color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                   ),
                                   child: Center(
                                     child: Text(
@@ -389,7 +412,7 @@ class _SettingPageState extends State<SettingPage> {
                                       overflow: TextOverflow.visible,
                                       textAlign: TextAlign.center,
                                       style: FontStyleUtils.style(18).copyWith(
-                                          color: AppColors.textColor39  ,
+                                          color: themeChange.darkTheme ? AppColors.white: AppColors.textColor39,
                                           fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
                                     ),
                                   ),

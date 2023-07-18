@@ -1,11 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/gamer/keyboard.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/material/audios.dart';
 import 'package:tetris/panel/setting_page.dart';
+import 'package:tetris/provider/darktheme.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
 import 'package:tetris/values/responsive_value.dart';
@@ -23,16 +25,24 @@ class _MainMenuState extends State<MainMenu> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
+
     return Scaffold(
+        // backgroundColor: themeChange.darkTheme ? AppColors.white : AppColors.black,
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Container(
             height: height,
             width: width,
-            decoration:  const BoxDecoration(
+            decoration:   BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage('assets/images/background_image.png'),
+                  image: AssetImage(
+                      themeChange.darkTheme ?
+                      'assets/images/bg_default.png'
+                          :
+                      'assets/images/background_image.png'),
                 )
             ),
             child: SingleChildScrollView(
@@ -46,6 +56,7 @@ class _MainMenuState extends State<MainMenu> {
                     child: Image.asset(
                       'assets/images/terties_logo.png',
                       width: width - 150,
+                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                     ),
                   ),
                   SizedBox(height: height/5),
@@ -75,14 +86,14 @@ class _MainMenuState extends State<MainMenu> {
                                     shape: BoxShape.rectangle,
                                       border: Border.all(
                                           width: 1,
-                                          color: AppColors.white
+                                        color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                       )
                                   ),
                                   child: Container(
                                     height: height*.06,
                                     decoration:  BoxDecoration(
                                       borderRadius: BorderRadius.circular(3),
-                                      color:  AppColors.white,
+                                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                     ),
                                     child: Center(
                                       child: Text(
@@ -90,7 +101,8 @@ class _MainMenuState extends State<MainMenu> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                           style: FontTextStyleUtilities.textStyle16.copyWith(
-                                              fontWeight: FontWeight.w900
+                                              fontWeight: FontWeight.w900,
+                                            color: themeChange.darkTheme ? AppColors.white: AppColors.textColor39,
                                           )
                                       ),
                                     ),
@@ -117,14 +129,15 @@ class _MainMenuState extends State<MainMenu> {
                                       shape: BoxShape.rectangle,
                                       border: Border.all(
                                           width: 1,
-                                          color: AppColors.white
+                                        color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                       )
                                   ),
                                   child: Container(
                                     height: height*.06,
                                     decoration:  BoxDecoration(
                                       borderRadius: BorderRadius.circular(3),
-                                      color:  AppColors.white,
+                                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
+
                                     ),
                                     child: Center(
                                       child: Text(
@@ -132,7 +145,8 @@ class _MainMenuState extends State<MainMenu> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                         style: FontTextStyleUtilities.textStyle16.copyWith(
-                                        fontWeight: FontWeight.w900
+                                        fontWeight: FontWeight.w900,
+                                          color: themeChange.darkTheme ? AppColors.white: AppColors.textColor39,
                                         )
                                       ),
                                     ),
@@ -155,14 +169,14 @@ class _MainMenuState extends State<MainMenu> {
                                     shape: BoxShape.rectangle,
                                     border: Border.all(
                                         width: 1,
-                                        color: AppColors.white
+                                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                     )
                                 ),
                                 child: Container(
                                   height: height*.06,
                                   decoration:  BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
-                                    color:  AppColors.white,
+                                    color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
                                   ),
                                   child: Center(
                                     child: Text(
@@ -170,7 +184,8 @@ class _MainMenuState extends State<MainMenu> {
                                       overflow: TextOverflow.visible,
                                       textAlign: TextAlign.center,
                                         style: FontTextStyleUtilities.textStyle16.copyWith(
-                                            fontWeight: FontWeight.w900
+                                            fontWeight: FontWeight.w900,
+                                          color: themeChange.darkTheme ? AppColors.white: AppColors.textColor39,
                                         )
                                     ),
                                   ),
@@ -183,6 +198,7 @@ class _MainMenuState extends State<MainMenu> {
                       ],
                     ),
                   ),
+
 
                 ],
               ),
