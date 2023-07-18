@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
+import 'package:tetris/provider/darktheme.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
 import 'package:tetris/values/responsive_value.dart';
@@ -14,6 +16,9 @@ class GameController extends StatelessWidget {
 
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -24,7 +29,7 @@ class GameController extends StatelessWidget {
           child: SystemButtonGroup(),
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            color: AppColors.color3C
+            color: themeChange.darkTheme ? AppColors.colorEB: AppColors.color3C,
           ),
         ),
         SizedBox(height: height*0.008),
@@ -473,7 +478,7 @@ class GameController extends StatelessWidget {
           ),
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
-              color: AppColors.color3C
+            color: themeChange.darkTheme ? AppColors.colorEB: AppColors.color3C,
           ),
         ),
 
@@ -504,6 +509,7 @@ class DirectionController extends StatelessWidget {
 
 class SystemButtonGroup extends StatelessWidget {
   static const _systemButtonColor = const Color(0xFF2dc421);
+
 
   @override
   Widget build(BuildContext context) {
@@ -792,6 +798,8 @@ class _Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     Widget widget;
     switch (direction) {
       case AxisDirection.right:
@@ -823,7 +831,7 @@ class _Description extends StatelessWidget {
       style: FontTextStyleUtilities.textStyle12.copyWith(
           fontWeight: FontWeight.w600,
           fontFamily: 'Montserrat-Bold',
-        color: AppColors.white
+        color: themeChange.darkTheme ? AppColors.color31: AppColors.white,
       )
     );
   }

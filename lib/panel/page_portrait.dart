@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/panel/controller.dart';
 import 'package:tetris/panel/screen.dart';
+import 'package:tetris/provider/darktheme.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/responsive_value.dart';
 
@@ -17,6 +19,9 @@ class _PagePortraitState extends State<PagePortrait> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final screenW = size.width * 0.72;
+
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
@@ -25,7 +30,7 @@ class _PagePortraitState extends State<PagePortrait> {
           child: Container(
             height: size.height,
             width: size.width,
-            decoration:  const BoxDecoration(
+            decoration:   BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage('assets/images/bg_main.png'),
@@ -39,9 +44,13 @@ class _PagePortraitState extends State<PagePortrait> {
                   Container(
                     padding: EdgeInsets.only(top: getHeight(25),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
                     width: size.width,
-                    child: Image.asset("assets/images/logo_terties.png"),
+                    child: Image.asset(
+                        "assets/images/logo_terties.png",
+                      color: themeChange.darkTheme ? AppColors.color31: AppColors.white,
+                    ),
                     decoration: BoxDecoration(
-                      color: AppColors.color3C
+                        color: themeChange.darkTheme ? AppColors.colorEB: AppColors.color3C,
+
                     ),
                   ),
                   SizedBox(height: size.height*0.006),
@@ -52,10 +61,13 @@ class _PagePortraitState extends State<PagePortrait> {
                       Container(
                           padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(8),bottom: getHeight(5)),
                           width: size.width,
-                          child: Image.asset("assets/images/frame.png", fit: BoxFit.fill,color: AppColors.white),
+                          child: Image.asset("assets/images/frame.png",
+                            fit: BoxFit.fill,
+                            color: themeChange.darkTheme ? AppColors.color31: AppColors.white,
+                          ),
                           decoration:   BoxDecoration(
-                          color: AppColors.color3C,
-                      )),
+                            color: themeChange.darkTheme ? AppColors.colorEB: AppColors.color3C,
+                          )),
                       Positioned(
                         top: size.height*0.055,
                         child: _ScreenDecoration(child: Screen(width: screenW)),
