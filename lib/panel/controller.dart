@@ -109,12 +109,12 @@ class GameController extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Transform.scale(
-                          scale: 1.5,
-                          child: InkWell(
-                            onTap: (){
-                              Game.of(context).rotate();
-                            },
+                        InkWell(
+                          onTap: (){
+                            Game.of(context).rotate();
+                          },
+                          child: Transform.scale(
+                            scale: 1.5,
                             child: Stack(
                               alignment: Alignment.center,
                               clipBehavior: Clip.none,
@@ -184,17 +184,16 @@ class GameController extends StatelessWidget {
                                 ),
                               ],
                             ),
+
                           ),
-
                         ),
-
                         SizedBox(width: _DIRECTION_SPACE),
-                        Transform.scale(
-                          scale: 1.5,
-                          child: InkWell(
-                            onTap: (){
-                              Game.of(context).right();
-                            },
+                        InkWell(
+                          onTap: (){
+                            Game.of(context).right();
+                          },
+                          child: Transform.scale(
+                            scale: 1.5,
                             child: Stack(
                               alignment: Alignment.center,
                               clipBehavior: Clip.none,
@@ -265,8 +264,8 @@ class GameController extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ),
 
+                          ),
                         ),
 
                       ],
@@ -275,12 +274,12 @@ class GameController extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Transform.scale(
-                          scale: 1.5,
-                          child: InkWell(
-                            onTap: (){
-                              Game.of(context).left();
-                            },
+                        InkWell(
+                          onTap: (){
+                            Game.of(context).left();
+                          },
+                          child: Transform.scale(
+                            scale: 1.5,
                             child: Stack(
                               clipBehavior: Clip.none,
                               children: [
@@ -350,18 +349,18 @@ class GameController extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ),
 
+                          ),
                         ),
 
                         SizedBox(width: _DIRECTION_SPACE),
 
-                        Transform.scale(
-                          scale: 1.5,
-                          child: InkWell(
-                            onTap: (){
-                              Game.of(context).down();
-                            },
+                        InkWell(
+                          onTap: (){
+                            Game.of(context).down();
+                          },
+                          child: Transform.scale(
+                            scale: 1.5,
                             child: Stack(
                               alignment: Alignment.center,
                               clipBehavior: Clip.none,
@@ -434,8 +433,8 @@ class GameController extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ),
 
+                          ),
                         ),
 
                         /*_Button(
