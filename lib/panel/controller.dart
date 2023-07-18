@@ -254,7 +254,7 @@ class GameController extends StatelessWidget {
                                       Game.of(context).right();
                                     },
                                     child: Container(
-                                        padding: EdgeInsets.all(3.5),
+                                        padding: EdgeInsets.all(2.5),
                                         child: Transform(
                                             alignment: Alignment.center,
                                             transform: Matrix4.rotationZ(
@@ -354,7 +354,7 @@ class GameController extends StatelessWidget {
                                       Game.of(context).left();
                                     },
                                     child: Container(
-                                        padding: EdgeInsets.all(3.5),
+                                        padding: EdgeInsets.all(2.5),
                                         child: Transform(
                                             alignment: Alignment.center,
                                             transform: Matrix4.rotationZ(
@@ -450,7 +450,7 @@ class GameController extends StatelessWidget {
                                       Game.of(context).down();
                                     },
                                     child: Container(
-                                        padding: EdgeInsets.all(3.5),
+                                        padding: EdgeInsets.all(2.5),
                                         child:
                                         Transform(
                                             alignment: Alignment.center,
@@ -524,7 +524,7 @@ const Size _DIRECTION_BUTTON_SIZE = const Size(48, 48);
 
 const Size _SYSTEM_BUTTON_SIZE = const Size(28, 28);
 
-const double _DIRECTION_SPACE = 24;
+const double _DIRECTION_SPACE = 25;
 
 const double _iconSize = 16;
 
