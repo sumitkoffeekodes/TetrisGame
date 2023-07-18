@@ -61,8 +61,8 @@ class GameController extends StatelessWidget {
                           ],
                           gradient: LinearGradient(
                             colors: [
-                              Color(0xFFFCCB06),
-                              Color(0xFFEF420C),
+                              themeChange.darkTheme ? AppColors.color31.withOpacity(0.9) : Color(0xFFFCCB06),
+                              themeChange.darkTheme ? AppColors.color31.withOpacity(0.9) : Color(0xFFEF420C),
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomLeft,
@@ -92,8 +92,8 @@ class GameController extends StatelessWidget {
 
                             gradient: LinearGradient(
                                 colors: [
-                                  Color(0xFFFFE9BA).withOpacity(0.1),
-                                  Color(0xFFFFE9BA),
+                                  themeChange.darkTheme ? AppColors.color31 : Color(0xFFFFE9BA).withOpacity(0.1),
+                                  themeChange.darkTheme ? AppColors.white.withOpacity(0.2) : Color(0xFFFFE9BA),
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -138,7 +138,10 @@ class GameController extends StatelessWidget {
                                     ],
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0xFFFCCB06),
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.9)
+                                            : Color(0xFFFCCB06),
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.8)
+                                            :
                                         Color(0xFFEF420C),
                                       ],
                                       begin: Alignment.topLeft,
@@ -182,8 +185,12 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
-                                                Color(0xFFFFE9BA).withOpacity(0.1),
-                                                Color(0xFFFFE9BA),
+                                                themeChange.darkTheme ?
+                                                AppColors.colorE4.withOpacity(0.2)
+                                                    : Color(0xFFFFE9BA).withOpacity(0.1),
+                                                themeChange.darkTheme ?
+                                                AppColors.white.withOpacity(0.4)
+                                                    : Color(0xFFFFE9BA),
                                               ],
                                               begin: Alignment.topLeft,
                                               end: Alignment.bottomRight,
@@ -222,7 +229,11 @@ class GameController extends StatelessWidget {
                                     ],
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0xFFFCCB06),
+
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.9)
+                                            : Color(0xFFFCCB06),
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.8)
+                                            :
                                         Color(0xFFEF420C),
                                       ],
                                       begin: Alignment.topLeft,
@@ -267,8 +278,14 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
+                                                themeChange.darkTheme
+                                                    ?
+                                                AppColors.colorE4.withOpacity(0.2)
+                                                    :
                                                 Color(0xFFFFE9BA),
-                                                Color(0xFFFFE9BA).withOpacity(0.1),
+                                                themeChange.darkTheme ?
+                                                AppColors.white.withOpacity(0.4)
+                                                    : Color(0xFFFFE9BA).withOpacity(0.1),
                                               ],
                                               begin: Alignment.topRight,
                                               end: Alignment.bottomCenter,
@@ -312,10 +329,14 @@ class GameController extends StatelessWidget {
                                     ],
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0xFFFCCB06),
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.9)
+                                            : Color(0xFFFCCB06),
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.8)
+                                            :
                                         Color(0xFFEF420C),
+
                                       ],
-                                      begin: Alignment.topLeft,
+                                      begin:Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                     ),
                                   ),
@@ -357,8 +378,13 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
-                                                Color(0xFFFFE9BA).withOpacity(0.1),
-                                                Color(0xFFFFE9BA),
+                                                themeChange.darkTheme ?
+                                                AppColors.colorE4.withOpacity(0.2)
+                                                    : Color(0xFFFFE9BA).withOpacity(0.1),
+                                                themeChange.darkTheme ?
+                                                AppColors.white.withOpacity(0.4)
+                                                    : Color(0xFFFFE9BA),
+
                                               ],
                                               begin: Alignment.topLeft,
                                               end: Alignment.bottomCenter,
@@ -399,7 +425,10 @@ class GameController extends StatelessWidget {
                                     ],
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0xFFFCCB06),
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.9)
+                                            : Color(0xFFFCCB06),
+                                        themeChange.darkTheme ? AppColors.color31.withOpacity(0.8)
+                                            :
                                         Color(0xFFEF420C),
                                       ],
                                       begin: Alignment.topLeft,
@@ -446,8 +475,12 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
-                                                Color(0xFFFFE9BA).withOpacity(0.1),
-                                                Color(0xFFFFE9BA),
+                                                themeChange.darkTheme ?
+                                                AppColors.colorE4.withOpacity(0.2)
+                                                    : Color(0xFFFFE9BA).withOpacity(0.1),
+                                                themeChange.darkTheme ?
+                                                AppColors.white.withOpacity(0.4)
+                                                    : Color(0xFFFFE9BA),
                                               ],
                                               begin: Alignment.centerLeft,
                                               end: Alignment.centerRight,
@@ -513,6 +546,8 @@ class SystemButtonGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -545,7 +580,10 @@ class SystemButtonGroup extends StatelessWidget {
                 ],
                 gradient: LinearGradient(
                 colors: [
-                  Color(0xFFEF420C),
+                  themeChange.darkTheme ? AppColors.color31.withOpacity(0.7)
+                      : Color(0xFFEF420C),
+                  themeChange.darkTheme ? AppColors.color31.withOpacity(0.8)
+                      :
                   Color(0xFFFCCB06),
                 ],
                   begin: Alignment.topLeft,
@@ -564,13 +602,20 @@ class SystemButtonGroup extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(
                           width: 0.1,
-                          color: AppColors.white,
+                          color:themeChange.darkTheme ?
+                          AppColors.color31
+                              :
+                          AppColors.white,
                           style: BorderStyle.solid,
                         ),
                         gradient: LinearGradient(
                           colors: [
-                            Color(0xFFEF420C),
-                            Color(0xFFFFE9BA),
+                            themeChange.darkTheme ?
+                            AppColors.color31.withOpacity(0.1)
+                                : Color(0xFFEF420C),
+                            themeChange.darkTheme ?
+                            AppColors.white.withOpacity(0.4)
+                                :  Color(0xFFFFE9BA),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -618,7 +663,10 @@ class SystemButtonGroup extends StatelessWidget {
                           ],
                           gradient: LinearGradient(
                             colors: [
-                              Color(0xFFEF420C),
+                              themeChange.darkTheme ? AppColors.color31.withOpacity(0.7)
+                                  : Color(0xFFEF420C),
+                              themeChange.darkTheme ? AppColors.color31.withOpacity(0.8)
+                                  :
                               Color(0xFFFCCB06),
                             ],
                             begin: Alignment.topLeft,
@@ -637,13 +685,20 @@ class SystemButtonGroup extends StatelessWidget {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 0.1,
-                              color: AppColors.white,
+                              color:themeChange.darkTheme ?
+                              AppColors.color31
+                                  :
+                              AppColors.white,
                               style: BorderStyle.solid,
                             ),
                             gradient: LinearGradient(
                                 colors: [
-                                  Color(0xFFEF420C),
-                                  Color(0xFFFFE9BA),
+                                  themeChange.darkTheme ?
+                                  AppColors.color31.withOpacity(0.1)
+                                      : Color(0xFFEF420C),
+                                  themeChange.darkTheme ?
+                                  AppColors.white.withOpacity(0.4)
+                                      :  Color(0xFFFFE9BA),
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -688,7 +743,10 @@ class SystemButtonGroup extends StatelessWidget {
                       ],
                       gradient: LinearGradient(
                         colors: [
-                          Color(0xFFEF420C),
+                          themeChange.darkTheme ? AppColors.color31.withOpacity(0.7)
+                              : Color(0xFFEF420C),
+                          themeChange.darkTheme ? AppColors.color31.withOpacity(0.8)
+                              :
                           Color(0xFFFCCB06),
                         ],
                         begin: Alignment.topLeft,
@@ -707,13 +765,21 @@ class SystemButtonGroup extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(
                           width: 0.1,
-                          color: AppColors.white,
+                          color:
+                          themeChange.darkTheme ?
+                          AppColors.color31
+                              :
+                          AppColors.white,
                           style: BorderStyle.solid,
                         ),
                         gradient: LinearGradient(
                             colors: [
-                              Color(0xFFEF420C),
-                              Color(0xFFFFE9BA),
+                              themeChange.darkTheme ?
+                              AppColors.color31.withOpacity(0.1)
+                                  : Color(0xFFEF420C),
+                              themeChange.darkTheme ?
+                              AppColors.white.withOpacity(0.4)
+                                  :  Color(0xFFFFE9BA),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,

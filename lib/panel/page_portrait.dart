@@ -18,8 +18,7 @@ class _PagePortraitState extends State<PagePortrait> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final screenW = size.width * 0.72;
-
+    final screenW = size.width * 0.75;
     final themeChange = Provider.of<DarkThemeProvider>(context);
 
     return Scaffold(
@@ -30,7 +29,12 @@ class _PagePortraitState extends State<PagePortrait> {
           child: Container(
             height: size.height,
             width: size.width,
-            decoration:   BoxDecoration(
+            decoration: themeChange.darkTheme ?
+            BoxDecoration(
+             color: AppColors.white
+            )
+                :
+            BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage('assets/images/bg_main.png'),
@@ -113,7 +117,7 @@ class _ScreenDecoration extends StatelessWidget {
         decoration: BoxDecoration(border: Border.all(color: Colors.black54)),
         child: Container(
           padding: const EdgeInsets.all(3),
-          color: SCREEN_BACKGROUND,
+          color: AppColors.colorF9,
           child: child,
         ),
       ),

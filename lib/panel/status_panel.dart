@@ -1,37 +1,68 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tetris/gamer/block.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/material/images.dart';
+import 'package:tetris/provider/darktheme.dart';
+import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/font_utils.dart';
 
 class StatusPanel extends StatelessWidget {
+
+
+
   @override
   Widget build(BuildContext context) {
+
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
+
     return Container(
+      color: AppColors.colorF9,
       padding: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(S.of(context).points,
-              style: TextStyle(fontWeight: FontWeight.bold)),
+      style: FontTextStyleUtilities.textStyle14.copyWith(
+        fontFamily: 'Montserrat',
+        fontWeight: FontWeight.w900,
+        color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+      )
+    ),
           SizedBox(height: 4),
           Number(number: GameState.of(context).points),
           SizedBox(height: 10),
           Text(S.of(context).cleans,
-              style: TextStyle(fontWeight: FontWeight.bold)),
+              style: FontTextStyleUtilities.textStyle14.copyWith(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w900,
+                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              )
+          ),
           SizedBox(height: 4),
           Number(number: GameState.of(context).cleared),
           SizedBox(height: 10),
           Text(S.of(context).level,
-              style: TextStyle(fontWeight: FontWeight.bold)),
+              style: FontTextStyleUtilities.textStyle14.copyWith(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w900,
+                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              )
+          ),
           SizedBox(height: 4),
           Number(number: GameState.of(context).level),
           SizedBox(height: 10),
           Text(S.of(context).next,
-              style: TextStyle(fontWeight: FontWeight.bold)),
+              style: FontTextStyleUtilities.textStyle14.copyWith(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w900,
+                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              )),
           SizedBox(height: 4),
           _NextBlock(),
           Spacer(),
