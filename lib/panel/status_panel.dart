@@ -27,40 +27,64 @@ class StatusPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(S.of(context).points,
-      style: FontTextStyleUtilities.textStyle14.copyWith(
-        fontFamily: 'Montserrat',
-        fontWeight: FontWeight.w900,
-        color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
-      )
-    ),
-          SizedBox(height: 4),
-          Number(number: GameState.of(context).points),
-          SizedBox(height: 10),
+              Text(S.of(context).points,
+          style: FontTextStyleUtilities.textStyle13.copyWith(
+            fontFamily: 'Montserrat-Bold',
+            fontWeight: FontWeight.w700,
+            letterSpacing: 0.1,
+            color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+          )
+        ),
+
+          Text(
+              GameState.of(context).points.toString().padLeft(6, '0'),
+              style: FontTextStyleUtilities.textStyle16.copyWith(
+                fontFamily: 'Montserrat-Bold',
+                fontWeight: FontWeight.w700,
+                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              )),
+        /*  Number(number: GameState.of(context).points),*/
+          SizedBox(height: 8),
           Text(S.of(context).cleans,
-              style: FontTextStyleUtilities.textStyle14.copyWith(
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w900,
+              style: FontTextStyleUtilities.textStyle13.copyWith(
+                fontFamily: 'Montserrat-Bold',
+                fontWeight: FontWeight.w700,
+                letterSpacing: 0.1,
                 color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
               )
           ),
           SizedBox(height: 4),
-          Number(number: GameState.of(context).cleared),
+          Text(
+              GameState.of(context).cleared.toString().padLeft(6, '0'),
+              style: FontTextStyleUtilities.textStyle16.copyWith(
+                fontFamily: 'Montserrat-Bold',
+                fontWeight: FontWeight.w700,
+                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              )),
+
           SizedBox(height: 10),
           Text(S.of(context).level,
-              style: FontTextStyleUtilities.textStyle14.copyWith(
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w900,
+              style: FontTextStyleUtilities.textStyle13.copyWith(
+                fontFamily: 'Montserrat-Bold',
+                fontWeight: FontWeight.w700,
+                letterSpacing: 0.1,
                 color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
               )
           ),
           SizedBox(height: 4),
-          Number(number: GameState.of(context).level),
+          Text(
+              GameState.of(context).level.toString().padLeft(6, '0'),
+              style: FontTextStyleUtilities.textStyle16.copyWith(
+                fontFamily: 'Montserrat-Bold',
+                fontWeight: FontWeight.w700,
+                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              )),
           SizedBox(height: 10),
           Text(S.of(context).next,
-              style: FontTextStyleUtilities.textStyle14.copyWith(
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w900,
+              style: FontTextStyleUtilities.textStyle13.copyWith(
+                fontFamily: 'Montserrat-Bold',
+                fontWeight: FontWeight.w700,
+                letterSpacing: 0.1,
                 color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
               )),
           SizedBox(height: 4),

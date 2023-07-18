@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/material/images.dart';
 import 'package:tetris/gamer/gamer.dart';
+import 'package:tetris/provider/darktheme.dart';
+import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/font_utils.dart';
 
 const _PLAYER_PANEL_PADDING = 6;
 
@@ -64,6 +68,7 @@ class _PlayerPad extends StatelessWidget {
 class _GameUninitialized extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
     if (GameState.of(context).states == GameStates.none) {
       return Center(
         child: Column(
@@ -73,7 +78,12 @@ class _GameUninitialized extends StatelessWidget {
             SizedBox(height: 16),
             Text(
               "Tetris",
-              style: TextStyle(fontSize: 20),
+              style: FontTextStyleUtilities.textStyle16.copyWith(
+                fontFamily: 'Montserrat-Bold',
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.1,
+              color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+            ),
             ),
           ],
         ),
