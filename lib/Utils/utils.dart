@@ -5,6 +5,8 @@ import 'package:tetris/values/responsive_value.dart';
 
 abstract class FontStyleUtils {
   /// Default font family
+  ///
+  static var platform;
   static const String defaultFontOfApp = 'Montserrat-Regular';
   static const String _defaultFontFamily = defaultFontOfApp;
 
