@@ -759,7 +759,7 @@ class SystemButtonGroup extends StatelessWidget {
                   left: 5,
                   right: 5,
                   child: Container(
-                      padding: EdgeInsets.all(7),
+                      padding: EdgeInsets.all(6),
                       child: Image.asset("assets/images/sound.png"),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
