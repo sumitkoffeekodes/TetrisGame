@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tetris/Utils/utils.dart';
-import 'package:tetris/provider/darktheme.dart';
+import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/components.dart';
 import 'package:tetris/values/responsive_value.dart';
+import 'package:tetris/values/themecolors.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -17,13 +19,27 @@ class _SettingPageState extends State<SettingPage> {
   bool isSound = false;
   bool isMusic = false;
 
+  final List<ThemeColor> colorOptions = [
+    ThemeColor.Blue,
+    ThemeColor.Yellow,
+    ThemeColor.Green,
+    ThemeColor.Purple,
+    ThemeColor.Orange,
+    ThemeColor.Grey,
+    ThemeColor.Red,
+    ThemeColor.Pink,
+    ThemeColor.Silver,
+  ];
+
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    final themeChange = Provider.of<DarkThemeProvider>(context);
+    // final themeChange = Provider.of<DarkThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final currentThemeColor = themeProvider.themeColor;
 
     return Scaffold(
         backgroundColor: Colors.transparent,
@@ -35,10 +51,10 @@ class _SettingPageState extends State<SettingPage> {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(
-                      themeChange.darkTheme ?
-                      'assets/images/bg_default.png'
-                          :
+                      currentThemeColor == ThemeColor.Blue?
                       'assets/images/background_image.png'
+                          :
+                      'assets/images/bg_default.png'
                   ),
                 )
             ),
@@ -53,7 +69,11 @@ class _SettingPageState extends State<SettingPage> {
                     child: Image.asset(
                       'assets/images/terties_logo.png',
                       width: width - 150,
-                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
+                      color: currentThemeColor == ThemeColor.Blue
+                          ?
+                      AppColors.white
+                          :
+                      AppColors.textColor39,
                     ),
                   ),
                   SizedBox(height: getHeight(60)),
@@ -83,7 +103,12 @@ class _SettingPageState extends State<SettingPage> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                         style: FontStyleUtils.style(18).copyWith(
-                                            color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
+                                            color:
+                                            currentThemeColor == ThemeColor.Blue
+                                                ?
+                                            AppColors.white
+                                                :
+                                            AppColors.textColor39,
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
 
@@ -109,7 +134,12 @@ class _SettingPageState extends State<SettingPage> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                         style: FontStyleUtils.style(18).copyWith(
-                                            color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
+                                            color:
+                                            currentThemeColor == ThemeColor.Blue
+                                                ?
+                                            AppColors.white
+                                                :
+                                            AppColors.textColor39,
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
                                       Switch(
@@ -140,16 +170,103 @@ class _SettingPageState extends State<SettingPage> {
                                 children: [
                                   SizedBox(height: getHeight(15)),
 
-                                Text(
+                                  Text(
                                 'THEME COLOR',
                                 overflow: TextOverflow.visible,
                                 textAlign: TextAlign.center,
                                 style: FontStyleUtils.style(18).copyWith(
                                     color: AppColors.textColor39,
                                     fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900)),
+
                                   SizedBox(height: getHeight(25)),
 
-                                  Row(
+                                  GridView.builder(
+                                    itemCount: colorOptions.length,
+                                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3,
+                                        childAspectRatio: 1,
+                                        crossAxisSpacing: 10,
+                                        mainAxisSpacing: 12,
+                                    ),
+                                    shrinkWrap: true,
+                                    physics: const NeverScrollableScrollPhysics(),
+                                    itemBuilder: (context, index) {
+                                      final colorOption = colorOptions[index];
+                                      bool showIcon = colorOption == themeProvider.themeColor;
+
+
+                                      return GestureDetector(
+                                        onTap: () {
+                                          themeProvider.themeColor = colorOption;
+
+                                          setState(() {
+                                            showIcon =!showIcon;
+                                          });
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                  width: 1.0,
+                                                color: ColorThemes.getColorForTheme(colorOption),
+                                              )
+                                          ),
+                                          child: Container(
+                                            child: Center(
+                                              child:
+                                              showIcon
+                                                  ?
+                                              Image.asset('assets/images/ok_sign.png',width: getWidth(17))
+                                                  :
+                                              SizedBox(),
+                                            ),
+                                            decoration:  BoxDecoration(
+                                              color: ColorThemes.getColorForTheme(colorOption),
+                                            ),
+                                          ),
+                                        ),
+
+                                      /*  child: Container(
+                                          padding: EdgeInsets.all(8),
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                  width: 1,
+                                                  color: AppColors.color66
+                                              )
+                                          ),
+                                          child: Container(
+                                            height: getHeight(40),
+                                            width: getWidth(45),
+                                            child: Center(
+                                              child:
+                                              showIcon
+                                                  ?
+                                              Image.asset('assets/images/ok_sign.png',width: getWidth(17))
+                                                  :
+                                              SizedBox(),
+                                            ),
+                                            decoration:  BoxDecoration(
+                                              color:  AppColors.color66,
+                                            ),
+                                          ),
+                                        ),*/
+                                        /*child: Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: ColorThemes.getColorForTheme(colorOption),
+                                          child:
+                                          showIcon
+                                              ? Icon(Icons.check, color: Colors.white, size: 20)
+                                              : SizedBox(),
+                                        ),*/
+                                      );
+                                    },
+                                  ),
+                                  SizedBox(height: getHeight(25)),
+
+                                /*  Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
@@ -360,7 +477,7 @@ class _SettingPageState extends State<SettingPage> {
 
                                     ],
                                   ),
-                                  SizedBox(height: getHeight(25)),
+                                  SizedBox(height: getHeight(25)),*/
 
 
                                 ],
@@ -375,12 +492,7 @@ class _SettingPageState extends State<SettingPage> {
                             SizedBox(height: getHeight(30)),
                           ],
                         ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                            color: themeChange.darkTheme ? AppColors.colorE8.withOpacity(0.5) : AppColors.color66.withOpacity(0.7),
-
-
-                        ),
+                        decoration: MyDecorations.getCustomBoxDecoration(currentThemeColor),
                       ),
                       Positioned(
                         top: height*-.03,
@@ -397,14 +509,24 @@ class _SettingPageState extends State<SettingPage> {
                                     shape: BoxShape.rectangle,
                                     border: Border.all(
                                         width: 1,
-                                      color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
+                                      color:
+                                      currentThemeColor == ThemeColor.Blue
+                                          ?
+                                      AppColors.white
+                                          :
+                                      AppColors.textColor39,
                                     )
                                 ),
                                 child: Container(
                                   height: getHeight(45),
                                   decoration:  BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
-                                    color: themeChange.darkTheme ? AppColors.textColor39: AppColors.white,
+                                    color:
+                                    currentThemeColor == ThemeColor.Blue
+                                        ?
+                                    AppColors.white
+                                        :
+                                    AppColors.textColor39,
                                   ),
                                   child: Center(
                                     child: Text(
@@ -412,7 +534,11 @@ class _SettingPageState extends State<SettingPage> {
                                       overflow: TextOverflow.visible,
                                       textAlign: TextAlign.center,
                                       style: FontStyleUtils.style(18).copyWith(
-                                          color: themeChange.darkTheme ? AppColors.white: AppColors.textColor39,
+                                          color: currentThemeColor == ThemeColor.Blue
+                                              ?
+                                          AppColors.textColor39
+                                          :
+                                          AppColors.white,
                                           fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
                                     ),
                                   ),

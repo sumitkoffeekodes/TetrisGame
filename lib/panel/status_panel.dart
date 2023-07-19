@@ -7,7 +7,7 @@ import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/material/images.dart';
-import 'package:tetris/provider/darktheme.dart';
+import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
 import 'package:tetris/values/responsive_value.dart';
@@ -19,7 +19,8 @@ class StatusPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final themeChange = Provider.of<DarkThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final currentThemeColor = themeProvider.themeColor;
 
 
     return Container(
@@ -33,7 +34,7 @@ class StatusPanel extends StatelessWidget {
             fontFamily: 'Montserrat-Bold',
             fontWeight: FontWeight.w700,
             letterSpacing: 0.1,
-            color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+            color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
           )
         ),
 
@@ -42,7 +43,7 @@ class StatusPanel extends StatelessWidget {
               style: FontTextStyleUtilities.textStyle16.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
-                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
               )),
         /*  Number(number: GameState.of(context).points),*/
           SizedBox(height: 8),
@@ -51,7 +52,8 @@ class StatusPanel extends StatelessWidget {
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.1,
-                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+
               )
           ),
           SizedBox(height: 4),
@@ -60,7 +62,8 @@ class StatusPanel extends StatelessWidget {
               style: FontTextStyleUtilities.textStyle16.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
-                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+
               )),
 
           SizedBox(height: 10),
@@ -69,7 +72,8 @@ class StatusPanel extends StatelessWidget {
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.1,
-                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+
               )
           ),
           SizedBox(height: 4),
@@ -78,7 +82,8 @@ class StatusPanel extends StatelessWidget {
               style: FontTextStyleUtilities.textStyle16.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
-                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+
               )),
           SizedBox(height: 10),
           Text(S.of(context).next,
@@ -86,7 +91,8 @@ class StatusPanel extends StatelessWidget {
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.1,
-                color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+
               )),
           SizedBox(height: 4),
           _NextBlock(),
@@ -157,7 +163,8 @@ class _GameStatusState extends State<_GameStatus> {
 
   @override
   Widget build(BuildContext context) {
-    final themeChange = Provider.of<DarkThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final currentThemeColor = themeProvider.themeColor;
 
     var width =  MediaQuery.of(context).size.width;
     var height =  MediaQuery.of(context).size.height;
@@ -182,7 +189,8 @@ class _GameStatusState extends State<_GameStatus> {
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
-              color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+
             )),
         // Number(number: _hour, length: 2, padWithZero: true),
         // IconColon(enable: _colonEnable),
@@ -200,7 +208,8 @@ class _GameStatusState extends State<_GameStatus> {
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
-              color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
+              color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+
             )),
         // Number(number: _minute, length: 2, padWithZero: true),
       ],

@@ -6,7 +6,8 @@ import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/panel/main_menu.dart';
 import 'package:tetris/panel/page_portrait.dart';
-import 'package:tetris/provider/darktheme.dart';
+import 'package:tetris/panel/setting_page.dart';
+import 'package:tetris/provider/themes.dart';
 
 
 void main() {
@@ -44,7 +45,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp>  with WidgetsBindingObserver  {
-  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  ThemeProvider themeChangeProvider = ThemeProvider();
 
   Locale? _locale;
   setLocale(Locale locale) {
@@ -64,8 +65,8 @@ class _MyAppState extends State<MyApp>  with WidgetsBindingObserver  {
   }
 
   void getCurrentAppTheme() async {
-    themeChangeProvider.darkTheme =
-    await themeChangeProvider.darkThemePreference.getTheme();
+    themeChangeProvider.themeColor =
+    await themeChangeProvider.themePreference.getThemeColor();
   }
   @override
   Widget build(BuildContext context) {
@@ -74,11 +75,11 @@ class _MyAppState extends State<MyApp>  with WidgetsBindingObserver  {
           ChangeNotifierProvider(create: (context) => themeChangeProvider),
 
         ],
-        child: Consumer<DarkThemeProvider>(
+        child: Consumer<ThemeProvider>(
           builder: (BuildContext context, value, Widget? child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              theme: Styles.themeData(themeChangeProvider.darkTheme, context),
+              theme: Themestyles.themeData(themeChangeProvider.themeColor, context),
               title: 'tetris',
               home:  MainMenu(),
               locale: _locale,

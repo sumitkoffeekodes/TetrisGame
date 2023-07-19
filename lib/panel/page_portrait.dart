@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/panel/controller.dart';
 import 'package:tetris/panel/screen.dart';
-import 'package:tetris/provider/darktheme.dart';
+import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/components.dart';
 import 'package:tetris/values/responsive_value.dart';
 
 part 'page_land.dart';
@@ -19,7 +20,8 @@ class _PagePortraitState extends State<PagePortrait> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final screenW = size.width * 0.75;
-    final themeChange = Provider.of<DarkThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final currentThemeColor = themeProvider.themeColor;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -29,16 +31,12 @@ class _PagePortraitState extends State<PagePortrait> {
           child: Container(
             height: size.height,
             width: size.width,
-            decoration: themeChange.darkTheme ?
-            BoxDecoration(
-             color: AppColors.white
-            )
-                :
-            BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/images/bg_main.png'),
-                )
+            decoration: BoxDecoration(
+              image: MyDecorations.decorationImage(
+                  currentThemeColor,
+                  AssetImage(
+                      'assets/images/bg_main.png'
+                  )),
             ),
             child: SingleChildScrollView(
               physics: NeverScrollableScrollPhysics(),
@@ -50,10 +48,12 @@ class _PagePortraitState extends State<PagePortrait> {
                     width: size.width,
                     child: Image.asset(
                         "assets/images/logo_terties.png",
-                      color: themeChange.darkTheme ? AppColors.color31: AppColors.white,
+                      color: currentThemeColor == ThemeColor.Blue
+                          ?
+                      AppColors.white: AppColors.color31,
                     ),
                     decoration: BoxDecoration(
-                        color: themeChange.darkTheme ? AppColors.colorEB: AppColors.color3C,
+                        color: currentThemeColor == ThemeColor.Blue ? AppColors.color3C: AppColors.colorEB,
 
                     ),
                   ),
@@ -67,10 +67,10 @@ class _PagePortraitState extends State<PagePortrait> {
                           width: size.width,
                           child: Image.asset("assets/images/frame.png",
                             fit: BoxFit.fill,
-                            color: themeChange.darkTheme ? AppColors.color31: AppColors.white,
+                            color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color31,
                           ),
                           decoration:   BoxDecoration(
-                            color: themeChange.darkTheme ? AppColors.colorEB: AppColors.color3C,
+                            color: currentThemeColor == ThemeColor.Blue ? AppColors.color3C: AppColors.colorEB,
                           )),
                       Positioned(
                         top: size.height*0.055,

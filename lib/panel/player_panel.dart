@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/material/images.dart';
 import 'package:tetris/gamer/gamer.dart';
-import 'package:tetris/provider/darktheme.dart';
+import 'package:tetris/provider/themes.dart';
+
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
 
@@ -68,7 +69,8 @@ class _PlayerPad extends StatelessWidget {
 class _GameUninitialized extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final themeChange = Provider.of<DarkThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final currentThemeColor = themeProvider.themeColor;
     if (GameState.of(context).states == GameStates.none) {
       return Center(
         child: Column(
@@ -82,8 +84,8 @@ class _GameUninitialized extends StatelessWidget {
                 fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
               letterSpacing: 0.1,
-              color: themeChange.darkTheme ? AppColors.color3C: AppColors.white,
-            ),
+                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+              ),
             ),
           ],
         ),
