@@ -61,15 +61,18 @@ class GameController extends StatelessWidget {
                           ],
                           gradient: LinearGradient(
                             colors: [
-                              currentThemeColor == ThemeColor.Blue ?
-                              Color(0xFFFCCB06)
-                                  :
-                              AppColors.color31.withOpacity(0.9),
-                              currentThemeColor == ThemeColor.Blue
+                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              Color(0xFFEF420C)
-                                  :
                               AppColors.color31.withOpacity(0.9)
+                                  :
+                              Color(0xFFFCCB06),
+
+                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                  ?
+                              AppColors.color31.withOpacity(0.9)
+                                  :
+                              Color(0xFFEF420C),
+
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomLeft,
@@ -99,8 +102,15 @@ class GameController extends StatelessWidget {
 
                             gradient: LinearGradient(
                                 colors: [
-                                  currentThemeColor == ThemeColor.Blue ?Color(0xFFFFE9BA).withOpacity(0.1): AppColors.color31,
-                                  currentThemeColor == ThemeColor.Blue ? Color(0xFFFFE9BA) : AppColors.white.withOpacity(0.2),
+                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                      ?
+                                  AppColors.color31
+                                      :
+                                  Color(0xFFFFE9BA).withOpacity(0.1),
+                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                      ?  AppColors.white.withOpacity(0.2)
+                                      :
+                                  Color(0xFFFFE9BA),
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -145,16 +155,17 @@ class GameController extends StatelessWidget {
                                     ],
                                     gradient: LinearGradient(
                                       colors: [
-                                        currentThemeColor == ThemeColor.Blue
+                                        currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                             ?
-                                        Color(0xFFFCCB06):
                                         AppColors.color31.withOpacity(0.9)
-                                            ,
-                                        currentThemeColor == ThemeColor.Blue
-                                            ?
-                                        Color(0xFFEF420C)
                                             :
-                                        AppColors.color31.withOpacity(0.8),
+                                        Color(0xFFFCCB06),
+
+                                        currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                            ?
+                                            AppColors.color31.withOpacity(0.8)
+                                            :
+                                        Color(0xFFEF420C),
                                       ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
@@ -197,15 +208,18 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
-                                                currentThemeColor == ThemeColor.Blue
+                                                currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                     ?
-                                                Color(0xFFFFE9BA).withOpacity(0.1)
+                                                AppColors.colorE4.withOpacity(0.2)
                                                     :
-                                                AppColors.colorE4.withOpacity(0.2),
-                                                currentThemeColor == ThemeColor.Blue ?
-                                                Color(0xFFFFE9BA)
+                                                Color(0xFFFFE9BA).withOpacity(0.1),
+
+                                                currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                    ?
+                                                AppColors.white.withOpacity(0.4)
                                                     :
-                                                AppColors.white.withOpacity(0.4),
+                                                Color(0xFFFFE9BA),
+
                                               ],
                                               begin: Alignment.topLeft,
                                               end: Alignment.bottomRight,
@@ -245,16 +259,17 @@ class GameController extends StatelessWidget {
                                     gradient: LinearGradient(
                                       colors: [
 
-                                        currentThemeColor == ThemeColor.Blue
+                                        currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                             ?
-                                        Color(0xFFFCCB06):
-                                        AppColors.color31.withOpacity(0.9),
-                                        currentThemeColor == ThemeColor.Blue
-                                            ?
-                                        Color(0xFFEF420C)
+                                        AppColors.color31.withOpacity(0.9)
                                             :
+                                        Color(0xFFFCCB06),
+
+                                        currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                            ?
                                         AppColors.color31.withOpacity(0.8)
-                                        ,
+                                            :
+                                        Color(0xFFEF420C),
                                       ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
@@ -298,16 +313,18 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
-                                                currentThemeColor == ThemeColor.Blue
+                                                currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                     ?
-                                                Color(0xFFFFE9BA)
+                                                AppColors.colorE4.withOpacity(0.2)
                                                     :
-                                                AppColors.colorE4.withOpacity(0.2),
-                                                currentThemeColor == ThemeColor.Blue
+                                                Color(0xFFFFE9BA),
+
+                                                currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                     ?
+                                                    AppColors.white.withOpacity(0.4)
+                                                    :
                                                 Color(0xFFFFE9BA).withOpacity(0.1)
-                                                    :
-                                                AppColors.white.withOpacity(0.4),
+
                                               ],
                                               begin: Alignment.topRight,
                                               end: Alignment.bottomCenter,
@@ -354,16 +371,17 @@ class GameController extends StatelessWidget {
                                       ],
                                       gradient: LinearGradient(
                                         colors: [
-                                          currentThemeColor == ThemeColor.Blue
+                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                               ?
-                                          Color(0xFFFCCB06)
+                                          AppColors.color31.withOpacity(0.9)
                                               :
-                                          AppColors.color31.withOpacity(0.9),
-                                          currentThemeColor == ThemeColor.Blue
+                                          Color(0xFFFCCB06),
+
+                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                               ?
-                                          Color(0xFFEF420C)
+                                          AppColors.color31.withOpacity(0.8)
                                               :
-                                          AppColors.color31.withOpacity(0.8),
+                                          Color(0xFFEF420C),
 
 
                                         ],
@@ -404,16 +422,18 @@ class GameController extends StatelessWidget {
 
                                             gradient: LinearGradient(
                                                 colors: [
-                                                  currentThemeColor == ThemeColor.Blue
+                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  Color(0xFFFFE9BA).withOpacity(0.1)
-                                                      :
                                                   AppColors.colorE4.withOpacity(0.2)
-                                                  ,
-                                                  currentThemeColor == ThemeColor.Blue
+                                                      :
+                                                  Color(0xFFFFE9BA).withOpacity(0.1),
+
+                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  Color(0xFFFFE9BA):
-                                                  AppColors.white.withOpacity(0.4),
+                                                  AppColors.white.withOpacity(0.4)
+                                                      :
+                                                  Color(0xFFFFE9BA),
+
 
                                                 ],
                                                 begin: Alignment.topLeft,
@@ -456,16 +476,17 @@ class GameController extends StatelessWidget {
                                     ],
                                     gradient: LinearGradient(
                                       colors: [
-                                        currentThemeColor == ThemeColor.Blue
+                                        currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                             ?
-                                        Color(0xFFFCCB06)
+                                        AppColors.color31.withOpacity(0.9)
                                             :
-                                        AppColors.color31.withOpacity(0.9),
-                                        currentThemeColor == ThemeColor.Blue
+                                        Color(0xFFFCCB06),
+
+                                        currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                             ?
-                                        Color(0xFFEF420C)
+                                        AppColors.color31.withOpacity(0.8)
                                             :
-                                        AppColors.color31.withOpacity(0.8),
+                                        Color(0xFFEF420C),
                                       ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
@@ -511,15 +532,16 @@ class GameController extends StatelessWidget {
 
                                           gradient: LinearGradient(
                                               colors: [
-                                                currentThemeColor == ThemeColor.Blue
+                                                currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                     ?
-                                                Color(0xFFFFE9BA).withOpacity(0.1):
-                                                AppColors.colorE4.withOpacity(0.2),
-                                                currentThemeColor == ThemeColor.Blue
-                                                    ?
-                                                Color(0xFFFFE9BA)
+                                                AppColors.colorE4.withOpacity(0.2)
                                                     :
-                                                AppColors.white.withOpacity(0.4),
+                                                Color(0xFFFFE9BA).withOpacity(0.1),
+                                                currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                    ?
+                                                AppColors.white.withOpacity(0.4)
+                                                    :
+                                                Color(0xFFFFE9BA),
                                               ],
                                               begin: Alignment.centerLeft,
                                               end: Alignment.centerRight,
@@ -617,14 +639,17 @@ class SystemButtonGroup extends StatelessWidget {
                 ],
                 gradient: LinearGradient(
                 colors: [
-                  currentThemeColor == ThemeColor.Blue ?
-                  Color(0xFFEF420C) :
-                  AppColors.color31.withOpacity(0.7)
-                      ,
-                  currentThemeColor == ThemeColor.Blue
+                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                       ?
-                  Color(0xFFFCCB06):
-                  AppColors.color31.withOpacity(0.8),
+                  AppColors.color31.withOpacity(0.7)
+                      :
+                  Color(0xFFEF420C),
+
+                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                      ?
+                  AppColors.color31.withOpacity(0.8)
+                      :
+                  Color(0xFFFCCB06)
                 ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -642,22 +667,26 @@ class SystemButtonGroup extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(
                           width: 0.1,
-                          color:currentThemeColor == ThemeColor.Blue ?
-                          AppColors.white
+                          color:
+                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                              ?
+                          AppColors.color31
                               :
-                          AppColors.color31,
+                          AppColors.white,
                           style: BorderStyle.solid,
                         ),
                         gradient: LinearGradient(
                           colors: [
-                            currentThemeColor == ThemeColor.Blue ?
-                            Color(0xFFEF420C):
-                            AppColors.color31.withOpacity(0.1),
-                            currentThemeColor == ThemeColor.Blue
+                            currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                 ?
-                            Color(0xFFFFE9BA)
+                            AppColors.color31.withOpacity(0.1)
                                 :
-                            AppColors.white.withOpacity(0.4),
+                            Color(0xFFEF420C),
+                            currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                ?
+                            AppColors.white.withOpacity(0.4)
+                                :
+                            Color(0xFFFFE9BA)
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -705,16 +734,16 @@ class SystemButtonGroup extends StatelessWidget {
                           ],
                           gradient: LinearGradient(
                             colors: [
-                              currentThemeColor == ThemeColor.Blue
+                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              Color(0xFFEF420C)
+                              AppColors.color31.withOpacity(0.7)
                                   :
-                              AppColors.color31.withOpacity(0.7),
-                              currentThemeColor == ThemeColor.Blue
+                              Color(0xFFEF420C),
+                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              Color(0xFFFCCB06)
+                              AppColors.color31.withOpacity(0.8)
                                   :
-                              AppColors.color31.withOpacity(0.8),
+                              Color(0xFFFCCB06),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -732,21 +761,27 @@ class SystemButtonGroup extends StatelessWidget {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 0.1,
-                              color: currentThemeColor == ThemeColor.Blue
+                              color:
+                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              AppColors.white
+                              AppColors.color31
                                   :
-                              AppColors.color31,
+                              AppColors.white,
                               style: BorderStyle.solid,
                             ),
                             gradient: LinearGradient(
                                 colors: [
-                                  currentThemeColor == ThemeColor.Blue ?
-                                  Color(0xFFEF420C):
-                                  AppColors.color31.withOpacity(0.1),
-                                  currentThemeColor == ThemeColor.Blue  ?
-                                  Color(0xFFFFE9BA):
-                                  AppColors.white.withOpacity(0.4),
+                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                      ?
+                                  AppColors.color31.withOpacity(0.1)
+                                      :
+                                  Color(0xFFEF420C),
+
+                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                      ?
+                                  AppColors.white.withOpacity(0.4)
+                                      :
+                                  Color(0xFFFFE9BA),
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -791,16 +826,17 @@ class SystemButtonGroup extends StatelessWidget {
                       ],
                       gradient: LinearGradient(
                         colors: [
-                          currentThemeColor == ThemeColor.Blue
+                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                               ?
-                          Color(0xFFEF420C)
+                      AppColors.color31.withOpacity(0.7)
                               :
-                          AppColors.color31.withOpacity(0.7),
-                          currentThemeColor == ThemeColor.Blue
+                          Color(0xFFEF420C),
+
+                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                               ?
-                          Color(0xFFFCCB06)
+                          AppColors.color31.withOpacity(0.8)
                               :
-                          AppColors.color31.withOpacity(0.8),
+                          Color(0xFFFCCB06),
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
@@ -819,25 +855,26 @@ class SystemButtonGroup extends StatelessWidget {
                         border: Border.all(
                           width: 0.1,
                           color:
-                          currentThemeColor == ThemeColor.Blue
+                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                               ?
-                          AppColors.white
+                          AppColors.color31
                               :
-                          AppColors.color31,
+                          AppColors.white,
                           style: BorderStyle.solid,
                         ),
                         gradient: LinearGradient(
                             colors: [
-                              currentThemeColor == ThemeColor.Blue
+                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              Color(0xFFEF420C)
+                              AppColors.color31.withOpacity(0.1)
                                   :
-                              AppColors.color31.withOpacity(0.1),
-                              currentThemeColor == ThemeColor.Blue
+                              Color(0xFFEF420C),
+
+                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              Color(0xFFFFE9BA)
+                              AppColors.white.withOpacity(0.4)
                                   :
-                              AppColors.white.withOpacity(0.4),
+                              Color(0xFFFFE9BA),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -956,7 +993,9 @@ class _Description extends StatelessWidget {
       style: FontTextStyleUtilities.textStyle12.copyWith(
           fontWeight: FontWeight.w600,
           fontFamily: 'Montserrat-Bold',
-        color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color31,
+        color:
+        currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+            ? AppColors.color31: AppColors.white,
       )
     );
   }
