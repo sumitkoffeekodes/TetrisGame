@@ -29,6 +29,7 @@ class _SettingPageState extends State<SettingPage> {
     ThemeColor.Red,
     ThemeColor.Pink,
     ThemeColor.Silver,
+    ThemeColor.White,
   ];
 
 
@@ -149,7 +150,7 @@ class _SettingPageState extends State<SettingPage> {
                             ),
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: getWidth(20)),
-                              padding: EdgeInsets.symmetric(horizontal: getWidth(20)),
+                              // padding: EdgeInsets.symmetric(horizontal: getWidth(15)),
                               width: width,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -165,15 +166,14 @@ class _SettingPageState extends State<SettingPage> {
                                     color: AppColors.textColor39,
                                     fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900)),
 
-                                  SizedBox(height: getHeight(25)),
-
                                   GridView.builder(
+                                    padding: EdgeInsets.only(left: getWidth(30),right: getWidth(30),top: getHeight(20)),
                                     itemCount: colorOptions.length,
                                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 3,
                                         childAspectRatio: 1,
                                         crossAxisSpacing: 10,
-                                        mainAxisSpacing: 12,
+                                        mainAxisSpacing: 10,
                                     ),
                                     shrinkWrap: true,
                                     physics: const NeverScrollableScrollPhysics(),
@@ -251,7 +251,7 @@ class _SettingPageState extends State<SettingPage> {
                                       );
                                     },
                                   ),
-                                  SizedBox(height: getHeight(25)),
+                                  SizedBox(height: getHeight(15)),
 
                                 /*  Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

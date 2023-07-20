@@ -6,11 +6,9 @@ import 'package:tetris/gamer/block.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/briks.dart';
-import 'package:tetris/material/images.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
-import 'package:tetris/values/responsive_value.dart';
 
 class StatusPanel extends StatelessWidget {
 
@@ -118,7 +116,7 @@ class _NextBlock extends StatelessWidget {
       children: data.map((list) {
         return Row(
           children: list.map((b) {
-            return b == 1 ? const Brik.normal() : const Brik.empty();
+            return b == 1 ?  Brik.normal() :  Brik.empty();
           }).toList(),
         );
       }).toList(),

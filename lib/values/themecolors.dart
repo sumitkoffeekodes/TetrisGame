@@ -25,7 +25,7 @@ class ColorThemes{
       case ThemeColor.Silver:
         return AppColors.color99;
       default:
-        return AppColors.white;
+        return AppColors.black;
     }
   }
 

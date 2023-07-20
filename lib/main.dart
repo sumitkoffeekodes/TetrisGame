@@ -6,7 +6,6 @@ import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/panel/main_menu.dart';
 import 'package:tetris/panel/page_portrait.dart';
-import 'package:tetris/panel/setting_page.dart';
 import 'package:tetris/provider/themes.dart';
 
 

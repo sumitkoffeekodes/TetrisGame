@@ -55,10 +55,10 @@ class _PlayerPad extends StatelessWidget {
         return Row(
           children: list.map((b) {
             return b == 1
-                ? const Brik.normal()
+                ?  Brik.normal()
                 : b == 2
-                    ? const Brik.highlight()
-                    : const Brik.empty();
+                    ?  Brik.highlight()
+                    :  Brik.empty();
           }).toList(),
         );
       }).toList(),

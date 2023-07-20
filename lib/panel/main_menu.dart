@@ -7,7 +7,6 @@ import 'package:tetris/main.dart';
 import 'package:tetris/material/audios.dart';
 import 'package:tetris/panel/setting_page.dart';
 import 'package:tetris/provider/themes.dart';
-import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/components.dart';
 import 'package:tetris/values/font_utils.dart';
 
