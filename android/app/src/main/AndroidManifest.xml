@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tech.soit.flutter_tetris">
+    package="com.koffeekodes.blocksaga">
    <application
         android:label="flutter_tetris"
         android:icon="@mipmap/ic_launcher">

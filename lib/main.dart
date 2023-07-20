@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp>  with WidgetsBindingObserver  {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: Themestyles.themeData(themeChangeProvider.themeColor, context),
-              title: 'tetris',
+              title: 'Bloc Saga',
               home:  MainMenu(),
               locale: _locale,
               localizationsDelegates: [

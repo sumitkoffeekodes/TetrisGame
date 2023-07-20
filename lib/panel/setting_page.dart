@@ -114,8 +114,8 @@ class _SettingPageState extends State<SettingPage> {
                                         value: isSound,
                                         activeColor: AppColors.colorD6,
                                         activeTrackColor: AppColors.color9D,
-                                        inactiveThumbColor: AppColors.colorD6,
-                                        inactiveTrackColor: AppColors.color9D,
+                                        inactiveThumbColor: AppColors.color9D,
+                                        inactiveTrackColor: AppColors.colorD6,
                                       )
                                     ],
                                   ),
@@ -139,8 +139,8 @@ class _SettingPageState extends State<SettingPage> {
                                         value: isMusic,
                                         activeColor: AppColors.white,
                                         activeTrackColor: AppColors.color3C,
-                                        inactiveThumbColor: AppColors.white,
-                                        inactiveTrackColor: AppColors.color3C,
+                                        inactiveThumbColor: AppColors.color3C,
+                                        inactiveTrackColor: AppColors.white,
                                       )
                                     ],
                                   ),
