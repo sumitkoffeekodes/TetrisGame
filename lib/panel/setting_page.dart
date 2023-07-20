@@ -69,7 +69,7 @@ class _SettingPageState extends State<SettingPage> {
                   SizedBox(height: getHeight(65)),
                   Center(
                     child: Image.asset(
-                      'assets/images/terties_logo.png',
+                      'assets/images/main_logo.png',
                       width: width - 150,
                       color: MyDecorations.getColorHere(currentThemeColor)
                     ),

@@ -56,7 +56,7 @@ class _MainMenuState extends State<MainMenu> {
                   SizedBox(height: height/4.5),
                   Center(
                     child: Image.asset(
-                      'assets/images/terties_logo.png',
+                      'assets/images/main_logo.png',
                       width: width - 150,
                       color:  MyDecorations.getColorHere(currentThemeColor),
                     ),
