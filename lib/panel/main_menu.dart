@@ -57,10 +57,7 @@ class _MainMenuState extends State<MainMenu> {
                     child: Image.asset(
                       'assets/images/terties_logo.png',
                       width: width - 150,
-                      color:  currentThemeColor == ThemeColor.Blue ?
-                      AppColors.white
-                          :
-                      AppColors.textColor39,
+                      color:  MyDecorations.getColorHere(currentThemeColor),
                     ),
                   ),
                   SizedBox(height: height/5),
@@ -90,21 +87,14 @@ class _MainMenuState extends State<MainMenu> {
                                     shape: BoxShape.rectangle,
                                       border: Border.all(
                                           width: 1,
-                                        color:
-                                        currentThemeColor == ThemeColor.Blue ?
-                                        AppColors.white
-                                            :
-                                        AppColors.textColor39,
-                                      )
+                                        color: MyDecorations.getColorHere(currentThemeColor),
+                                  )
                                   ),
                                   child: Container(
                                     height: height*.06,
                                     decoration:  BoxDecoration(
                                       borderRadius: BorderRadius.circular(3),
-                                     color: currentThemeColor == ThemeColor.Blue ?
-                                     AppColors.white
-                                         :
-                                     AppColors.orange.withOpacity(0.3),
+                                     color: MyDecorations.getColorHere(currentThemeColor),
                                     ),
                                     child: Center(
                                       child: Text(
@@ -113,11 +103,7 @@ class _MainMenuState extends State<MainMenu> {
                                         textAlign: TextAlign.center,
                                           style: FontTextStyleUtilities.textStyle16.copyWith(
                                               fontWeight: FontWeight.w900,
-                                            color:  currentThemeColor == ThemeColor.Blue
-                                                ?
-                                            AppColors.textColor39
-                                            :
-                                            AppColors.textColor39
+                                            color:  MyDecorations.textColorHere(currentThemeColor),
                                           )
                                       ),
                                     ),
@@ -144,22 +130,14 @@ class _MainMenuState extends State<MainMenu> {
                                       shape: BoxShape.rectangle,
                                       border: Border.all(
                                           width: 1,
-                                        color:currentThemeColor == ThemeColor.Blue ?
-                                        AppColors.white
-                                            :
-                                        AppColors.textColor39,
+                                        color: MyDecorations.getColorHere(currentThemeColor),
                                       )
                                   ),
                                   child: Container(
                                     height: height*.06,
                                     decoration:  BoxDecoration(
                                       borderRadius: BorderRadius.circular(3),
-                                      color:  currentThemeColor == ThemeColor.Blue
-                                          ?
-                                      AppColors.white
-                                      :
-                                      AppColors.textColor39,
-
+                                      color: MyDecorations.getColorHere(currentThemeColor),
                                     ),
                                     child: Center(
                                       child: Text(
@@ -168,7 +146,7 @@ class _MainMenuState extends State<MainMenu> {
                                         textAlign: TextAlign.center,
                                         style: FontTextStyleUtilities.textStyle16.copyWith(
                                         fontWeight: FontWeight.w900,
-                                          color:  currentThemeColor == ThemeColor.Blue ? AppColors.textColor39: AppColors.white,
+                                          color:  MyDecorations.textColorHere(currentThemeColor),
                                         )
                                       ),
                                     ),
@@ -191,22 +169,16 @@ class _MainMenuState extends State<MainMenu> {
                                     shape: BoxShape.rectangle,
                                     border: Border.all(
                                         width: 1,
-                                      color:  currentThemeColor == ThemeColor.Blue
-                                          ?
-                                      AppColors.white
-                                          :
-                                      AppColors.textColor39,
+                                      color: MyDecorations.getColorHere(currentThemeColor),
+
                                     )
                                 ),
                                 child: Container(
                                   height: height*.06,
                                   decoration:  BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
-                                    color:currentThemeColor == ThemeColor.Blue
-                                        ?
-                                    AppColors.white
-                                        :
-                                    AppColors.textColor39,
+                                    color: MyDecorations.getColorHere(currentThemeColor),
+
                                   ),
                                   child: Center(
                                     child: Text(
@@ -215,8 +187,7 @@ class _MainMenuState extends State<MainMenu> {
                                       textAlign: TextAlign.center,
                                         style: FontTextStyleUtilities.textStyle16.copyWith(
                                             fontWeight: FontWeight.w900,
-                                          color:
-                                          currentThemeColor == ThemeColor.Blue ? AppColors.textColor39: AppColors.white,
+                                          color:  MyDecorations.textColorHere(currentThemeColor),
                                         )
                                     ),
                                   ),
