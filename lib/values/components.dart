@@ -48,6 +48,50 @@ class MyDecorations {
     );
   }
 
+  static BoxDecoration getCustomBoxWithOutOpacity(ThemeColor currentThemeColor) {
+    return BoxDecoration(
+      shape: BoxShape.rectangle,
+      color:
+      currentThemeColor == ThemeColor.Blue
+          ?
+      AppColors.color3C
+          :
+      currentThemeColor == ThemeColor.Yellow
+          ?
+      AppColors.yellow
+          :
+      currentThemeColor == ThemeColor.Green
+          ?
+      AppColors.color4E
+          :
+      currentThemeColor == ThemeColor.Purple
+          ?
+      AppColors.color7A
+          :
+      currentThemeColor == ThemeColor.Orange
+          ?
+      AppColors.orangeColor
+          :
+      currentThemeColor == ThemeColor.Grey
+          ?
+      AppColors.color20
+          :
+      currentThemeColor == ThemeColor.Red
+          ?
+      AppColors.color16
+          :
+      currentThemeColor == ThemeColor.Pink
+          ?
+      AppColors.color83
+          :
+      currentThemeColor == ThemeColor.Silver
+          ?
+      AppColors.color5C
+          :
+      AppColors.colorEB,
+    );
+  }
+
   static DecorationImage decorationImage(ThemeColor currentThemeColor,ImageProvider<Object> image){
     return DecorationImage(
       fit: BoxFit.fill,
@@ -177,5 +221,49 @@ class MyDecorations {
     AppColors.colorE8;
 
   }
+
+  static AssetImage bgImage(ThemeColor currentThemeColor){
+    return AssetImage(
+        currentThemeColor == ThemeColor.Blue
+            ?
+        'assets/images/bg_main.png'
+            :
+        currentThemeColor == ThemeColor.Yellow
+            ?
+        'assets/images/light.png'
+            :
+        currentThemeColor == ThemeColor.Green
+            ?
+        'assets/images/green_theme.png'
+            :
+        currentThemeColor == ThemeColor.Purple
+            ?
+        'assets/images/purple_theme.png'
+            :
+        currentThemeColor == ThemeColor.Orange
+            ?
+        'assets/images/orange_theme.png'
+            :
+        currentThemeColor == ThemeColor.Grey
+            ?
+        'assets/images/grey_theme.png'
+            :
+        currentThemeColor == ThemeColor.Red
+            ?
+        'assets/images/red_theme.png'
+            :
+        currentThemeColor == ThemeColor.Pink
+            ?
+        'assets/images/pink_theme.png'
+            :
+        currentThemeColor == ThemeColor.Silver
+            ?
+        'assets/images/silver_theme.png'
+            :
+        'assets/images/bg_main.png'
+    );
+
+  }
+
 
 }

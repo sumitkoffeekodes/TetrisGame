@@ -7,6 +7,7 @@ import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/components.dart';
 import 'package:tetris/values/font_utils.dart';
 import 'package:tetris/values/responsive_value.dart';
 
@@ -28,11 +29,9 @@ class GameController extends StatelessWidget {
           padding: EdgeInsets.only(left: width*0.035,right: width*0.035,top: height*0.01,bottom: height*0.01),
           margin: EdgeInsets.only(left: width*0.035,right: width*0.035),
           child: SystemButtonGroup(),
-          decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            color: currentThemeColor == ThemeColor.Blue ? AppColors.color3C: AppColors.colorEB,
-          ),
-        ),
+          decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
+
+    ),
         SizedBox(height: height*0.008),
         Container(
           padding: EdgeInsets.only(left: width*0.1,right: width*0.12,top: height*0.009,bottom: height*0.009),
@@ -549,10 +548,7 @@ class GameController extends StatelessWidget {
               ),
             ],
           ),
-          decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-            color: currentThemeColor == ThemeColor.Blue ? AppColors.color3C: AppColors.colorEB,
-          ),
+            decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
         ),
 
       ],

@@ -44,7 +44,9 @@ class _MainMenuState extends State<MainMenu> {
                     'assets/images/background_image.png'
                         :
                     'assets/images/bg_default.png'
-                )),
+
+                    ),
+                ),
             ),
             child: SingleChildScrollView(
               physics: NeverScrollableScrollPhysics(),

@@ -32,11 +32,8 @@ class _PagePortraitState extends State<PagePortrait> {
             height: size.height,
             width: size.width,
             decoration: BoxDecoration(
-              image: MyDecorations.decorationImage(
-                  currentThemeColor,
-                  AssetImage(
-                      'assets/images/bg_main.png'
-                  )),
+              image: DecorationImage(
+                  image: MyDecorations.bgImage(currentThemeColor),fit: BoxFit.fill)
             ),
             child: SingleChildScrollView(
               physics: NeverScrollableScrollPhysics(),
@@ -48,14 +45,12 @@ class _PagePortraitState extends State<PagePortrait> {
                     width: size.width,
                     child: Image.asset(
                         "assets/images/logo_terties.png",
-                      color: currentThemeColor == ThemeColor.Blue
+                      color: currentThemeColor == ThemeColor.White
                           ?
-                      AppColors.white: AppColors.color31,
+                      AppColors.color31: AppColors.white,
                     ),
-                    decoration: BoxDecoration(
-                        color: currentThemeColor == ThemeColor.Blue ? AppColors.color3C: AppColors.colorEB,
+                    decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
 
-                    ),
                   ),
                   SizedBox(height: size.height*0.006),
                   Stack(
@@ -67,11 +62,15 @@ class _PagePortraitState extends State<PagePortrait> {
                           width: size.width,
                           child: Image.asset("assets/images/frame.png",
                             fit: BoxFit.fill,
-                            color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color31,
+                            color:
+                            currentThemeColor == ThemeColor.White
+                                ?
+                            AppColors.color31
+                                :
+                            AppColors.white,
                           ),
-                          decoration:   BoxDecoration(
-                            color: currentThemeColor == ThemeColor.Blue ? AppColors.color3C: AppColors.colorEB,
-                          )),
+                          decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
+                      ),
                       Positioned(
                         top: size.height*0.055,
                         child: _ScreenDecoration(child: Screen(width: screenW)),
