@@ -45,7 +45,8 @@ class _PagePortraitState extends State<PagePortrait> {
                     width: size.width,
                     child: Image.asset(
                         "assets/images/logo_terties.png",
-                      color: currentThemeColor == ThemeColor.White
+                      color:
+                      currentThemeColor == ThemeColor.White || currentThemeColor == ThemeColor.Yellow
                           ?
                       AppColors.color31: AppColors.white,
                     ),
@@ -63,7 +64,7 @@ class _PagePortraitState extends State<PagePortrait> {
                           child: Image.asset("assets/images/frame.png",
                             fit: BoxFit.fill,
                             color:
-                            currentThemeColor == ThemeColor.White
+                            currentThemeColor == ThemeColor.White || currentThemeColor == ThemeColor.Yellow
                                 ?
                             AppColors.color31
                                 :
