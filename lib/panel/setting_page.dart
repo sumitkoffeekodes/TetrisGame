@@ -48,15 +48,16 @@ class _SettingPageState extends State<SettingPage> {
             height: height,
             width: width,
             decoration:   BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                      currentThemeColor == ThemeColor.Blue?
-                      'assets/images/background_image.png'
-                          :
-                      'assets/images/bg_default.png'
-                  ),
-                )
+                image: MyDecorations.decorationImage(
+                    currentThemeColor,
+                    AssetImage(
+                        currentThemeColor == ThemeColor.Blue
+                            ?
+                        'assets/images/background_image.png'
+                            :
+                        'assets/images/bg_default.png'
+                    )),
+
             ),
             child: SingleChildScrollView(
               physics: NeverScrollableScrollPhysics(),
