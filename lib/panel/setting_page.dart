@@ -70,11 +70,7 @@ class _SettingPageState extends State<SettingPage> {
                     child: Image.asset(
                       'assets/images/terties_logo.png',
                       width: width - 150,
-                      color: currentThemeColor == ThemeColor.Blue
-                          ?
-                      AppColors.white
-                          :
-                      AppColors.textColor39,
+                      color: MyDecorations.getColorHere(currentThemeColor)
                     ),
                   ),
                   SizedBox(height: getHeight(60)),
@@ -104,12 +100,7 @@ class _SettingPageState extends State<SettingPage> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                         style: FontStyleUtils.style(18).copyWith(
-                                            color:
-                                            currentThemeColor == ThemeColor.Blue
-                                                ?
-                                            AppColors.white
-                                                :
-                                            AppColors.textColor39,
+                                            color: MyDecorations.getColorHere(currentThemeColor),
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
 
@@ -135,12 +126,7 @@ class _SettingPageState extends State<SettingPage> {
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
                                         style: FontStyleUtils.style(18).copyWith(
-                                            color:
-                                            currentThemeColor == ThemeColor.Blue
-                                                ?
-                                            AppColors.white
-                                                :
-                                            AppColors.textColor39,
+                                            color: MyDecorations.getColorHere(currentThemeColor),
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
                                       Switch(
@@ -510,12 +496,7 @@ class _SettingPageState extends State<SettingPage> {
                                     shape: BoxShape.rectangle,
                                     border: Border.all(
                                         width: 1,
-                                      color:
-                                      currentThemeColor == ThemeColor.Blue
-                                          ?
-                                      AppColors.white
-                                          :
-                                      AppColors.textColor39,
+                                      color: MyDecorations.getColorHere(currentThemeColor),
                                     )
                                 ),
                                 child: Container(
@@ -523,11 +504,7 @@ class _SettingPageState extends State<SettingPage> {
                                   decoration:  BoxDecoration(
                                     borderRadius: BorderRadius.circular(3),
                                     color:
-                                    currentThemeColor == ThemeColor.Blue
-                                        ?
-                                    AppColors.white
-                                        :
-                                    AppColors.textColor39,
+                                    MyDecorations.getColorHere(currentThemeColor),
                                   ),
                                   child: Center(
                                     child: Text(
@@ -535,11 +512,7 @@ class _SettingPageState extends State<SettingPage> {
                                       overflow: TextOverflow.visible,
                                       textAlign: TextAlign.center,
                                       style: FontStyleUtils.style(18).copyWith(
-                                          color: currentThemeColor == ThemeColor.Blue
-                                              ?
-                                          AppColors.textColor39
-                                          :
-                                          AppColors.white,
+                                          color:  MyDecorations.textColorHere(currentThemeColor),
                                           fontFamily: 'Montserrat',fontWeight: FontWeight.w900),
                                     ),
                                   ),

@@ -62,32 +62,32 @@ class MyDecorations {
           :
       currentThemeColor == ThemeColor.Green
           ?
-      ColorFilter.mode(AppColors.color4E.withOpacity(0.45), BlendMode.srcOver)
+      ColorFilter.mode(AppColors.color4E.withOpacity(0.60), BlendMode.srcOver)
           :
       currentThemeColor == ThemeColor.Purple
           ?
-      ColorFilter.mode(AppColors.colorA3.withOpacity(0.45), BlendMode.srcOver)
+      ColorFilter.mode(AppColors.colorA3.withOpacity(0.60), BlendMode.srcOver)
           :
       currentThemeColor == ThemeColor.Orange
           ?
-      ColorFilter.mode(AppColors.orange.withOpacity(0.45), BlendMode.srcOver)
+      ColorFilter.mode(AppColors.orange.withOpacity(0.50), BlendMode.srcOver)
         :
       currentThemeColor == ThemeColor.Grey
           ?
-      ColorFilter.mode(AppColors.color28.withOpacity(0.45), BlendMode.srcOver)
+      ColorFilter.mode(AppColors.color28.withOpacity(0.6), BlendMode.srcOver)
           :
       currentThemeColor == ThemeColor.Red
           ?
 
-      ColorFilter.mode(AppColors.color1C.withOpacity(0.45), BlendMode.srcOver)
+      ColorFilter.mode(AppColors.color1C.withOpacity(0.5), BlendMode.srcOver)
           :
       currentThemeColor == ThemeColor.Pink
           ?
-      ColorFilter.mode(AppColors.colorBF.withOpacity(0.45), BlendMode.srcOver)
+      ColorFilter.mode(AppColors.colorBF.withOpacity(0.60), BlendMode.srcOver)
           :
       currentThemeColor == ThemeColor.Silver
           ?
-      ColorFilter.mode(AppColors.color99.withOpacity(0.45), BlendMode.srcOver)
+      ColorFilter.mode(AppColors.color99.withOpacity(0.60), BlendMode.srcOver)
           :
       ColorFilter.mode(Colors.transparent, BlendMode.srcOver),
       image: image
@@ -95,14 +95,14 @@ class MyDecorations {
   }
 
 
- /* static Color getColorHere(ThemeColor currentThemeColor){
+  static Color getColorHere(ThemeColor currentThemeColor){
     return  currentThemeColor == ThemeColor.Blue
         ?
     AppColors.white
         :
     currentThemeColor == ThemeColor.Yellow
         ?
-    AppColors.white
+    AppColors.textColor39
         :
     currentThemeColor == ThemeColor.Green
         ?
@@ -114,7 +114,7 @@ class MyDecorations {
         :
     currentThemeColor == ThemeColor.Orange
         ?
-    AppColors.white
+    AppColors.textColor39
         :
     currentThemeColor == ThemeColor.Grey
         ?
@@ -126,6 +126,48 @@ class MyDecorations {
         :
     currentThemeColor == ThemeColor.Pink
         ?
+    AppColors.textColor39
+        :
+    currentThemeColor == ThemeColor.Silver
+        ?
+    AppColors.textColor39
+        :
+    AppColors.colorE8;
+
+  }
+
+
+  static Color textColorHere(ThemeColor currentThemeColor){
+    return  currentThemeColor == ThemeColor.Blue
+        ?
+    AppColors.textColor39
+        :
+    currentThemeColor == ThemeColor.Yellow
+        ?
+    AppColors.white
+        :
+    currentThemeColor == ThemeColor.Green
+        ?
+    AppColors.textColor39
+        :
+    currentThemeColor == ThemeColor.Purple
+        ?
+    AppColors.textColor39
+        :
+    currentThemeColor == ThemeColor.Orange
+        ?
+    AppColors.white
+        :
+    currentThemeColor == ThemeColor.Grey
+        ?
+    AppColors.textColor39
+        :
+    currentThemeColor == ThemeColor.Red
+        ?
+    AppColors.textColor39
+        :
+    currentThemeColor == ThemeColor.Pink
+        ?
     AppColors.white
         :
     currentThemeColor == ThemeColor.Silver
@@ -134,5 +176,6 @@ class MyDecorations {
         :
     AppColors.colorE8;
 
-  }*/
+  }
+
 }
