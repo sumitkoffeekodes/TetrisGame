@@ -78,7 +78,7 @@ class MyDecorations {
           :
       currentThemeColor == ThemeColor.Red
           ?
-      AppColors.color16
+      AppColors.color16.withOpacity(0.85)
           :
       currentThemeColor == ThemeColor.Pink
           ?
