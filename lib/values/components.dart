@@ -226,7 +226,7 @@ class MyDecorations {
     return AssetImage(
         currentThemeColor == ThemeColor.Blue
             ?
-        'assets/images/bg_main.png'
+        'assets/images/blue_theme.png'
             :
         currentThemeColor == ThemeColor.Yellow
             ?

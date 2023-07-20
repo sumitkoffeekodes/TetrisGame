@@ -32,7 +32,7 @@ class StatusPanel extends StatelessWidget {
             fontFamily: 'Montserrat-Bold',
             fontWeight: FontWeight.w700,
             letterSpacing: 0.1,
-            color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+            color: AppColors.color3C,
           )
         ),
 
@@ -41,7 +41,7 @@ class StatusPanel extends StatelessWidget {
               style: FontTextStyleUtilities.textStyle16.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
-                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+                color: AppColors.color3C,
               )),
         /*  Number(number: GameState.of(context).points),*/
           SizedBox(height: 8),
@@ -50,8 +50,7 @@ class StatusPanel extends StatelessWidget {
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.1,
-                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
-
+                color: AppColors.color3C,
               )
           ),
           SizedBox(height: 4),
@@ -60,8 +59,7 @@ class StatusPanel extends StatelessWidget {
               style: FontTextStyleUtilities.textStyle16.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
-                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
-
+                color: AppColors.color3C,
               )),
 
           SizedBox(height: 10),
@@ -70,8 +68,7 @@ class StatusPanel extends StatelessWidget {
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.1,
-                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
-
+                color: AppColors.color3C,
               )
           ),
           SizedBox(height: 4),
@@ -80,8 +77,7 @@ class StatusPanel extends StatelessWidget {
               style: FontTextStyleUtilities.textStyle16.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
-                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
-
+                color: AppColors.color3C,
               )),
           SizedBox(height: 10),
           Text(S.of(context).next,
@@ -89,8 +85,7 @@ class StatusPanel extends StatelessWidget {
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.1,
-                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
-
+                color: AppColors.color3C,
               )),
           SizedBox(height: 4),
           _NextBlock(),
@@ -187,8 +182,7 @@ class _GameStatusState extends State<_GameStatus> {
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
-              color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
-
+              color: AppColors.color3C,
             )),
         // Number(number: _hour, length: 2, padWithZero: true),
         // IconColon(enable: _colonEnable),
@@ -206,8 +200,7 @@ class _GameStatusState extends State<_GameStatus> {
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
-              color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
-
+              color: AppColors.color3C,
             )),
         // Number(number: _minute, length: 2, padWithZero: true),
       ],
