@@ -79,12 +79,12 @@ class _GameUninitialized extends StatelessWidget {
             IconDragon(animate: true),
             SizedBox(height: 16),
             Text(
-              "Tetris",
-              style: FontTextStyleUtilities.textStyle16.copyWith(
+              "BLOCK SAGA",
+              style: FontTextStyleUtilities.textStyle14.copyWith(
                 fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
-              letterSpacing: 0.1,
-                color: currentThemeColor == ThemeColor.Blue ? AppColors.white: AppColors.color3C,
+              letterSpacing: 1.0,
+                color: AppColors.color3C,
               ),
             ),
           ],
