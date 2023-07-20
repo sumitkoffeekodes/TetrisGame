@@ -132,7 +132,7 @@ class MyDecorations {
         ?
     AppColors.textColor39
         :
-    AppColors.colorE8;
+    AppColors.textColor39;
 
   }
 
