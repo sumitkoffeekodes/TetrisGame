@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.koffeekodes.blocksaga">
    <application
-        android:label="flutter_tetris"
+        android:label="Bloc Saga"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
