@@ -34,7 +34,7 @@ class GameController extends StatelessWidget {
     ),
         SizedBox(height: height*0.008),
         Container(
-          padding: EdgeInsets.only(left: width*0.1,right: width*0.12,top: height*0.009,bottom: height*0.009),
+          padding: EdgeInsets.only(left: width*0.1,right: width*0.13,top: height*0.009,bottom: height*0.009),
           margin: EdgeInsets.only(left: width*0.035,right: width*0.035),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -216,7 +216,7 @@ class GameController extends StatelessWidget {
                                                       ?
                                                   AppColors.white.withOpacity(0.4)
                                                       :
-                                                  Color(0xFFFFE9BA),
+                                                  Color(0xFFFFE9BA).withOpacity(0.7),
 
                                                 ],
                                                 begin: Alignment.topLeft,
@@ -314,7 +314,7 @@ class GameController extends StatelessWidget {
                                                       ?
                                                   AppColors.colorE4.withOpacity(0.2)
                                                       :
-                                                  Color(0xFFFFE9BA),
+                                                  Color(0xFFFFE9BA).withOpacity(0.6),
 
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
@@ -430,7 +430,7 @@ class GameController extends StatelessWidget {
                                                       ?
                                                   AppColors.white.withOpacity(0.4)
                                                       :
-                                                  Color(0xFFFFE9BA),
+                                                  Color(0xFFFFE9BA).withOpacity(0.6),
 
 
                                                 ],
@@ -510,7 +510,9 @@ class GameController extends StatelessWidget {
                                               transform: Matrix4.rotationZ(
                                                 -math.pi / 4,
                                               ),
-                                              child: Image.asset("assets/images/down_vector.png")),
+                                              child: Image.asset("assets/images/down_vector.png"
+                                                ,width: 50,
+                                              )),
                                           decoration: BoxDecoration(
                                             boxShadow: [
                                               BoxShadow(
@@ -537,7 +539,7 @@ class GameController extends StatelessWidget {
                                                       ?
                                                   AppColors.white.withOpacity(0.4)
                                                       :
-                                                  Color(0xFFFFE9BA),
+                                                  Color(0xFFFFE9BA).withOpacity(0.6),
                                                 ],
                                                 begin: Alignment.centerLeft,
                                                 end: Alignment.centerRight,
@@ -663,7 +665,7 @@ class SystemButtonGroup extends StatelessWidget {
                               ?
                           AppColors.color31
                               :
-                          AppColors.white,
+                          AppColors.white.withOpacity(0.5),
                           style: BorderStyle.solid,
                         ),
                         gradient: LinearGradient(
