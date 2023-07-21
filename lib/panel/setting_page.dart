@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
@@ -18,6 +19,7 @@ class _SettingPageState extends State<SettingPage> {
 
   bool isSound = false;
   bool isMusic = false;
+  bool isDisplay = false;
 
   final List<ThemeColor> colorOptions = [
     ThemeColor.Blue,
@@ -31,6 +33,9 @@ class _SettingPageState extends State<SettingPage> {
     ThemeColor.Silver,
     ThemeColor.White,
   ];
+
+
+
 
 
   @override
@@ -87,38 +92,42 @@ class _SettingPageState extends State<SettingPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding:  EdgeInsets.only(left: getWidth(40),right: getWidth(25),top: getHeight(50),bottom: getHeight(25)),
+                              padding: EdgeInsets.only(left: getWidth(40),right: getWidth(25),top: getHeight(50),bottom: getHeight(20)),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                 
                                   Row(
                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
+                                      
                                       Text(
                                         'SOUND',
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
-                                        style: FontStyleUtils.style(18).copyWith(
+                                        style: FontStyleUtils.style(16).copyWith(
                                             color: MyDecorations.getColorHere(currentThemeColor),
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
 
-                                      Switch(
-                                        onChanged: (value){
-                                          setState(() {
-                                            isSound = value;
-                                          });
-                                        },
-                                        value: isSound,
-                                        activeColor: AppColors.colorD6,
-                                        activeTrackColor: AppColors.color9D,
-                                        inactiveThumbColor: AppColors.color9D,
-                                        inactiveTrackColor: AppColors.colorD6,
+                                      SizedBox(
+                                        height: getHeight(15),
+                                        child: Switch(
+                                          onChanged: (value){
+                                            setState(() {
+                                              isSound = value;
+                                            });
+                                          },
+                                          value: isSound,
+                                          activeColor: AppColors.colorD6,
+                                          activeTrackColor: AppColors.color9D,
+                                          inactiveThumbColor: AppColors.color9D,
+                                          inactiveTrackColor: AppColors.colorD6,
+                                        ),
                                       )
                                     ],
                                   ),
+                                  SizedBox(height: getHeight(20)),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -126,24 +135,58 @@ class _SettingPageState extends State<SettingPage> {
                                         'MUSIC',
                                         overflow: TextOverflow.visible,
                                         textAlign: TextAlign.center,
-                                        style: FontStyleUtils.style(18).copyWith(
+                                        style: FontStyleUtils.style(16).copyWith(
                                             color: MyDecorations.getColorHere(currentThemeColor),
                                             fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
                                       ),
-                                      Switch(
-                                        onChanged: (value){
-                                          setState(() {
-                                            isMusic = value;
-                                          });
-                                        },
-                                        value: isMusic,
-                                        activeColor: AppColors.white,
-                                        activeTrackColor: AppColors.color3C,
-                                        inactiveThumbColor: AppColors.color3C,
-                                        inactiveTrackColor: AppColors.white,
+                                      SizedBox(
+                                        height: getHeight(15),
+                                        child: Switch(
+                                          onChanged: (value){
+                                            setState(() {
+                                              isMusic = value;
+                                            });
+                                          },
+                                          value: isMusic,
+                                          activeColor: AppColors.white,
+                                          activeTrackColor: AppColors.color3C,
+                                          inactiveThumbColor: AppColors.color3C,
+                                          inactiveTrackColor: AppColors.white,
+                                        ),
                                       )
                                     ],
                                   ),
+                                 /* SizedBox(height: getHeight(15)),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'DISPLAY',
+                                        overflow: TextOverflow.visible,
+                                        textAlign: TextAlign.center,
+                                        style: FontStyleUtils.style(16).copyWith(
+                                            color: MyDecorations.getColorHere(currentThemeColor),
+                                            fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
+                                      ),
+                                      SizedBox(
+                                        height: getHeight(15),
+                                        child: Switch(
+                                          onChanged: (value){
+                                            setState(() {
+                                              isDisplay = value;
+
+                                            });
+                                          },
+                                          value: isDisplay,
+                                          activeColor: AppColors.white,
+                                          activeTrackColor: AppColors.color3C,
+                                          inactiveThumbColor: AppColors.color3C,
+                                          inactiveTrackColor: AppColors.white,
+                                        ),
+                                      )
+                                    ],
+                                  ),*/
+                                  
 
                                 ],
                               ),
