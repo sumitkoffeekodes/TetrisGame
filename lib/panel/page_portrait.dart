@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/panel/controller.dart';
 import 'package:tetris/panel/screen.dart';
@@ -16,6 +17,24 @@ class PagePortrait extends StatefulWidget {
 }
 
 class _PagePortraitState extends State<PagePortrait> {
+
+  bool isDisplay = false;
+
+  getDisplay() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+    setState(() {
+      isDisplay = sharedPreferences.getBool("isDisplay")!;
+    });
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDisplay();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -54,6 +73,7 @@ class _PagePortraitState extends State<PagePortrait> {
 
                   ),
                   SizedBox(height: size.height*0.006),
+                  isDisplay?
                   Stack(
                     clipBehavior: Clip.none,
                     alignment: Alignment.center,
@@ -74,10 +94,17 @@ class _PagePortraitState extends State<PagePortrait> {
                       ),
                       Positioned(
                         top: size.height*0.055,
-                        child: _ScreenDecoration(child: Screen(width: screenW)),
+                        child: _ScreenDecoration(child: Screen(width: screenW,isDisplay: isDisplay)),
                       )
                     ],
-                  ),
+                  )
+                      :
+                      Container(
+                        padding: EdgeInsets.all(14),
+                        width: size.width,
+                        height: size.height/2,
+                          child:  _ScreenDecoration(child: Screen(width: screenW, isDisplay: isDisplay)
+                      )),
                   SizedBox(height: size.height*0.008),
                   GameController(),
                 ],

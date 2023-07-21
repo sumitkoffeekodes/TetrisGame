@@ -17,18 +17,25 @@ import 'status_panel.dart';
 class Screen extends StatelessWidget {
   ///the with of screen
   final double width;
+  final bool isDisplay;
 
   const Screen({
     Key? key,
     required this.width,
+    required this.isDisplay,
   }) : super(key: key);
 
-  Screen.fromHeight(double height) : this(width: ((height - 6) / 2 + 6) / 0.6);
+  // Screen.fromHeight(double height) : this(width: ((height - 6) / 2 + 6) / 0.6);
+  Screen.fromHeight(double height)
+      : this(
+    width: ((height - 6) / 2 + 6) / 0.6,
+    isDisplay: false, // Set a default value for isDisplay if needed
+  );
 
   @override
   Widget build(BuildContext context) {
     //play panel need 60%
-    final playerPanelWidth = width * 0.6;
+    final playerPanelWidth = isDisplay? width * 0.6:width * 0.64;
     return Shake(
       shake: GameState.of(context).states == GameStates.drop,
       child: SizedBox(

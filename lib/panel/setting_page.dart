@@ -35,6 +35,28 @@ class _SettingPageState extends State<SettingPage> {
   ];
 
 
+  setDisplay(bool value) async {
+
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool('isDisplay', value);
+
+  }
+
+  getDisplay() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+    setState(() {
+      isDisplay = sharedPreferences.getBool("isDisplay")!;
+    });
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDisplay();
+  }
+
 
 
 
@@ -156,7 +178,7 @@ class _SettingPageState extends State<SettingPage> {
                                       )
                                     ],
                                   ),
-                                 /* SizedBox(height: getHeight(15)),
+                                  SizedBox(height: getHeight(15)),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -171,11 +193,11 @@ class _SettingPageState extends State<SettingPage> {
                                       SizedBox(
                                         height: getHeight(15),
                                         child: Switch(
-                                          onChanged: (value){
+                                          onChanged: (disvalue){
                                             setState(() {
-                                              isDisplay = value;
-
+                                              isDisplay = disvalue;
                                             });
+                                            setDisplay(disvalue);
                                           },
                                           value: isDisplay,
                                           activeColor: AppColors.white,
@@ -185,7 +207,7 @@ class _SettingPageState extends State<SettingPage> {
                                         ),
                                       )
                                     ],
-                                  ),*/
+                                  ),
                                   
 
                                 ],
