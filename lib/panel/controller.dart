@@ -208,13 +208,13 @@ class GameController extends StatelessWidget {
                                                 colors: [
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  AppColors.colorE4.withOpacity(0.2)
+                                                  AppColors.colorE4.withOpacity(0.1)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.1),
 
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  AppColors.white.withOpacity(0.4)
+                                                  AppColors.white.withOpacity(0.3)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.7),
 
@@ -312,13 +312,13 @@ class GameController extends StatelessWidget {
                                                 colors: [
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  AppColors.colorE4.withOpacity(0.2)
+                                                  AppColors.colorE4.withOpacity(0.3)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.6),
 
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                      AppColors.white.withOpacity(0.4)
+                                                      AppColors.white.withOpacity(0.1)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.1)
 
@@ -422,13 +422,13 @@ class GameController extends StatelessWidget {
                                                 colors: [
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  AppColors.colorE4.withOpacity(0.2)
+                                                  AppColors.colorE4.withOpacity(0.1)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.1),
 
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  AppColors.white.withOpacity(0.4)
+                                                  AppColors.white.withOpacity(0.3)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.6),
 
@@ -532,12 +532,12 @@ class GameController extends StatelessWidget {
                                                 colors: [
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  AppColors.colorE4.withOpacity(0.2)
+                                                  AppColors.colorE4.withOpacity(0.1)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.1),
                                                   currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                                       ?
-                                                  AppColors.white.withOpacity(0.4)
+                                                  AppColors.white.withOpacity(0.3)
                                                       :
                                                   Color(0xFFFFE9BA).withOpacity(0.6),
                                                 ],
@@ -619,11 +619,6 @@ class SystemButtonGroup extends StatelessWidget {
                 decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 boxShadow: [
-               /* BoxShadow(
-                color: AppColors.color3C, // Outer shadow color
-                blurRadius: 4.0,
-                offset: Offset(2, 2),
-                ),*/
                 BoxShadow(
                 color: AppColors.white.withOpacity(0.4), // Inner shadow color
                 blurRadius: 5.0,
