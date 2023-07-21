@@ -660,7 +660,7 @@ class SystemButtonGroup extends StatelessWidget {
                               ?
                           AppColors.color31
                               :
-                          AppColors.white.withOpacity(0.5),
+                          AppColors.white.withOpacity(0.3),
                           style: BorderStyle.solid,
                         ),
                         gradient: LinearGradient(
@@ -754,7 +754,7 @@ class SystemButtonGroup extends StatelessWidget {
                                   ?
                               AppColors.color31
                                   :
-                              AppColors.white,
+                              AppColors.white.withOpacity(0.3),
                               style: BorderStyle.solid,
                             ),
                             gradient: LinearGradient(
@@ -847,7 +847,7 @@ class SystemButtonGroup extends StatelessWidget {
                               ?
                           AppColors.color31
                               :
-                          AppColors.white,
+                          AppColors.white.withOpacity(0.3),
                           style: BorderStyle.solid,
                         ),
                         gradient: LinearGradient(
