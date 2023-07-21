@@ -143,14 +143,44 @@ class _SettingPageState extends State<SettingPage> {
                                           value: isSound,
                                           activeColor: AppColors.colorD6,
                                           activeTrackColor: AppColors.color9D,
-                                          inactiveThumbColor: AppColors.color9D,
-                                          inactiveTrackColor: AppColors.colorD6,
+                                          inactiveThumbColor: AppColors.color3C,
+                                          inactiveTrackColor: AppColors.white,
                                         ),
                                       )
                                     ],
                                   ),
-                                  SizedBox(height: getHeight(15)),
+                                  SizedBox(height: getHeight(20)),
                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'DISPLAY',
+                                        overflow: TextOverflow.visible,
+                                        textAlign: TextAlign.center,
+                                        style: FontStyleUtils.style(16).copyWith(
+                                            color: MyDecorations.getColorHere(currentThemeColor),
+                                            fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
+                                      ),
+                                      SizedBox(
+                                        height: getHeight(15),
+                                        child: Switch(
+                                          onChanged: (disvalue){
+                                            setState(() {
+                                              isDisplay = disvalue;
+                                            });
+                                            setDisplay(disvalue);
+                                          },
+                                          value: isDisplay,
+                                          activeColor: AppColors.colorD6,
+                                          activeTrackColor: AppColors.color9D,
+                                          inactiveThumbColor: AppColors.color3C,
+                                          inactiveTrackColor: AppColors.white,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  // SizedBox(height: getHeight(15)),
+                                 /* Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
@@ -177,37 +207,7 @@ class _SettingPageState extends State<SettingPage> {
                                         ),
                                       )
                                     ],
-                                  ),
-                                  SizedBox(height: getHeight(15)),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'DISPLAY',
-                                        overflow: TextOverflow.visible,
-                                        textAlign: TextAlign.center,
-                                        style: FontStyleUtils.style(16).copyWith(
-                                            color: MyDecorations.getColorHere(currentThemeColor),
-                                            fontFamily: 'Montserrat-Bold',fontWeight: FontWeight.w900),
-                                      ),
-                                      SizedBox(
-                                        height: getHeight(15),
-                                        child: Switch(
-                                          onChanged: (disvalue){
-                                            setState(() {
-                                              isDisplay = disvalue;
-                                            });
-                                            setDisplay(disvalue);
-                                          },
-                                          value: isDisplay,
-                                          activeColor: AppColors.grey7,
-                                          activeTrackColor: AppColors.textColor39.withOpacity(0.5),
-                                          inactiveThumbColor: AppColors.textColor39,
-                                          inactiveTrackColor: AppColors.grey7.withOpacity(0.9),
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                  ),*/
                                   
 
                                 ],
