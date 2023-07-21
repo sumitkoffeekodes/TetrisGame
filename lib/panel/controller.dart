@@ -816,7 +816,7 @@ class SystemButtonGroup extends StatelessWidget {
                         colors: [
                           currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                               ?
-                      AppColors.color31.withOpacity(0.7)
+                          AppColors.color31.withOpacity(0.7)
                               :
                           Color(0xFFEF420C),
 
