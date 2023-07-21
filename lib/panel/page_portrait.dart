@@ -44,7 +44,7 @@ class _PagePortraitState extends State<PagePortrait> {
                     padding: EdgeInsets.only(top: getHeight(25),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
                     width: size.width,
                     child: Image.asset(
-                        "assets/images/blocksaga_logo.png",
+                        "assets/images/banner_logo.png",
                       color:
                       currentThemeColor == ThemeColor.White || currentThemeColor == ThemeColor.Yellow
                           ?

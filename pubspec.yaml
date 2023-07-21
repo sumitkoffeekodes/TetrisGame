@@ -29,7 +29,7 @@ flutter_icons:
   android: "ic_launcher"
   ios: true
   remove_alpha: true
-  image_path: "assets/images/block_logo.png"
+  image_path: "assets/images/blocksaga_logo.png"
 
 dev_dependencies:
   flutter_test:
