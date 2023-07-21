@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tetris/gamer/gamer.dart';
@@ -163,33 +165,38 @@ class _MainMenuState extends State<MainMenu> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Expanded(
-                              child: Container(
-                                padding: EdgeInsets.all(2),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(3),
-                                    shape: BoxShape.rectangle,
-                                    border: Border.all(
-                                        width: 1,
+                              child: InkWell(
+                                onTap: (){
+                                  exit(0);
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(3),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                          width: 1,
+                                        color: MyDecorations.getColorHere(currentThemeColor),
+
+                                      )
+                                  ),
+                                  child: Container(
+                                    height: height*.06,
+                                    decoration:  BoxDecoration(
+                                      borderRadius: BorderRadius.circular(3),
                                       color: MyDecorations.getColorHere(currentThemeColor),
 
-                                    )
-                                ),
-                                child: Container(
-                                  height: height*.06,
-                                  decoration:  BoxDecoration(
-                                    borderRadius: BorderRadius.circular(3),
-                                    color: MyDecorations.getColorHere(currentThemeColor),
-
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'EXIT',
-                                      overflow: TextOverflow.visible,
-                                      textAlign: TextAlign.center,
-                                        style: FontTextStyleUtilities.textStyle16.copyWith(
-                                            fontWeight: FontWeight.w900,
-                                          color:  MyDecorations.textColorHere(currentThemeColor),
-                                        )
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'EXIT',
+                                        overflow: TextOverflow.visible,
+                                        textAlign: TextAlign.center,
+                                          style: FontTextStyleUtilities.textStyle16.copyWith(
+                                              fontWeight: FontWeight.w900,
+                                            color:  MyDecorations.textColorHere(currentThemeColor),
+                                          )
+                                      ),
                                     ),
                                   ),
                                 ),

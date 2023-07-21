@@ -149,7 +149,7 @@ class _SettingPageState extends State<SettingPage> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(height: getHeight(20)),
+                                  SizedBox(height: getHeight(15)),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
