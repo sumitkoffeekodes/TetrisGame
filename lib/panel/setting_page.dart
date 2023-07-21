@@ -200,10 +200,10 @@ class _SettingPageState extends State<SettingPage> {
                                             setDisplay(disvalue);
                                           },
                                           value: isDisplay,
-                                          activeColor: AppColors.white,
-                                          activeTrackColor: AppColors.color3C,
-                                          inactiveThumbColor: AppColors.color3C,
-                                          inactiveTrackColor: AppColors.white,
+                                          activeColor: AppColors.grey7,
+                                          activeTrackColor: AppColors.textColor39.withOpacity(0.5),
+                                          inactiveThumbColor: AppColors.textColor39,
+                                          inactiveTrackColor: AppColors.grey7.withOpacity(0.9),
                                         ),
                                       )
                                     ],

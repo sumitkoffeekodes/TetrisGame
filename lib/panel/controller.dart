@@ -34,7 +34,7 @@ class GameController extends StatelessWidget {
     ),
         SizedBox(height: height*0.008),
         Container(
-          padding: EdgeInsets.only(left: width*0.1,right: width*0.13,top: height*0.009,bottom: height*0.009),
+          padding: EdgeInsets.only(left: width*0.1,right: width*0.1,top: height*0.013,bottom: height*0.013),
           margin: EdgeInsets.only(left: width*0.035,right: width*0.035),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,101 +135,93 @@ class GameController extends StatelessWidget {
                           onTap: (){
                             Game.of(context).rotate();
                           },
-                          child: SizedBox(
-                            width: getWidth(27),
-                            height: getHeight(27),
-                            child: Transform.scale(
-                              scale: 1.5,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Container(
-                                    width: getWidth(27),
-                                    height: getHeight(27),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColors.white.withOpacity(0.3),
-                                          blurRadius: 3.0,
-                                          offset: Offset(-3, 1),
-                                        ),
-                                      ],
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                          AppColors.color31.withOpacity(0.9)
-                                              :
-                                          Color(0xFFFCCB06),
-
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                              AppColors.color31.withOpacity(0.8)
-                                              :
-                                          Color(0xFFEF420C),
-                                        ],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              Container(
+                                width: getWidth(38),
+                                height: getHeight(38),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.white.withOpacity(0.3),
+                                      blurRadius: 3.0,
+                                      offset: Offset(-3, 1),
                                     ),
+                                  ],
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                      AppColors.color31.withOpacity(0.9)
+                                          :
+                                      Color(0xFFFCCB06),
+
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                          AppColors.color31.withOpacity(0.8)
+                                          :
+                                      Color(0xFFEF420C),
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
                                   ),
-
-                                  Positioned(
-                                    top: 9,
-                                    bottom: 9,
-                                    left: 9,
-                                    right: 9,
-                                    child: Transform.scale(
-                                      scale: 1.5,
-                                      child:  Container(
-                                          padding: EdgeInsets.all(2),
-                                          child:
-                                          Transform.rotate(
-                                              angle: -math.pi / 4,
-                                              child: Image.asset("assets/images/pattern_vector.png")),
-                                          decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: AppColors.white.withOpacity(0.1), // Inner shadow color
-                                                blurRadius: 2.0,
-                                                offset: Offset(2, 5),
-                                              ),
-                                            ],
-                                            borderRadius: BorderRadius.circular(2),
-                                            border: Border.all(
-                                              width: 0.1,
-                                              color: AppColors.white.withOpacity(0.1),
-                                              style: BorderStyle.solid,
-                                            ),
-
-                                            gradient: LinearGradient(
-                                                colors: [
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                  AppColors.colorE4.withOpacity(0.1)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.1),
-
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                  AppColors.white.withOpacity(0.3)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.7),
-
-                                                ],
-                                                begin: Alignment.topLeft,
-                                                end: Alignment.bottomRight,
-                                                stops: [0.2,0.9]
-                                            ),
-                                          )),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
 
-                            ),
+                              Positioned(
+                                top: 12,
+                                bottom: 12,
+                                left: 12,
+                                right: 12,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child:  Container(
+                                      padding: EdgeInsets.all(2.5),
+                                      child:
+                                      Transform.rotate(
+                                          angle: -math.pi / 4,
+                                          child: Image.asset("assets/images/pattern_vector.png")),
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                            blurRadius: 2.0,
+                                            offset: Offset(2, 5),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(2),
+                                        border: Border.all(
+                                          width: 0.1,
+                                          color: AppColors.white.withOpacity(0.1),
+                                          style: BorderStyle.solid,
+                                        ),
+
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                              AppColors.colorE4.withOpacity(0.1)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.1),
+
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                              AppColors.white.withOpacity(0.3)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.7),
+
+                                            ],
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            stops: [0.2,0.9]
+                                        ),
+                                      )),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(width: _DIRECTION_SPACE),
@@ -237,103 +229,95 @@ class GameController extends StatelessWidget {
                           onTap: (){
                             Game.of(context).right();
                           },
-                          child: SizedBox(
-                            width: getWidth(27),
-                            height: getHeight(27),
-                            child: Transform.scale(
-                              scale: 1.5,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Container(
-                                    width: getWidth(27),
-                                    height: getHeight(27),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColors.white.withOpacity(0.3),
-                                          blurRadius: 3.0,
-                                          offset: Offset(-3, 1),
-                                        ),
-                                      ],
-                                      gradient: LinearGradient(
-                                        colors: [
-
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                          AppColors.color31.withOpacity(0.9)
-                                              :
-                                          Color(0xFFFCCB06),
-
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                          AppColors.color31.withOpacity(0.8)
-                                              :
-                                          Color(0xFFEF420C),
-                                        ],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              Container(
+                                width: getWidth(38),
+                                height: getHeight(38),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.white.withOpacity(0.3),
+                                      blurRadius: 3.0,
+                                      offset: Offset(-3, 1),
                                     ),
+                                  ],
+                                  gradient: LinearGradient(
+                                    colors: [
+
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                      AppColors.color31.withOpacity(0.9)
+                                          :
+                                      Color(0xFFFCCB06),
+
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                      AppColors.color31.withOpacity(0.8)
+                                          :
+                                      Color(0xFFEF420C),
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
                                   ),
-                                  Positioned(
-                                    top: 9,
-                                    bottom: 9,
-                                    left: 9,
-                                    right: 9,
-                                    child: Transform.scale(
-                                      scale: 1.5,
-                                      child:  Container(
-                                          padding: EdgeInsets.all(2.5),
-                                          child: Transform(
-                                              alignment: Alignment.center,
-                                              transform: Matrix4.rotationZ(
-                                                -math.pi / 4,
-                                              ),
-                                              child: Image.asset("assets/images/right_vector.png")),
-                                          decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: AppColors.white.withOpacity(0.1), // Inner shadow color
-                                                blurRadius: 2.0,
-                                                offset: Offset(2, 5),
-                                              ),
-                                            ],
-                                            borderRadius: BorderRadius.circular(2),
-                                            border: Border.all(
-                                              width: 0.1,
-                                              color: AppColors.white.withOpacity(0.1),
-                                              style: BorderStyle.solid,
-                                            ),
-
-                                            gradient: LinearGradient(
-                                                colors: [
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                  AppColors.colorE4.withOpacity(0.3)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.6),
-
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                      AppColors.white.withOpacity(0.1)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.1)
-
-                                                ],
-                                                begin: Alignment.topRight,
-                                                end: Alignment.bottomCenter,
-                                                stops: [0.2,0.9]
-                                            ),
-                                          )),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
+                              Positioned(
+                                top: 12,
+                                bottom: 12,
+                                left: 12,
+                                right: 12,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child:  Container(
+                                      padding: EdgeInsets.all(4),
+                                      child: Transform(
+                                          alignment: Alignment.center,
+                                          transform: Matrix4.rotationZ(
+                                            -math.pi / 4,
+                                          ),
+                                          child: Image.asset("assets/images/right_vector.png")),
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                            blurRadius: 2.0,
+                                            offset: Offset(2, 5),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(2),
+                                        border: Border.all(
+                                          width: 0.1,
+                                          color: AppColors.white.withOpacity(0.1),
+                                          style: BorderStyle.solid,
+                                        ),
 
-                            ),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                              AppColors.colorE4.withOpacity(0.3)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.6),
+
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                                  AppColors.white.withOpacity(0.1)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.1)
+
+                                            ],
+                                            begin: Alignment.topRight,
+                                            end: Alignment.bottomCenter,
+                                            stops: [0.2,0.9]
+                                        ),
+                                      )),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
 
@@ -347,104 +331,96 @@ class GameController extends StatelessWidget {
                           onTap: (){
                             Game.of(context).left();
                           },
-                          child: SizedBox(
-                            width: getWidth(27),
-                            height: getHeight(27),
-                            child: Transform.scale(
-                              scale: 1.5,
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Container(
-                                    width: getWidth(27),
-                                    height: getHeight(27),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColors.white.withOpacity(0.3),
-                                          blurRadius: 3.0,
-                                          offset: Offset(-3, 1),
-                                        ),
-                                      ],
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                          AppColors.color31.withOpacity(0.9)
-                                              :
-                                          Color(0xFFFCCB06),
-
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                          AppColors.color31.withOpacity(0.8)
-                                              :
-                                          Color(0xFFEF420C),
-
-
-                                        ],
-                                        begin:Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
+                          child: Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              Container(
+                                width: getWidth(38),
+                                height: getHeight(38),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.white.withOpacity(0.3),
+                                      blurRadius: 3.0,
+                                      offset: Offset(-3, 1),
                                     ),
+                                  ],
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                      AppColors.color31.withOpacity(0.9)
+                                          :
+                                      Color(0xFFFCCB06),
+
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                      AppColors.color31.withOpacity(0.8)
+                                          :
+                                      Color(0xFFEF420C),
+
+
+                                    ],
+                                    begin:Alignment.topLeft,
+                                    end: Alignment.bottomRight,
                                   ),
-                                  Positioned(
-                                    top: 9,
-                                    bottom: 9,
-                                    left: 9,
-                                    right: 9,
-                                    child: Transform.scale(
-                                      scale: 1.5,
-                                      child: Container(
-                                          padding: EdgeInsets.all(2.5),
-                                          child: Transform(
-                                              alignment: Alignment.center,
-                                              transform: Matrix4.rotationZ(
-                                                -math.pi / 4,
-                                              ),
-                                              child: Image.asset("assets/images/left_vector.png",width: 50,)),
-                                          decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: AppColors.white.withOpacity(0.1), // Inner shadow color
-                                                blurRadius: 2.0,
-                                                offset: Offset(2, 5),
-                                              ),
-                                            ],
-                                            borderRadius: BorderRadius.circular(2),
-                                            border: Border.all(
-                                              width: 0.1,
-                                              color: AppColors.white.withOpacity(0.1),
-                                              style: BorderStyle.solid,
-                                            ),
-
-                                            gradient: LinearGradient(
-                                                colors: [
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                  AppColors.colorE4.withOpacity(0.1)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.1),
-
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                  AppColors.white.withOpacity(0.3)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.6),
-
-
-                                                ],
-                                                begin: Alignment.topLeft,
-                                                end: Alignment.bottomCenter,
-                                                stops: [0.2,0.9]
-                                            ),
-                                          )),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
+                              Positioned(
+                                top: 12,
+                                bottom: 12,
+                                left: 12,
+                                right: 12,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child: Container(
+                                      padding: EdgeInsets.all(4),
+                                      child: Transform(
+                                          alignment: Alignment.center,
+                                          transform: Matrix4.rotationZ(
+                                            -math.pi / 4,
+                                          ),
+                                          child: Image.asset("assets/images/left_vector.png")),
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                            blurRadius: 2.0,
+                                            offset: Offset(2, 5),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(2),
+                                        border: Border.all(
+                                          width: 0.1,
+                                          color: AppColors.white.withOpacity(0.1),
+                                          style: BorderStyle.solid,
+                                        ),
 
-                            ),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                              AppColors.colorE4.withOpacity(0.1)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.1),
+
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                              AppColors.white.withOpacity(0.3)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.6),
+
+
+                                            ],
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomCenter,
+                                            stops: [0.2,0.9]
+                                        ),
+                                      )),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
 
@@ -454,104 +430,94 @@ class GameController extends StatelessWidget {
                           onTap: (){
                             Game.of(context).down();
                           },
-                          child: SizedBox(
-                            width: getWidth(27),
-                            height: getHeight(27),
-                            child: Transform.scale(
-                              scale: 1.5,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Container(
-                                    width: getWidth(27),
-                                    height: getHeight(27),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColors.white.withOpacity(0.3),
-                                          blurRadius: 3.0,
-                                          offset: Offset(-3, 1),
-                                        ),
-                                      ],
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                          AppColors.color31.withOpacity(0.9)
-                                              :
-                                          Color(0xFFFCCB06),
-
-                                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                              ?
-                                          AppColors.color31.withOpacity(0.8)
-                                              :
-                                          Color(0xFFEF420C),
-                                        ],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            clipBehavior: Clip.none,
+                            children: [
+                              Container(
+                                width: getWidth(38),
+                                height: getHeight(38),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.white.withOpacity(0.3),
+                                      blurRadius: 3.0,
+                                      offset: Offset(-3, 1),
                                     ),
-                                  ),
+                                  ],
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                      AppColors.color31.withOpacity(0.9)
+                                          :
+                                      Color(0xFFFCCB06),
 
-                                  Positioned(
-                                    top: 9,
-                                    bottom: 9,
-                                    left: 9,
-                                    right: 9,
-                                    child: Transform.scale(
-                                      scale: 1.5,
-                                      child:  Container(
-                                          padding: EdgeInsets.all(2.5),
-                                          child:
-                                          Transform(
-                                              alignment: Alignment.center,
-                                              transform: Matrix4.rotationZ(
-                                                -math.pi / 4,
-                                              ),
-                                              child: Image.asset("assets/images/down_vector.png"
-                                                ,width: 50,
-                                              )),
-                                          decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: AppColors.white.withOpacity(0.1), // Inner shadow color
-                                                blurRadius: 2.0,
-                                                offset: Offset(2, 5),
-                                              ),
-                                            ],
-                                            borderRadius: BorderRadius.circular(2),
-                                            border: Border.all(
-                                              width: 0.1,
-                                              color: AppColors.white.withOpacity(0.1),
-                                              style: BorderStyle.solid,
-                                            ),
-
-                                            gradient: LinearGradient(
-                                                colors: [
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                  AppColors.colorE4.withOpacity(0.1)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.1),
-                                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                                      ?
-                                                  AppColors.white.withOpacity(0.3)
-                                                      :
-                                                  Color(0xFFFFE9BA).withOpacity(0.6),
-                                                ],
-                                                begin: Alignment.centerLeft,
-                                                end: Alignment.centerRight,
-                                                stops: [0.2,0.9]
-                                            ),
-                                          )),
-                                    ),
+                                      currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                          ?
+                                      AppColors.color31.withOpacity(0.8)
+                                          :
+                                      Color(0xFFEF420C),
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
                                   ),
-                                ],
+                                ),
                               ),
 
-                            ),
+                              Positioned(
+                                top: 12,
+                                bottom: 12,
+                                left: 12,
+                                right: 12,
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child:  Container(
+                                      padding: EdgeInsets.all(4),
+                                      child:
+                                      Transform(
+                                          alignment: Alignment.center,
+                                          transform: Matrix4.rotationZ(
+                                            -math.pi / 4,
+                                          ),
+                                          child: Image.asset("assets/images/down_vector.png")),
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: AppColors.white.withOpacity(0.1), // Inner shadow color
+                                            blurRadius: 2.0,
+                                            offset: Offset(2, 5),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(2),
+                                        border: Border.all(
+                                          width: 0.1,
+                                          color: AppColors.white.withOpacity(0.1),
+                                          style: BorderStyle.solid,
+                                        ),
+
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                              AppColors.colorE4.withOpacity(0.1)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.1),
+                                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                                                  ?
+                                              AppColors.white.withOpacity(0.3)
+                                                  :
+                                              Color(0xFFFFE9BA).withOpacity(0.6),
+                                            ],
+                                            begin: Alignment.centerLeft,
+                                            end: Alignment.centerRight,
+                                            stops: [0.2,0.9]
+                                        ),
+                                      )),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
 
@@ -575,7 +541,7 @@ const Size _DIRECTION_BUTTON_SIZE = const Size(48, 48);
 
 const Size _SYSTEM_BUTTON_SIZE = const Size(28, 28);
 
-const double _DIRECTION_SPACE = 25;
+const double _DIRECTION_SPACE = 12;
 
 const double _iconSize = 16;
 
