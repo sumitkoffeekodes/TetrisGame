@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/gamer/block.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/material/audios.dart';
@@ -121,7 +123,7 @@ class GameControl extends State<Game> with RouteAware {
 
   Block _next = Block.getRandom();
 
-  GameStates _states = GameStates.none;
+  GameStates states = GameStates.none;
 
   Block _getNext() {
     final next = _next;
@@ -129,71 +131,71 @@ class GameControl extends State<Game> with RouteAware {
     return next;
   }
 
-  SoundState get _sound => Sound.of(context);
+  SoundState get sound => Sound.of(context);
 
   void rotate() {
-    if (_states == GameStates.running) {
+    if (states == GameStates.running) {
       final next = _current?.rotate();
       if (next != null && next.isValidInMatrix(_data)) {
         _current = next;
-        _sound.rotate();
+        sound.rotate();
       }
     }
     setState(() {});
   }
 
   void right() {
-    if (_states == GameStates.none && _level < _LEVEL_MAX) {
+    if (states == GameStates.none && _level < _LEVEL_MAX) {
       _level++;
-    } else if (_states == GameStates.running) {
+    } else if (states == GameStates.running) {
       final next = _current?.right();
       if (next != null && next.isValidInMatrix(_data)) {
         _current = next;
-        _sound.move();
+        sound.move();
       }
     }
     setState(() {});
   }
 
   void left() {
-    if (_states == GameStates.none && _level > _LEVEL_MIN) {
+    if (states == GameStates.none && _level > _LEVEL_MIN) {
       _level--;
-    } else if (_states == GameStates.running) {
+    } else if (states == GameStates.running) {
       final next = _current?.left();
       if (next != null && next.isValidInMatrix(_data)) {
         _current = next;
-        _sound.move();
+        sound.move();
       }
     }
     setState(() {});
   }
 
   void drop() async {
-    if (_states == GameStates.running) {
+    if (states == GameStates.running) {
       for (int i = 0; i < GAME_PAD_MATRIX_H; i++) {
         final fall = _current?.fall(step: i + 1);
         if (fall != null && !fall.isValidInMatrix(_data)) {
           _current = _current?.fall(step: i);
-          _states = GameStates.drop;
+          states = GameStates.drop;
           setState(() {});
           await Future.delayed(const Duration(milliseconds: 100));
-          _mixCurrentIntoData(mixSound: _sound.fall);
+          _mixCurrentIntoData(mixSound: sound.fall);
           break;
         }
       }
       setState(() {});
-    } else if (_states == GameStates.paused || _states == GameStates.none) {
+    } else if (states == GameStates.paused || states == GameStates.none) {
       _startGame();
     }
   }
 
   void down({bool enableSounds = true}) {
-    if (_states == GameStates.running) {
+    if (states == GameStates.running) {
       final next = _current?.fall();
       if (next != null && next.isValidInMatrix(_data)) {
         _current = next;
         if (enableSounds) {
-          _sound.move();
+          sound.move();
         }
       } else {
         _mixCurrentIntoData();
@@ -223,9 +225,9 @@ class GameControl extends State<Game> with RouteAware {
     }
 
     if (clearLines.isNotEmpty) {
-      setState(() => _states = GameStates.clear);
+      setState(() => states = GameStates.clear);
 
-      _sound.clear();
+      sound.clear();
 
       ///消除效果动画
       for (int count = 0; count < 5; count++) {
@@ -243,7 +245,7 @@ class GameControl extends State<Game> with RouteAware {
         _data.setRange(1, line + 1, _data);
         _data[0] = List.filled(GAME_PAD_MATRIX_W, 0);
       });
-      debugPrint("clear lines : $clearLines");
+      // debugPrint("clear lines : $clearLines");
 
       _cleared += clearLines.length;
       _points += clearLines.length * _level * 5;
@@ -252,7 +254,7 @@ class GameControl extends State<Game> with RouteAware {
       int level = (_cleared ~/ 50) + _LEVEL_MIN;
       _level = level <= _LEVEL_MAX && level > _level ? level : _level;
     } else {
-      _states = GameStates.mixing;
+      states = GameStates.mixing;
       mixSound?.call();
       _forTable((i, j) => _mask[i][j] = _current?.get(j, i) ?? _mask[i][j]);
       setState(() {});
@@ -302,31 +304,31 @@ class GameControl extends State<Game> with RouteAware {
   }
 
   void pause() {
-    if (_states == GameStates.running) {
-      _states = GameStates.paused;
+    if (states == GameStates.running) {
+      states = GameStates.paused;
     }
     setState(() {});
   }
 
   void pauseOrResume() {
-    if (_states == GameStates.running) {
+    if (states == GameStates.running) {
       pause();
-    } else if (_states == GameStates.paused || _states == GameStates.none) {
+    } else if (states == GameStates.paused || states == GameStates.none) {
       _startGame();
     }
   }
 
   void reset() {
-    if (_states == GameStates.none) {
+    if (states == GameStates.none) {
       //可以开始游戏
       _startGame();
       return;
     }
-    if (_states == GameStates.reset) {
+    if (states == GameStates.reset) {
       return;
     }
-    _sound.start();
-    _states = GameStates.reset;
+    sound.start();
+    states = GameStates.reset;
     () async {
       int line = GAME_PAD_MATRIX_H;
       await Future.doWhile(() async {
@@ -352,16 +354,16 @@ class GameControl extends State<Game> with RouteAware {
         return line != GAME_PAD_MATRIX_H;
       });
       setState(() {
-        _states = GameStates.none;
+        states = GameStates.none;
       });
     }();
   }
 
   void _startGame() {
-    if (_states == GameStates.running && _autoFallTimer?.isActive == false) {
+    if (states == GameStates.running && _autoFallTimer?.isActive == false) {
       return;
     }
-    _states = GameStates.running;
+    states = GameStates.running;
     _autoFall(true);
     setState(() {});
   }
@@ -381,16 +383,27 @@ class GameControl extends State<Game> with RouteAware {
         mixed[i][j] = value;
       }
     }
-    debugPrint("game states : $_states");
+    // debugPrint("game states : $states");
     return GameState(
-        mixed, _states, _level, _sound.mute, _points, _cleared, _next,
+        mixed, states, _level, sound.mute, _points, _cleared, _next,
         child: widget.child);
   }
 
-  void soundSwitch() {
+  void soundSwitch(bool newSound) async{
+
+   /* SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+    print("checkfirstsound  $sound");*/
+
     setState(() {
-      _sound.mute = !_sound.mute;
+      sound.mute = !sound.mute;
+      // FontStyleUtils.isSoundOn = !newSound;
+      // sharedPreferences.setBool("isSoundOn", !newSound);
+
+      // print(sharedPreferences.getBool("isSoundOn"));
+      // print("calledsound");
     });
+
   }
 }
 

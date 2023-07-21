@@ -3,8 +3,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
+import 'package:tetris/panel/setting_page.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/components.dart';
@@ -557,14 +560,22 @@ class DirectionController extends StatelessWidget {
   }
 }
 
-class SystemButtonGroup extends StatelessWidget {
+class SystemButtonGroup extends StatefulWidget {
   static const _systemButtonColor = const Color(0xFF2dc421);
+
+  @override
+  State<SystemButtonGroup> createState() => _SystemButtonGroupState();
+}
+
+class _SystemButtonGroupState extends State<SystemButtonGroup> {
 
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final currentThemeColor = themeProvider.themeColor;
+
+
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -663,89 +674,84 @@ class SystemButtonGroup extends StatelessWidget {
           text: S.of(context).pause_resume,
           child:
           InkWell(
-              onTap: (){
-                Game.of(context).pauseOrResume();
-              },
-              child: InkWell(
-                onTap: (){
-                  Game.of(context).pauseOrResume();
-                },
-                child: Stack(
-                  alignment: Alignment.center,
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.white.withOpacity(0.4), // Inner shadow color
-                              blurRadius: 5.0,
-                              offset: Offset(-2, -2),
-                            ),
-                          ],
-                          gradient: LinearGradient(
+            onTap: (){
+              Game.of(context).pauseOrResume();
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                    width: 35,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.white.withOpacity(0.4), // Inner shadow color
+                          blurRadius: 5.0,
+                          offset: Offset(-2, -2),
+                        ),
+                      ],
+                      gradient: LinearGradient(
+                        colors: [
+                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                              ?
+                          AppColors.color31.withOpacity(0.7)
+                              :
+                          Color(0xFFEF420C),
+                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                              ?
+                          AppColors.color31.withOpacity(0.8)
+                              :
+                          Color(0xFFFCCB06),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    )),
+                Positioned(
+                  top: 5,
+                  bottom: 5,
+                  left: 5,
+                  right: 5,
+                  child: Container(
+                      padding: EdgeInsets.all(7),
+                      child: Image.asset("assets/images/pause.png"),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          width: 0.1,
+                          color:
+                          currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
+                              ?
+                          AppColors.color31
+                              :
+                          AppColors.white.withOpacity(0.3),
+                          style: BorderStyle.solid,
+                        ),
+                        gradient: LinearGradient(
                             colors: [
                               currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              AppColors.color31.withOpacity(0.7)
+                              AppColors.color31.withOpacity(0.1)
                                   :
                               Color(0xFFEF420C),
+
                               currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
                                   ?
-                              AppColors.color31.withOpacity(0.8)
+                              AppColors.white.withOpacity(0.4)
                                   :
-                              Color(0xFFFCCB06),
+                              Color(0xFFFFE9BA),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
-                          ),
-                        )),
-                    Positioned(
-                      top: 5,
-                      bottom: 5,
-                      left: 5,
-                      right: 5,
-                      child: Container(
-                          padding: EdgeInsets.all(7),
-                          child: Image.asset("assets/images/pause.png"),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              width: 0.1,
-                              color:
-                              currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                  ?
-                              AppColors.color31
-                                  :
-                              AppColors.white.withOpacity(0.3),
-                              style: BorderStyle.solid,
-                            ),
-                            gradient: LinearGradient(
-                                colors: [
-                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                      ?
-                                  AppColors.color31.withOpacity(0.1)
-                                      :
-                                  Color(0xFFEF420C),
-
-                                  currentThemeColor == ThemeColor.White ||  currentThemeColor == ThemeColor.Yellow
-                                      ?
-                                  AppColors.white.withOpacity(0.4)
-                                      :
-                                  Color(0xFFFFE9BA),
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                stops: [0.0,1.0]
-                            ),
-                          )),
-                    ),
-                  ],
+                            stops: [0.0,1.0]
+                        ),
+                      )),
                 ),
-              ),
+              ],
+            ),
           ),
           /*child: _Button(
               size: _SYSTEM_BUTTON_SIZE,
@@ -760,7 +766,19 @@ class SystemButtonGroup extends StatelessWidget {
           child:
           InkWell(
             onTap: (){
-              Game.of(context).soundSwitch();
+
+              // print(FontStyleUtils.isSoundOn);
+
+
+              Game.of(context).soundSwitch(Game.of(context).sound.mute);
+
+
+              /* setState(() {
+                SoundState.isSoundOn = !SoundState.isSoundOn;
+              });
+              if (SoundState.isSoundOn) {
+                Game.of(context).soundSwitch();
+              }*/
             },
             child: Stack(
               alignment: Alignment.center,

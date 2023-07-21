@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tetris/Utils/utils.dart';
+import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/components.dart';
@@ -17,7 +18,7 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
 
 
-  bool isSound = false;
+   // bool isSoundOn =true;
   bool isMusic = false;
   bool isDisplay = false;
 
@@ -51,9 +52,38 @@ class _SettingPageState extends State<SettingPage> {
 
   }
 
+
+  bool isLoader =false;
+  void _loadSoundState() async {
+    setState(() {
+      isLoader = true;
+    });
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    print(prefs.getBool('isSoundOn'));
+    setState(() {
+      Game.of(context).sound.mute = prefs.getBool('isSoundOn') ?? true;
+      FontStyleUtils.isSoundOn = Game.of(context).sound.mute;
+      isLoader =false;
+    });
+  }
+
+  void _saveSoundState(bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      Game.of(context).sound.mute = value;
+      FontStyleUtils.isSoundOn = Game.of(context).sound.mute;
+    });
+    Game.of(context).soundSwitch(value);
+    prefs.setBool('isSoundOn', value);
+  }
+
+
   @override
   void initState() {
     super.initState();
+  /*  Future.delayed(Duration(milliseconds: 500),(){
+      _loadSoundState();
+    });*/
     getDisplay();
   }
 
@@ -72,7 +102,8 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-          child: Container(
+          child:
+          Container(
             height: height,
             width: width,
             decoration:   BoxDecoration(
@@ -87,7 +118,8 @@ class _SettingPageState extends State<SettingPage> {
                     )),
 
             ),
-            child: SingleChildScrollView(
+            child:
+            SingleChildScrollView(
               physics: NeverScrollableScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -119,7 +151,8 @@ class _SettingPageState extends State<SettingPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Row(
+                                 ///Next Update Sound
+                                  /* Row(
                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       
@@ -136,11 +169,11 @@ class _SettingPageState extends State<SettingPage> {
                                         height: getHeight(15),
                                         child: Switch(
                                           onChanged: (value){
-                                            setState(() {
-                                              isSound = value;
-                                            });
+
+                                            _saveSoundState(value);
+
                                           },
-                                          value: isSound,
+                                          value: Game.of(context).sound.mute,
                                           activeColor: AppColors.colorD6,
                                           activeTrackColor: AppColors.color9D,
                                           inactiveThumbColor: AppColors.color3C,
@@ -148,8 +181,9 @@ class _SettingPageState extends State<SettingPage> {
                                         ),
                                       )
                                     ],
-                                  ),
-                                  SizedBox(height: getHeight(20)),
+                                  ),*/
+
+                                  SizedBox(height: getHeight(10)),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -179,6 +213,8 @@ class _SettingPageState extends State<SettingPage> {
                                       )
                                     ],
                                   ),
+                                  SizedBox(height: getHeight(10)),
+
                                   // SizedBox(height: getHeight(15)),
                                  /* Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

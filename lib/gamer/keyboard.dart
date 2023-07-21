@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tetris/Utils/utils.dart';
 
 import 'gamer.dart';
 
@@ -41,7 +42,7 @@ class _KeyboardControllerState extends State<KeyboardController> {
     } else if (key == LogicalKeyboardKey.keyP) {
       game.pauseOrResume();
     } else if (key == LogicalKeyboardKey.keyS) {
-      game.soundSwitch();
+      game.soundSwitch(FontStyleUtils.isSoundOn);
     } else if (key == LogicalKeyboardKey.keyR) {
       game.reset();
     }

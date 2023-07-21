@@ -28,7 +28,7 @@ class PlayerPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("size : $size");
+    // debugPrint("size : $size");
     return SizedBox.fromSize(
       size: size,
       child: Container(
