@@ -52,7 +52,7 @@ class Screen extends StatelessWidget {
                   PlayerPanel(width: playerPanelWidth),
                   SizedBox(
                     width: width - playerPanelWidth,
-                    child: StatusPanel(),
+                    child: StatusPanel(isDisplay: isDisplay),
                   )
                 ],
               ),

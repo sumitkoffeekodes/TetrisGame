@@ -11,7 +11,12 @@ import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
 
 class StatusPanel extends StatelessWidget {
+  final bool isDisplay;
 
+  const StatusPanel({
+    Key? key,
+    required this.isDisplay,
+  }) : super(key: key);
 
 
   @override
@@ -27,6 +32,7 @@ class StatusPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+
               Text(S.of(context).points,
           style: FontTextStyleUtilities.textStyle13.copyWith(
             fontFamily: 'Montserrat-Bold',
@@ -90,7 +96,7 @@ class StatusPanel extends StatelessWidget {
           SizedBox(height: 4),
           _NextBlock(),
           Spacer(),
-          _GameStatus(),
+          _GameStatus(isDisplay: isDisplay),
         ],
       ),
     );
@@ -120,6 +126,12 @@ class _NextBlock extends StatelessWidget {
 }
 
 class _GameStatus extends StatefulWidget {
+  final bool isDisplay;
+
+  const _GameStatus({
+    Key? key,
+    required this.isDisplay,
+  }) : super(key: key);
   @override
   _GameStatusState createState() {
     return new _GameStatusState();
@@ -181,6 +193,7 @@ class _GameStatusState extends State<_GameStatus> {
             _hour.toString().padLeft(2, '0'),
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
+              fontSize: widget.isDisplay?16:13,
               fontWeight: FontWeight.w700,
               color: AppColors.color3C,
             )),
@@ -191,6 +204,7 @@ class _GameStatusState extends State<_GameStatus> {
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
+              fontSize: widget.isDisplay?16:13,
               color: _colonEnable ? Colors.black : Colors.grey,
             )
         ),
@@ -199,6 +213,7 @@ class _GameStatusState extends State<_GameStatus> {
             _minute.toString().padLeft(2, '0'),
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
+              fontSize: widget.isDisplay?16:13,
               fontWeight: FontWeight.w700,
               color: AppColors.color3C,
             )),
