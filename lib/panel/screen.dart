@@ -80,7 +80,6 @@ class Shake extends StatefulWidget {
   _ShakeState createState() => _ShakeState();
 }
 
-///摇晃屏幕
 class _ShakeState extends State<Shake> with TickerProviderStateMixin {
   late AnimationController _controller;
 
