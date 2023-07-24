@@ -94,6 +94,8 @@ class MyDecorations {
     );
   }
 
+
+
   static DecorationImage decorationImage(ThemeColor currentThemeColor,ImageProvider<Object> image){
     return DecorationImage(
       fit: BoxFit.fill,
@@ -180,6 +182,47 @@ class MyDecorations {
         :
     AppColors.textColor39;
 
+  }
+
+  static Color normalContainerColor(ThemeColor currentThemeColor){
+    return
+      currentThemeColor == ThemeColor.Blue
+          ?
+      AppColors.color66
+        :
+      currentThemeColor == ThemeColor.Yellow
+          ?
+      AppColors.yellow
+        :
+      currentThemeColor == ThemeColor.Green
+          ?
+      AppColors.color4E
+        :
+      currentThemeColor == ThemeColor.Purple
+          ?
+      AppColors.color7A
+        :
+      currentThemeColor == ThemeColor.Orange
+          ?
+      AppColors.orangeColor
+          :
+      currentThemeColor == ThemeColor.Grey
+          ?
+      AppColors.color20
+        :
+      currentThemeColor == ThemeColor.Red
+          ?
+      AppColors.color16.withOpacity(0.85)
+        :
+      currentThemeColor == ThemeColor.Pink
+          ?
+      AppColors.color83
+          :
+      currentThemeColor == ThemeColor.Silver
+          ?
+      AppColors.color5C
+        :
+      AppColors.textColor39;
   }
 
 

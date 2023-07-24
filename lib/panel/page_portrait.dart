@@ -133,7 +133,10 @@ class _PagePortraitState extends State<PagePortrait> {
                                       child: Container(
                                         height: getHeight(50),
                                         decoration:  BoxDecoration(
-                                          color: AppColors.colorEE,
+                                          borderRadius: BorderRadius.circular(5),
+                                          color:
+                                          MyDecorations.normalContainerColor(currentThemeColor).withOpacity(0.3)
+                                          // color: AppColors.colorEE,
                                         ),
                                         child: Center(
                                           child: Text(
@@ -142,7 +145,8 @@ class _PagePortraitState extends State<PagePortrait> {
                                             overflow: TextOverflow.visible,
                                             textAlign: TextAlign.center,
                                             style: FontStyleUtils.style(16).copyWith(
-                                                color: AppColors.black,
+                                                color:
+                                                AppColors.textColor39,
                                                 fontFamily: 'Poppins-SemiBold',
                                                 fontWeight: FontWeight.w600),
                                           ),
@@ -161,16 +165,22 @@ class _PagePortraitState extends State<PagePortrait> {
                                       child: Container(
                                         height: getHeight(50),
                                         decoration:  BoxDecoration(
-                                          color: AppColors.black.withOpacity(0.8),
+                                            borderRadius: BorderRadius.circular(5),
+                                            color: MyDecorations.normalContainerColor(currentThemeColor)
                                         ),
                                         child: Center(
                                           child: Text(
-                                            'Pause/Resume',
+                                            'Resume',
                                             maxLines: 1,
                                             overflow: TextOverflow.visible,
                                             textAlign: TextAlign.center,
                                             style: FontStyleUtils.style(16).copyWith(
-                                                color: AppColors.white,
+                                                color:
+                                                currentThemeColor == ThemeColor.Yellow
+                                                    ?
+                                                AppColors.textColor39
+                                                    :
+                                                AppColors.white,
                                                 fontFamily: 'Poppins-SemiBold',
                                                 fontWeight: FontWeight.w600),
                                           ),
