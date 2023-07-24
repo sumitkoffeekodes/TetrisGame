@@ -152,7 +152,7 @@ class _SettingPageState extends State<SettingPage> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                  ///Next Update Sound
-                                  /* Row(
+                                   Row(
                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       
@@ -173,7 +173,7 @@ class _SettingPageState extends State<SettingPage> {
                                             _saveSoundState(value);
 
                                           },
-                                          value: Game.of(context).sound.mute,
+                                          value:FontStyleUtils.isSoundOn,
                                           activeColor: AppColors.colorD6,
                                           activeTrackColor: AppColors.color9D,
                                           inactiveThumbColor: AppColors.color3C,
@@ -181,9 +181,9 @@ class _SettingPageState extends State<SettingPage> {
                                         ),
                                       )
                                     ],
-                                  ),*/
+                                  ),
 
-                                  SizedBox(height: getHeight(10)),
+                                  SizedBox(height: getHeight(15)),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
