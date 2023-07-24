@@ -92,13 +92,14 @@ class _PagePortraitState extends State<PagePortrait> {
                                   textAlign: TextAlign.center,
                                   style: FontStyleUtils.style(16).copyWith(
                                       color: AppColors.black,
-                                      fontFamily: 'Poppins-SemiBold'
+                                      fontFamily: 'Montserrat-SemiBold'
                                   )),
                               SizedBox(height: getHeight(18)),
                               Center(
                                 child: Image.asset(
                                   'assets/images/logout.png',
                                   fit: BoxFit.contain,
+                                  color: MyDecorations.normalContainerColor(currentThemeColor),
                                   height: getHeight(60),
                                 ),
                               ),
@@ -106,8 +107,8 @@ class _PagePortraitState extends State<PagePortrait> {
                               Text(
                                   'Are you sure you want to exit?',
                                   style: FontStyleUtils.style(14).copyWith(
-                                    color: AppColors.black,
-                                    fontFamily: 'Poppins-Regular',
+                                    color: AppColors.textColor39,
+                                    fontFamily: 'Montserrat-SemiBold',
                                   )),
                               SizedBox(height: getHeight(15)),
                               Center(
