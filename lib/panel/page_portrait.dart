@@ -136,7 +136,7 @@ class _PagePortraitState extends State<PagePortrait> {
                                         decoration:  BoxDecoration(
                                           borderRadius: BorderRadius.circular(5),
                                           color:
-                                          MyDecorations.normalContainerColor(currentThemeColor).withOpacity(0.3)
+                                          MyDecorations.normalContainerColor(currentThemeColor).withOpacity(0.25)
                                           // color: AppColors.colorEE,
                                         ),
                                         child: Center(
