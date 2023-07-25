@@ -62,7 +62,7 @@ class _SettingPageState extends State<SettingPage> {
     print(prefs.getBool('isSoundOn'));
     setState(() {
       Game.of(context).sound.mute = prefs.getBool('isSoundOn') ?? true;
-      FontStyleUtils.isSoundOn = Game.of(context).sound.mute;
+      Utils.isSoundOn = Game.of(context).sound.mute;
       isLoader =false;
     });
   }
@@ -71,7 +71,7 @@ class _SettingPageState extends State<SettingPage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       Game.of(context).sound.mute = value;
-      FontStyleUtils.isSoundOn = Game.of(context).sound.mute;
+      Utils.isSoundOn = Game.of(context).sound.mute;
     });
     Game.of(context).soundSwitch(value);
     prefs.setBool('isSoundOn', value);
@@ -173,7 +173,7 @@ class _SettingPageState extends State<SettingPage> {
                                             _saveSoundState(value);
 
                                           },
-                                          value:FontStyleUtils.isSoundOn,
+                                          value:Utils.isSoundOn,
                                           activeColor: AppColors.colorD6,
                                           activeTrackColor: AppColors.color9D,
                                           inactiveThumbColor: AppColors.color3C,

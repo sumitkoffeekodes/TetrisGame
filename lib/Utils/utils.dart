@@ -10,7 +10,6 @@ abstract class FontStyleUtils {
   static const String defaultFontOfApp = 'Montserrat-Regular';
   static const String _defaultFontFamily = defaultFontOfApp;
 
-  static  bool isSoundOn = true;
 
 
   static TextStyle style(int size, {Color? fontColor, String? fontFamily}) {
