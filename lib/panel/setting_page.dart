@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tetris/Utils/utils.dart';
-import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/components.dart';
@@ -18,7 +17,6 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
 
 
-   // bool isSoundOn =true;
   bool isMusic = false;
   bool isDisplay = false;
 
@@ -47,43 +45,40 @@ class _SettingPageState extends State<SettingPage> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
     setState(() {
-      isDisplay = sharedPreferences.getBool("isDisplay")!;
+      isDisplay = sharedPreferences.getBool("isDisplay") ?? false;
     });
 
   }
 
 
-  bool isLoader =false;
+
   void _loadSoundState() async {
-    setState(() {
-      isLoader = true;
-    });
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print(prefs.getBool('isSoundOn'));
     setState(() {
-      Game.of(context).sound.mute = prefs.getBool('isSoundOn') ?? true;
-      Utils.isSoundOn = Game.of(context).sound.mute;
-      isLoader =false;
+
+      Utils.isSoundOn = prefs.getBool('isSoundOn')?? false;
+
     });
   }
 
   void _saveSoundState(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      Game.of(context).sound.mute = value;
-      Utils.isSoundOn = Game.of(context).sound.mute;
-    });
-    Game.of(context).soundSwitch(value);
     prefs.setBool('isSoundOn', value);
+    setState(() {
+
+      Utils.isSoundOn = value;
+
+    });
+
   }
 
 
   @override
   void initState() {
     super.initState();
-  /*  Future.delayed(Duration(milliseconds: 500),(){
-      _loadSoundState();
-    });*/
+
+    _loadSoundState();
     getDisplay();
   }
 
@@ -98,6 +93,11 @@ class _SettingPageState extends State<SettingPage> {
     // final themeChange = Provider.of<DarkThemeProvider>(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
     final currentThemeColor = themeProvider.themeColor;
+
+
+
+
+
 
     return Scaffold(
         backgroundColor: Colors.transparent,
@@ -168,12 +168,10 @@ class _SettingPageState extends State<SettingPage> {
                                       SizedBox(
                                         height: getHeight(15),
                                         child: Switch(
-                                          onChanged: (value){
-
+                                          onChanged: (bool value){
                                             _saveSoundState(value);
-
                                           },
-                                          value:Utils.isSoundOn,
+                                          value: !Utils.isSoundOn,
                                           activeColor: AppColors.colorD6,
                                           activeTrackColor: AppColors.color9D,
                                           inactiveThumbColor: AppColors.color3C,

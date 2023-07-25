@@ -66,22 +66,32 @@ class SoundState extends State<Sound> {
   }
 
   void start() {
+    // if(mute){
     _play('start.mp3');
+    // }
   }
 
   void clear() {
-    _play('clean.mp3');
+    // if(mute) {
+      _play('clean.mp3');
+    // }
   }
 
   void fall() {
-    _play('drop.mp3');
+    // if(mute){
+      _play('drop.mp3');
+    // }
   }
 
   void rotate() {
-    _play('rotate.mp3');
+    // if(mute) {
+      _play('rotate.mp3');
+    // }
   }
 
   void move() {
-    _play('move.mp3');
+    // if(mute){
+      _play('move.mp3');
+    // }
   }
 }

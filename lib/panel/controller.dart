@@ -558,6 +558,7 @@ class DirectionController extends StatelessWidget {
 }
 
 class SystemButtonGroup extends StatefulWidget {
+  static const _systemButtonColor = const Color(0xFF2dc421);
 
   @override
   State<SystemButtonGroup> createState() => _SystemButtonGroupState();
@@ -565,11 +566,18 @@ class SystemButtonGroup extends StatefulWidget {
 
 class _SystemButtonGroupState extends State<SystemButtonGroup> {
 
+  @override
+  void initState() {
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final currentThemeColor = themeProvider.themeColor;
+
+
 
 
 
@@ -763,10 +771,12 @@ class _SystemButtonGroupState extends State<SystemButtonGroup> {
           InkWell(
             onTap: (){
 
+
+
               // print(FontStyleUtils.isSoundOn);
 
 
-              Game.of(context).soundSwitch(Game.of(context).sound.mute);
+              Game.of(context).soundSwitch();
 
 
               /* setState(() {

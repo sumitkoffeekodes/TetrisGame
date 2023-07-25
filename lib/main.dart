@@ -72,7 +72,6 @@ class _MyAppState extends State<MyApp>  with WidgetsBindingObserver  {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => themeChangeProvider),
-
         ],
         child: Consumer<ThemeProvider>(
           builder: (BuildContext context, value, Widget? child) {

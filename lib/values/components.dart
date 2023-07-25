@@ -315,7 +315,7 @@ class MyDecorations {
 
 class Utils{
 
-  static  bool isSoundOn = true;
+  static  bool isSoundOn = false;
 
 }
 

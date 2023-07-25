@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tetris/gamer/block.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/material/audios.dart';
+import 'package:tetris/values/components.dart';
 
 const GAME_PAD_MATRIX_H = 20;
 
@@ -53,12 +55,38 @@ const _SPEED = [
 ];
 
 class GameControl extends State<Game> with RouteAware {
+
+
   GameControl() {
     //inflate game pad data
     for (int i = 0; i < GAME_PAD_MATRIX_H; i++) {
       _data.add(List.filled(GAME_PAD_MATRIX_W, 0));
       _mask.add(List.filled(GAME_PAD_MATRIX_W, 0));
     }
+  }
+
+  SoundState get sound => Sound.of(context);
+
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    changeSoundValue();
+
+  }
+
+  changeSoundValue() async{
+    print("called ${sound.mute}");
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+   setState(() {
+     sound.mute = sharedPreferences.getBool("isSoundOn")?? false;
+     Utils.isSoundOn = sharedPreferences.getBool("isSoundOn")?? false;
+     print("calledAfterChange ${sound.mute}");
+   });
+
   }
 
   @override
@@ -102,7 +130,6 @@ class GameControl extends State<Game> with RouteAware {
     return next;
   }
 
-  SoundState get sound => Sound.of(context);
 
   void rotate() {
     if (states == GameStates.running) {
@@ -350,16 +377,16 @@ class GameControl extends State<Game> with RouteAware {
         child: widget.child);
   }
 
-  void soundSwitch(bool newSound) async{
+  void soundSwitch() async{
 
-   /* SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
-    print("checkfirstsound  $sound");*/
 
     setState(() {
       sound.mute = !sound.mute;
-      // FontStyleUtils.isSoundOn = !newSound;
-      // sharedPreferences.setBool("isSoundOn", !newSound);
+      print("check1st->${sound.mute}");
+      Utils.isSoundOn = sound.mute;
+      sharedPreferences.setBool("isSoundOn", sound.mute);
 
       // print(sharedPreferences.getBool("isSoundOn"));
       // print("calledsound");

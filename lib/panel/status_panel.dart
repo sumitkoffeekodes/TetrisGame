@@ -8,6 +8,7 @@ import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
+import 'package:tetris/values/components.dart';
 import 'package:tetris/values/font_utils.dart';
 
 class StatusPanel extends StatelessWidget {
@@ -177,7 +178,7 @@ class _GameStatusState extends State<_GameStatus> {
       children: <Widget>[
 
         Image.asset('assets/images/soundmute.png',width: width*.05,
-          color: GameState.of(context).muted ? AppColors.color3C: AppColors.colorE0,
+          color: /*GameState.of(context).muted */ Utils.isSoundOn ? AppColors.color3C: AppColors.colorE0,
         ),
 
 

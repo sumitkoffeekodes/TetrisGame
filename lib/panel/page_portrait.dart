@@ -38,7 +38,7 @@ class _PagePortraitState extends State<PagePortrait> {
   void _loadSoundState() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      isSoundOn = prefs.getBool('isSoundOn') ?? true;
+      isSoundOn = prefs.getBool('isSoundOn') ?? false;
       Utils.isSoundOn = isSoundOn;
     });
 
