@@ -172,6 +172,7 @@ class _SettingPageState extends State<SettingPage> {
                                             _saveSoundState(value);
                                           },
                                           value:Utils.isSoundOn,
+                                          // value:!Utils.isSoundOn,
                                           activeColor: AppColors.colorD6,
                                           activeTrackColor: AppColors.color9D,
                                           inactiveThumbColor: AppColors.color3C,
