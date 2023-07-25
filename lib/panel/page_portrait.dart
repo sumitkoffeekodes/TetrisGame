@@ -27,7 +27,7 @@ class _PagePortraitState extends State<PagePortrait> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
     setState(() {
-      isDisplay = sharedPreferences.getBool("isDisplay")!;
+      isDisplay = sharedPreferences.getBool("isDisplay")??false;
     });
 
   }
