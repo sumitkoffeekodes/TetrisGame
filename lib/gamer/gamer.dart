@@ -78,13 +78,13 @@ class GameControl extends State<Game> with RouteAware {
   }
 
   changeSoundValue() async{
-    print("called ${sound.mute}");
+    // print("called ${sound.mute}");
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
    setState(() {
      sound.mute = sharedPreferences.getBool("isSoundOn")?? false;
      Utils.isSoundOn = sharedPreferences.getBool("isSoundOn")?? false;
-     print("calledAfterChange ${sound.mute}");
+     // print("calledAfterChange ${sound.mute}");
    });
 
   }
