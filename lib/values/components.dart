@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
-import 'package:tetris/values/responsive_value.dart';
 
 
 class MyDecorations {

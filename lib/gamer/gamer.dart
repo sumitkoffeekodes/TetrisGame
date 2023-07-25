@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/gamer/block.dart';
 import 'package:tetris/main.dart';
 import 'package:tetris/material/audios.dart';

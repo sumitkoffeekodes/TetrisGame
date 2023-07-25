@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/values/components.dart';
 
 import 'gamer.dart';

@@ -3,11 +3,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tetris/Utils/utils.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
-import 'package:tetris/panel/setting_page.dart';
 import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/components.dart';
@@ -561,7 +558,6 @@ class DirectionController extends StatelessWidget {
 }
 
 class SystemButtonGroup extends StatefulWidget {
-  static const _systemButtonColor = const Color(0xFF2dc421);
 
   @override
   State<SystemButtonGroup> createState() => _SystemButtonGroupState();
