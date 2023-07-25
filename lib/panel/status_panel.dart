@@ -1,12 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:tetris/gamer/block.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/briks.dart';
-import 'package:tetris/provider/themes.dart';
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/components.dart';
 import 'package:tetris/values/font_utils.dart';
@@ -23,8 +21,6 @@ class StatusPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    final currentThemeColor = themeProvider.themeColor;
 
 
     return Container(
@@ -169,11 +165,8 @@ class _GameStatusState extends State<_GameStatus> {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    final currentThemeColor = themeProvider.themeColor;
 
     var width =  MediaQuery.of(context).size.width;
-    var height =  MediaQuery.of(context).size.height;
     return Row(
       children: <Widget>[
 

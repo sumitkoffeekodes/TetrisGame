@@ -558,7 +558,6 @@ class DirectionController extends StatelessWidget {
 }
 
 class SystemButtonGroup extends StatefulWidget {
-  static const _systemButtonColor = const Color(0xFF2dc421);
 
   @override
   State<SystemButtonGroup> createState() => _SystemButtonGroupState();

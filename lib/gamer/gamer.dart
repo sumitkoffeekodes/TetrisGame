@@ -384,7 +384,7 @@ class GameControl extends State<Game> with RouteAware {
 
     setState(() {
       sound.mute = !sound.mute;
-      print("check1st->${sound.mute}");
+      // print("check1st->${sound.mute}");
       Utils.isSoundOn = sound.mute;
       sharedPreferences.setBool("isSoundOn", sound.mute);
 

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/material/images.dart';
 import 'package:tetris/gamer/gamer.dart';
-import 'package:tetris/provider/themes.dart';
 
 import 'package:tetris/values/appColors.dart';
 import 'package:tetris/values/font_utils.dart';
@@ -69,8 +67,6 @@ class _PlayerPad extends StatelessWidget {
 class _GameUninitialized extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    final currentThemeColor = themeProvider.themeColor;
     if (GameState.of(context).states == GameStates.none) {
       return Center(
         child: Column(
