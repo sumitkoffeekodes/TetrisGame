@@ -11,7 +11,18 @@ import 'package:tetris/values/components.dart';
 import 'package:tetris/values/font_utils.dart';
 import 'package:tetris/values/responsive_value.dart';
 
-class GameController extends StatelessWidget {
+class GameController extends StatefulWidget {
+  final bool isDisplay;
+
+  const GameController({
+    Key? key,
+    required this.isDisplay,
+  }) : super(key: key);
+  @override
+  State<GameController> createState() => _GameControllerState();
+}
+
+class _GameControllerState extends State<GameController> {
   @override
   Widget build(BuildContext context) {
 
@@ -32,9 +43,12 @@ class GameController extends StatelessWidget {
           decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
 
     ),
-        SizedBox(height: height*0.007),
+        SizedBox(height: widget.isDisplay?height*0.006:height*0.0072),
         Container(
-          padding: EdgeInsets.only(left: width*0.1,right: width*0.1,top: height*0.012,bottom: height*0.012),
+          padding: EdgeInsets.only(left: width*0.1,right: width*0.1,top:
+          widget.isDisplay?
+          height*0.013:height*0.014,bottom: widget.isDisplay?
+          height*0.013:height*0.014),
           margin: EdgeInsets.only(left: width*0.035,right: width*0.035),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,8 +62,8 @@ class GameController extends StatelessWidget {
                   clipBehavior: Clip.none,
                   children: [
                     Container(
-                        width: getWidth(80),
-                        height: getHeight(80),
+                        width: getWidth(78),
+                        height: getHeight(78),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           boxShadow: [
@@ -541,7 +555,7 @@ const Size _DIRECTION_BUTTON_SIZE = const Size(48, 48);
 
 const Size _SYSTEM_BUTTON_SIZE = const Size(28, 28);
 
-const double _DIRECTION_SPACE = 12;
+const double _DIRECTION_SPACE = 9.2;
 
 const double _iconSize = 16;
 

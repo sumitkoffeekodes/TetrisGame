@@ -298,7 +298,9 @@ class _PagePortraitState extends State<PagePortrait> {
                             child:  _ScreenDecoration(child: Screen(width: screenW, isDisplay: isDisplay)
                         )),
                     SizedBox(height: size.height*0.008),
-                    GameController(),
+                    GameController(
+                        isDisplay:isDisplay
+                    ),
                   ],
                 ),
               ),
