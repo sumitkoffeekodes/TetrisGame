@@ -557,6 +557,7 @@ const double _DIRECTION_SPACE = 12;
 
 const double _iconSize = 16;
 
+
 class DirectionController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
