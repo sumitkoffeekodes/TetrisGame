@@ -553,7 +553,7 @@ const Size _DIRECTION_BUTTON_SIZE = const Size(48, 48);
 
 const Size _SYSTEM_BUTTON_SIZE = const Size(28, 28);
 
-const double _DIRECTION_SPACE = 11.5;
+const double _DIRECTION_SPACE = 12;
 
 const double _iconSize = 16;
 
