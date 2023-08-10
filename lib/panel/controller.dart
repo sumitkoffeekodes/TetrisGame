@@ -32,9 +32,9 @@ class GameController extends StatelessWidget {
           decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
 
     ),
-        SizedBox(height: height*0.008),
+        SizedBox(height: height*0.007),
         Container(
-          padding: EdgeInsets.only(left: width*0.1,right: width*0.1,top: height*0.013,bottom: height*0.013),
+          padding: EdgeInsets.only(left: width*0.1,right: width*0.1,top: height*0.012,bottom: height*0.012),
           margin: EdgeInsets.only(left: width*0.035,right: width*0.035),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

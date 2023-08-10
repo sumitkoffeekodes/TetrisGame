@@ -35,12 +35,11 @@ class Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //play panel need 60%
-    final playerPanelWidth = isDisplay? width * 0.6:width * 0.64;
+    final playerPanelWidth = isDisplay? width * 0.68:width * 0.80;
     return Shake(
       shake: GameState.of(context).states == GameStates.drop,
       child: SizedBox(
         height: (playerPanelWidth - 6) * 2 + 6,
-        width: width,
         child: Container(
           color: AppColors.colorF9,
           // color: SCREEN_BACKGROUND,
@@ -50,10 +49,14 @@ class Screen extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   PlayerPanel(width: playerPanelWidth),
+                  Expanded(child: StatusPanel(isDisplay: isDisplay)),
+
+                  /* isDisplay
+                      ?
+                  Expanded(child: StatusPanel(isDisplay: isDisplay)):
                   SizedBox(
-                    width: width - playerPanelWidth,
-                    child: StatusPanel(isDisplay: isDisplay),
-                  )
+                      width: width - playerPanelWidth,
+                      child: StatusPanel(isDisplay: isDisplay))*/
                 ],
               ),
             ),

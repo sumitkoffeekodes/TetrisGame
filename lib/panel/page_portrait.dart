@@ -226,7 +226,8 @@ class _PagePortraitState extends State<PagePortrait> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.only(top: getHeight(25),bottom: getHeight(15),left: getWidth(20),right: getWidth(20)),
+                      padding: EdgeInsets.only(
+                          top: getHeight(18),bottom: getHeight(10),left: getWidth(20),right: getWidth(20)),
                       width: size.width,
                       child: Image.asset(
                           "assets/images/banner_logo.png",
@@ -238,37 +239,62 @@ class _PagePortraitState extends State<PagePortrait> {
                       decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
 
                     ),
-                    SizedBox(height: size.height*0.006),
-                    isDisplay?
-                    Stack(
-                      clipBehavior: Clip.none,
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                            padding: EdgeInsets.only(left: getWidth(15),right: getWidth(15),top: getHeight(8),bottom: getHeight(5)),
-                            width: size.width,
-                            child: Image.asset("assets/images/frame.png",
-                              fit: BoxFit.fill,
-                              color:
-                              currentThemeColor == ThemeColor.White || currentThemeColor == ThemeColor.Yellow
-                                  ?
-                              AppColors.color31
-                                  :
-                              AppColors.white,
-                            ),
-                            decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
-                        ),
-                        Positioned(
-                          top: size.height*0.055,
-                          child: _ScreenDecoration(child: Screen(width: screenW,isDisplay: isDisplay)),
-                        )
-                      ],
+                    SizedBox(height:isDisplay ? size.height*0.008:size.height*0.001),
+                    isDisplay
+                        ?
+                    Container(
+                      width: size.width,
+                      decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor),
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        alignment: Alignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(34),
+                            child: _ScreenDecoration(child: Screen(width: screenW,isDisplay: isDisplay)),
+                          ),
+                          Positioned(
+                            left: getWidth(8),
+                             right: getWidth(8),
+                             top: getHeight(6),
+                             bottom: getHeight(6),
+                             child: Image.asset("assets/images/frame.png",
+                               fit: BoxFit.fill,
+                               width: size.width,
+                               color:
+                               currentThemeColor == ThemeColor.White || currentThemeColor == ThemeColor.Yellow
+                                   ?
+                               AppColors.color31
+                                   :
+                               AppColors.white,
+                             ),)
+                        /*  Container(
+                              padding: EdgeInsets.only(left: getWidth(9),right: getWidth(9),top: getHeight(7),bottom: getHeight(5)),
+                              width: size.width,
+                              child: Image.asset("assets/images/frame.png",
+                                fit: BoxFit.contain,
+                                color:
+                                currentThemeColor == ThemeColor.White || currentThemeColor == ThemeColor.Yellow
+                                    ?
+                                AppColors.color31
+                                    :
+                                AppColors.white,
+                              ),
+                              decoration:  MyDecorations.getCustomBoxWithOutOpacity(currentThemeColor)
+                          ),
+                          Positioned(
+                            top: size.height*0.042,
+                            left: size.width *0.1,
+                            right: size.width *0.1,
+                            child: _ScreenDecoration(child: Screen(width: screenW,isDisplay: isDisplay)),
+                          )*/
+                        ],
+                      ),
                     )
                         :
                         Container(
-                          padding: EdgeInsets.all(14),
+                          padding: EdgeInsets.fromLTRB(getWidth(14), getHeight(5), getWidth(14), getHeight(0)),
                           width: size.width,
-                          height: size.height/2,
                             child:  _ScreenDecoration(child: Screen(width: screenW, isDisplay: isDisplay)
                         )),
                     SizedBox(height: size.height*0.008),
@@ -310,7 +336,7 @@ class _ScreenDecoration extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(border: Border.all(color: Colors.black54)),
         child: Container(
-          padding: const EdgeInsets.all(3),
+          padding: const EdgeInsets.all(1),
           color: AppColors.colorF9,
           child: child,
         ),

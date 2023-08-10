@@ -22,7 +22,6 @@ class StatusPanel extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-
     return Container(
       color: AppColors.colorF9,
       padding: const EdgeInsets.all(8),
@@ -31,7 +30,7 @@ class StatusPanel extends StatelessWidget {
         children: <Widget>[
 
               Text(S.of(context).points,
-          style: FontTextStyleUtilities.textStyle13.copyWith(
+          style: FontTextStyleUtilities.textStyle12.copyWith(
             fontFamily: 'Montserrat-Bold',
             fontWeight: FontWeight.w700,
             letterSpacing: 0.1,
@@ -41,7 +40,7 @@ class StatusPanel extends StatelessWidget {
 
           Text(
               GameState.of(context).points.toString().padLeft(6, '0'),
-              style: FontTextStyleUtilities.textStyle16.copyWith(
+              style: FontTextStyleUtilities.textStyle15.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 color: AppColors.color3C,
@@ -49,23 +48,23 @@ class StatusPanel extends StatelessWidget {
         /*  Number(number: GameState.of(context).points),*/
           SizedBox(height: 8),
           Text(S.of(context).cleans,
-              style: FontTextStyleUtilities.textStyle13.copyWith(
+              style: FontTextStyleUtilities.textStyle12.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.1,
                 color: AppColors.color3C,
               )
           ),
-          SizedBox(height: 4),
+          SizedBox(height: 2),
           Text(
               GameState.of(context).cleared.toString().padLeft(6, '0'),
-              style: FontTextStyleUtilities.textStyle16.copyWith(
+              style: FontTextStyleUtilities.textStyle15.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 color: AppColors.color3C,
               )),
 
-          SizedBox(height: 10),
+          SizedBox(height: 8),
           Text(S.of(context).level,
               style: FontTextStyleUtilities.textStyle13.copyWith(
                 fontFamily: 'Montserrat-Bold',
@@ -77,7 +76,7 @@ class StatusPanel extends StatelessWidget {
           SizedBox(height: 4),
           Text(
               GameState.of(context).level.toString().padLeft(6, '0'),
-              style: FontTextStyleUtilities.textStyle16.copyWith(
+              style: FontTextStyleUtilities.textStyle15.copyWith(
                 fontFamily: 'Montserrat-Bold',
                 fontWeight: FontWeight.w700,
                 color: AppColors.color3C,
@@ -170,7 +169,8 @@ class _GameStatusState extends State<_GameStatus> {
     return Row(
       children: <Widget>[
 
-        Image.asset('assets/images/soundmute.png',width: width*.05,
+        Image.asset('assets/images/soundmute.png',
+          width: width*.05,
           color: /*GameState.of(context).muted */ Utils.isSoundOn ? AppColors.color3C: AppColors.colorE0,
         ),
 
@@ -179,6 +179,7 @@ class _GameStatusState extends State<_GameStatus> {
         SizedBox(width: width*.005),
         Icon(
           Icons.pause,
+          size: width*.05,
           color: GameState.of(context).states == GameStates.paused ? AppColors.color3C: AppColors.colorE0,
         ),
 
@@ -187,7 +188,7 @@ class _GameStatusState extends State<_GameStatus> {
             _hour.toString().padLeft(2, '0'),
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
-              fontSize: widget.isDisplay?16:13,
+              fontSize: widget.isDisplay?12:13,
               fontWeight: FontWeight.w700,
               color: AppColors.color3C,
             )),
@@ -198,7 +199,7 @@ class _GameStatusState extends State<_GameStatus> {
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
               fontWeight: FontWeight.w700,
-              fontSize: widget.isDisplay?16:13,
+              fontSize: widget.isDisplay?12:13,
               color: _colonEnable ? Colors.black : Colors.grey,
             )
         ),
@@ -207,7 +208,7 @@ class _GameStatusState extends State<_GameStatus> {
             _minute.toString().padLeft(2, '0'),
             style: FontTextStyleUtilities.textStyle16.copyWith(
               fontFamily: 'Montserrat-Bold',
-              fontSize: widget.isDisplay?16:13,
+              fontSize: widget.isDisplay?12:13,
               fontWeight: FontWeight.w700,
               color: AppColors.color3C,
             )),
