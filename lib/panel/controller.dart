@@ -967,7 +967,7 @@ class _Description extends StatelessWidget {
     }
     return DefaultTextStyle(
       child: widget,
-      style: FontTextStyleUtilities.textStyle12.copyWith(
+      style: FontTextStyleUtilities.textStyle11.copyWith(
           fontWeight: FontWeight.w600,
           fontFamily: 'Montserrat-Bold',
         color:
