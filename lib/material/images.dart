@@ -212,6 +212,7 @@ class _Material extends StatelessWidget {
     required this.srcOffset,
   }) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
